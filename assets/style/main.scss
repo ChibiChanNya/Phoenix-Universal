@@ -1,0 +1,33 @@
+
+$phoenix-color: #d83b00;
+$dev-color: #0db7cd;
+
+.mh-75{
+  min-height:75px;
+}
+
+.headline{
+  color: $phoenix-color;
+  font-weight:700;
+}
+
+.dev-text{
+  color: $dev-color;
+  font-weight: 600;
+}
+
+.phoenix-orange{
+  background-color: $phoenix-color;
+}
+
+.phoenix-blue{
+  background-color: $dev-color
+}
+
+.v-item--active .phoenix-blue{
+  background-color: $phoenix-color;
+}
+
+#projects{
+  background: #ffff;
+}

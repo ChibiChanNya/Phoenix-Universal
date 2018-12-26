@@ -1,6 +1,10 @@
 {
   "name": "phoenix",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.0.0",
+    "npm": "6.5.0"
+  },
   "description": "Phoenix Development NUXT website",
   "author": "CHibi",
   "private": true,

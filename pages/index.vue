@@ -363,5 +363,10 @@
     background-color: white;
   }
 
+  #projects{
+    background: #ffff;
+  }
+
+
 
 </style>

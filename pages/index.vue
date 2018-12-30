@@ -10,8 +10,11 @@
           class="white--text"
         >
           <img src="~/assets/img/logo-light-v.png" alt="Phoenix Development Logo" height="200">
-          <vue-typer class="mb-2" :text='["CREA", "TRANSFORMA", "EVOLUCIONA"]' :repeat="1" :pre-type-delay="500"
-                     :type-delay=150></vue-typer>
+          <no-ssr>
+            <vue-typer class="mb-2" :text='["CREA", "TRANSFORMA", "EVOLUCIONA"]' :repeat="1" :pre-type-delay="500"
+                       :type-delay=150></vue-typer>
+          </no-ssr>
+
           <div class="subheading mb-3 text-xs-center">Powered by Phoenix</div>
 
           <v-btn
@@ -263,7 +266,13 @@
 </template>
 
 <script>
+  import NoSSR from 'vue-no-ssr'
+
   export default {
+
+    components: {
+      'no-ssr': NoSSR
+    },
 
     data() {
       return {

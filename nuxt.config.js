@@ -42,6 +42,7 @@ module.exports = {
   plugins: [
     '@/plugins/vuetify',
     {src:'@/plugins/vue-typer', ssr: false},
+    { src: '~/plugins/vue-masonry', ssr: false }
   ],
 
   /*

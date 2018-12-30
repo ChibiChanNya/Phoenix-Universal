@@ -104,7 +104,7 @@
         flat
         tile
       >
-        <v-card-title class="phoenix-blue">
+        <v-card-title class="phoenix-blue px-5">
           <strong class="subheading">¡Visítanos en nuestras redes sociales!</strong>
 
           <v-spacer></v-spacer>
@@ -160,9 +160,6 @@
       }
     },
 
-    mounted(){
-      console.log("MOUNTED",this.$route.matched);
-    }
   }
 </script>
 

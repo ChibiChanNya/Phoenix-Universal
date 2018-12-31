@@ -6,7 +6,7 @@
     "npm": "6.5.0"
   },
   "description": "Phoenix Development NUXT website",
-  "author": "CHibi",
+  "author": "Chibi",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",

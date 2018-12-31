@@ -1,5 +1,6 @@
 <template>
   <v-app light>
+
     <v-navigation-drawer
       clipped
       v-model="drawer"
@@ -15,10 +16,10 @@
           exact
         >
           <v-list-tile-action>
-            <v-icon v-html="item.icon" />
+            <v-icon v-html="item.icon"/>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title v-text="item.title" />
+            <v-list-tile-title v-text="item.title"/>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
@@ -29,11 +30,16 @@
       fixed
       app
     >
-      <v-img :src="require('@/assets/img/logo-dark-h.png')" contain max-height="100%" max-width="150px" />
+      <nuxt-link to="/" class="flex">
+        <v-img :src="require('@/assets/img/logo-dark-h.png')" contain max-height="100%" max-width="150px"/>
+      </nuxt-link>
 
-      <v-toolbar-title>
-        {{navTitle}}
-      </v-toolbar-title>
+      <transition name="title" mode="out-in" enter-active-class="animated bounceIn"
+                  leave-active-class="animated fadeOut" :duration="{ enter: 600, leave: 200 }">
+        <v-toolbar-title :key="navTitle">
+          {{navTitle}}
+        </v-toolbar-title>
+      </transition>
 
       <v-spacer></v-spacer>
 
@@ -44,25 +50,28 @@
                :key="i"
                router
                exact
-               flat>{{item.title}}</v-btn>
+               flat>{{item.title}}
+        </v-btn>
       </v-toolbar-items>
 
-      <v-toolbar-side-icon @click="drawer = !drawer" class="hidden-md-and-up" />
+      <v-toolbar-side-icon @click="drawer = !drawer" class="hidden-md-and-up"/>
 
 
     </v-toolbar>
     <v-content>
-        <nuxt />
+      <nuxt/>
     </v-content>
 
+    <!-- FIXED BOTTOM RIGHT DIALOG BUTTON + POPUP -->
     <v-layout row justify-center>
-      <v-dialog v-model="dialog" persistent max-width="600px" light>
+      <v-dialog v-model="dialog" persistent max-width="600px" light lazy >
         <v-btn slot="activator" fixed bottom right ripple dark fab color="#d83b00">
           <v-icon dark>message</v-icon>
         </v-btn>
         <v-card>
           <v-card-title class="pb-0">
-            <span class="headline text-xs-center">Envíanos un mensaje si tienes cualquier duda o quieres una cotización</span>
+            <span
+              class="headline text-xs-center">Envíanos un mensaje si tienes cualquier duda o quieres una cotización</span>
           </v-card-title>
           <v-card-text>
             <v-container grid-list-md>
@@ -93,6 +102,7 @@
         </v-card>
       </v-dialog>
     </v-layout>
+    <!-- END FIXED DIALOG BUTTON-->
 
     <!--FOOTER START-->
     <v-footer
@@ -126,7 +136,7 @@
         </v-card-title>
 
         <v-card-actions class="grey darken-3 justify-center">
-          &copy;2018 —  <strong> Pho Consulting Services S. de R.L. de C.V.</strong>
+          &copy;2018 — <strong> Pho Consulting Services S. de R.L. de C.V.</strong>
         </v-card-actions>
       </v-card>
     </v-footer>
@@ -136,6 +146,8 @@
 
 <script>
   export default {
+
+
     data() {
       return {
         drawer: false,
@@ -147,28 +159,64 @@
           { icon: 'description', title: 'Blog', to: '/blog' },
           { icon: 'store', title: 'Academy', to: '/academy' }
         ],
-        social_icons:[
-          {type: "Facebook", icon:'fab fa-facebook-f', url:"https://www.facebook.com/Phoenix-Development-691184954595484/"},
-          {type: "Instagram", icon:'fab fa-instagram', url:"https://www.instagram.com/phoenixdevelopmentcompany/?hl=es-la"},
+        social_icons: [
+          {
+            type: 'Facebook',
+            icon: 'fab fa-facebook-f',
+            url: 'https://www.facebook.com/Phoenix-Development-691184954595484/'
+          },
+          {
+            type: 'Instagram',
+            icon: 'fab fa-instagram',
+            url: 'https://www.instagram.com/phoenixdevelopmentcompany/?hl=es-la'
+          }
 
-        ],
+        ]
       }
     },
     computed: {
-      navTitle () {
-        return this.$store.state.navTitle;
+      navTitle() {
+        return this.$store.state.navTitle
       }
-    },
+    }
 
   }
 </script>
 
 <style>
 
-  #contact-btn{
+  #contact-btn {
     position: absolute;
-    right:20px;
-    bottom:20px;
+    right: 20px;
+    bottom: 20px;
   }
 
+  /* TRANSITION CSS*/
+  /*.page-enter-active {*/
+  /*animation: acrossIn .40s ease-out both;*/
+  /*}*/
+  /*.page-leave-active {*/
+  /*animation: acrossOut .60s ease-in both;*/
+  /*}*/
+  /*@keyframes acrossIn {*/
+  /*0% {*/
+  /*transform: translate3d(-100%, 0, 0);*/
+  /*opacity: 0;*/
+  /*}*/
+  /*100% {*/
+  /*transform: translate3d(0, 0, 0);*/
+  /*opacity: 100%;*/
+  /*}*/
+  /*}*/
+  /*@keyframes acrossOut {*/
+  /*0% {*/
+  /*transform: translate3d(0, 0, 0);*/
+  /*opacity: 100%;*/
+
+  /*}*/
+  /*100% {*/
+  /*transform: translate3d(100%, 0, 0);*/
+  /*opacity:0;*/
+  /*}*/
+  /*}*/
 </style>

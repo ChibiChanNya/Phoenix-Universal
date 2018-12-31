@@ -47,7 +47,7 @@
     </no-ssr>
 
     <v-layout justify-center>
-      <v-icon v-if="loading">fas fa-spinner fa-spin</v-icon>
+      <v-icon v-if="loading_posts">fas fa-spinner fa-spin</v-icon>
     </v-layout>
 
   </v-container>
@@ -59,16 +59,24 @@
 
   export default {
 
+    transition: {
+      name: 'tweakOpacity',
+    },
+
+    head:{
+        title: "Blog",
+    },
+
     components: {
       'no-ssr': NoSSR
     },
-    name: 'blog',
+    name: 'Blog',
 
     data() {
       return {
         posts:[],
         page: 1,
-        loading: false,
+        loading_posts: false,
       }
     },
 
@@ -81,8 +89,8 @@
      async handleScroll (posts) {
           let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
 
-          if (bottomOfWindow) {
-            this.loading = true;
+          if (bottomOfWindow && !this.loading_posts) {
+            this.loading_posts = true;
             let mobile =  window.innerWidth <= 960;
             let next_page = ++ this.page
             if(mobile) next_page += 2
@@ -93,7 +101,7 @@
               this.posts = this.posts.concat(new_posts);
             } catch(e){
               console.log(e);
-              this.loading = false;
+              this.loading_posts = false;
               window.removeEventListener('scroll', this.handleScroll);
             }
           }
@@ -106,6 +114,10 @@
     },
     beforeDestroy () {
       window.removeEventListener('scroll', this.handleScroll);
+    },
+
+    mounted(){
+      this.$store.commit('rename', 'Blog')
     }
 
 
@@ -114,5 +126,13 @@
 </script>
 
 <style scoped>
+   /*TRANSITION STYLES*/
+
+   .tweakOpacity-enter-active, .tweakOpacity-leave-active {
+     transition: opacity .40s ease-out;
+   }
+   .tweakOpacity-enter, .tweakOpacity-leave-active {
+     opacity: 0;
+   }
 
 </style>

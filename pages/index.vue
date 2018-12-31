@@ -61,18 +61,19 @@
               :key="card.title"
               md4 xs12
             >
-              <v-card class="elevation-2 transparent pa-2" height="100%">
-                <v-card-title primary-title class="layout ">
-                  <v-icon x-large class="blue--text text--lighten-2 mr-4 ml-2">{{card.icon}}</v-icon>
-                  <span class="headline">{{card.title}}</span>
-                </v-card-title>
-                <v-card-text>
-                  <p class="margin-b-5">{{card.text}}</p>
-                  <ul>
-                    <li v-for="item in card.list">{{item}}</li>
-                  </ul>
-                </v-card-text>
-              </v-card>
+                <v-card class="elevation-2 transparent pa-2" height="100%">
+                  <v-card-title primary-title class="layout ">
+                    <v-icon x-large class="blue--text text--lighten-2 mr-4 ml-2">{{card.icon}}</v-icon>
+                    <span class="headline">{{card.title}}</span>
+                  </v-card-title>
+                  <v-card-text>
+                    <p class="margin-b-5">{{card.text}}</p>
+                    <ul>
+                      <li v-for="item in card.list">{{item}}</li>
+                    </ul>
+                  </v-card-text>
+                </v-card>
+
             </v-flex>
           </v-layout>
         </v-container>
@@ -89,6 +90,7 @@
         <v-layout column align-center justify-center>
           <div class="headline white--text mb-3 text-xs-center">Web development has never been easier</div>
           <em>Kick-start your application today</em>
+
           <v-btn
             class="blue lighten-2 mt-5"
             dark
@@ -270,13 +272,23 @@
 
   export default {
 
+    transition: {
+      name: 'zoom',
+      enterActiveClass: 'fadeIn animated',
+      leaveActiveClass: 'fadeOut animated'
+    },
+
+
+    head:{
+      title: "Inicio",
+    },
+
     components: {
       'no-ssr': NoSSR
     },
 
     data() {
       return {
-        title: 'Home',
         window: 0,
         cards: [
           {
@@ -287,7 +299,7 @@
           },
           {
             icon: 'code',
-            title: 'Desarrollo Web',
+            title: 'Desarrollo Móvil',
             text: 'Diseño y desarrollo de:',
             list: ['Aplicaciones para iOS', 'Aplicaciones para Android', 'Aplicaciones Híbridas']
           },
@@ -340,19 +352,11 @@
       }
     },
 
-    head() {
-      return {
-        title: this.title + ' - Phoenix Development',
-        meta: [
-          // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-          { hid: 'description', name: 'description', content: 'My custom description' }
-        ]
-      }
-    },
-
     mounted() {
       this.$store.commit('rename', 'Home')
-    }
+    },
+
+
   }
 </script>
 
@@ -375,6 +379,7 @@
   #projects{
     background: #ffff;
   }
+
 
 
 

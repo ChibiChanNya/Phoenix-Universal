@@ -61,18 +61,18 @@
               :key="card.title"
               md4 xs12
             >
-                <v-card class=" pa-2" height="100%" v-vpshow="'flipInY'" hover>
-                  <v-card-title primary-title class="layout ">
-                    <v-icon x-large class="blue--text text--lighten-2 mr-4 ml-2">{{card.icon}}</v-icon>
-                    <span class="headline">{{card.title}}</span>
-                  </v-card-title>
-                  <v-card-text>
-                    <p class="margin-b-5">{{card.text}}</p>
-                    <ul>
-                      <li v-for="item in card.list">{{item}}</li>
-                    </ul>
-                  </v-card-text>
-                </v-card>
+              <v-card class=" pa-2" height="100%" v-vpshow="'flipInY'" hover>
+                <v-card-title primary-title class="layout ">
+                  <v-icon x-large class="dev-text mr-4 ml-2">{{card.icon}}</v-icon>
+                  <span class="headline">{{card.title}}</span>
+                </v-card-title>
+                <v-card-text>
+                  <p class="margin-b-5">{{card.text}}</p>
+                  <ul>
+                    <li v-for="item in card.list">{{item}}</li>
+                  </ul>
+                </v-card-text>
+              </v-card>
 
             </v-flex>
           </v-layout>
@@ -88,14 +88,16 @@
     <section>
       <v-parallax :src="require('@/assets/img/section.jpg')" height="380">
         <v-layout column align-center justify-center>
-          <div class="headline white--text mb-3 text-xs-center" v-vpshow="'rollIn'">Web development has never been easier</div>
+          <div class="headline white--text mb-3 text-xs-center" v-vpshow="'rollIn'">Web development has never been
+            easier
+          </div>
           <em v-vpshow="'rollIn'">Kick-start your application today</em>
 
           <v-btn v-vpshow="'rollIn'"
-            class="blue lighten-2 mt-5"
-            dark
-            large
-            href="/pre-made-themes"
+                 class="blue lighten-2 mt-5"
+                 dark
+                 large
+                 href="/pre-made-themes"
           >
             Get Started
           </v-btn>
@@ -120,60 +122,60 @@
 
 
       <v-layout align-center justify-center>
-          <!-- INDICATORS START-->
-          <v-item-group
-            v-model="window"
-            class="shrink mr-4 hidden-md-and-down"
-            mandatory
+        <!-- INDICATORS START-->
+        <v-item-group
+          v-model="window"
+          class="shrink mr-4 hidden-md-and-down"
+          mandatory
+        >
+          <v-item
+            v-for="(project, i) in projects"
+            :key="i"
           >
-            <v-item
+            <div slot-scope="{ active, toggle }">
+              <v-btn
+                :input-value="active"
+                icon
+                @click="toggle"
+                class="phoenix-blue"
+              >
+                <v-icon>mdi-record</v-icon>
+              </v-btn>
+            </div>
+          </v-item>
+        </v-item-group>
+        <!-- INDICATORS END-->
+
+        <!-- CARDS START-->
+        <v-flex xs12 md8>
+          <v-window
+            v-model="window"
+          >
+            <v-window-item
               v-for="(project, i) in projects"
               :key="i"
             >
-              <div slot-scope="{ active, toggle }">
-                <v-btn
-                  :input-value="active"
-                  icon
-                  @click="toggle"
-                  class="phoenix-blue"
-                >
-                  <v-icon>mdi-record</v-icon>
-                </v-btn>
-              </div>
-            </v-item>
-          </v-item-group>
-          <!-- INDICATORS END-->
+              <v-card-text>
+                <v-layout align-center mb-3>
+                  <h2 class="headline">{{ project.title }}</h2>
+                  <v-spacer></v-spacer>
+                  <v-btn icon>
+                    <v-icon>mdi-account</v-icon>
+                  </v-btn>
+                </v-layout>
 
-          <!-- CARDS START-->
-          <v-flex xs12 md8>
-            <v-window
-              v-model="window"
-            >
-              <v-window-item
-                v-for="(project, i) in projects"
-                :key="i"
-              >
-                  <v-card-text>
-                    <v-layout align-center mb-3>
-                      <h2 class="headline">{{ project.title }}</h2>
-                      <v-spacer></v-spacer>
-                      <v-btn icon>
-                        <v-icon>mdi-account</v-icon>
-                      </v-btn>
-                    </v-layout>
+                <h3 class="dev-text mh-75">{{project.text}}</h3>
+                <v-img :src="project.src"></v-img>
+              </v-card-text>
+            </v-window-item>
+          </v-window>
+        </v-flex>
+        <!--CARDS END-->
 
-                    <h3 class="dev-text mh-75">{{project.text}}</h3>
-                    <v-img :src="project.src"></v-img>
-                  </v-card-text>
-              </v-window-item>
-            </v-window>
-          </v-flex>
-          <!--CARDS END-->
-
-        </v-layout>
+      </v-layout>
       <!-- INDICATORS FOR MOBILE-->
       <v-layout
-       justify-center>
+        justify-center>
         <v-item-group
           v-model="window"
           class="shrink hidden-lg-and-up"
@@ -197,8 +199,6 @@
           </v-item>
         </v-item-group>
       </v-layout>
-
-
 
 
     </section>
@@ -279,8 +279,8 @@
     },
 
 
-    head:{
-      title: "Inicio",
+    head: {
+      title: 'Inicio'
     },
 
     components: {
@@ -316,7 +316,7 @@
             list: ['Manual de Marca', 'Manual de Identidad Corporativa', 'Branding Corporativo']
           },
           {
-            icon: 'fas fa-slideshare',
+            icon: 'fas fa-chalkboard',
             title: 'Consultoría',
             text: 'Cursos y Capacitación en:',
             list: ['Creación y Desarrollo de Negocios', 'Imagen Corporativa', 'Marketing Digital']
@@ -357,16 +357,14 @@
     },
 
     // BEGIN METHODS
-    methods:{
-
-    },
-  //  END METHODS
+    methods: {}
+    //  END METHODS
 
 
   }
 </script>
 
-<style>
+<style lang="scss">
 
   .vue-typer {
     font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
@@ -382,20 +380,31 @@
     background-color: white;
   }
 
-  #projects{
+  #projects {
     background: #ffff;
   }
 
-  #services .v-card--hover:hover{
-    background: #0db7cd;
-  }
-  #services .v-card--hover:hover .v-card__text{
-    color: white;
-  }
 
-  #services .v-card--hover{
-    transition: background-color 1s ease, color 1s ease;
+  #services {
+    .v-card--hover {
+      transition: background-color 1s ease, color 1s ease;
 
+      &:hover {
+        background: #0db7cd;
+
+        .v-card__text {
+          color: white;
+        }
+
+        .theme--light.v-icon {
+          color: white;
+        }
+      }
+
+      .theme--light .v-icon {
+        color: #0db7cd;
+      }
+    }
   }
 
 </style>

@@ -49,8 +49,7 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
       // Global External Styles
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' },
-      { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.6.3/css/brands.css', ingegrity:'sha384-1KLgFVb/gHrlDGLFPgMbeedi6tQBLcWvyNUN+YKXbD7ZFbjX6BLpMDf0PJ32XJfX', crossorigin:"anonymous" },
-      { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.6.3/css/fontawesome.css', ingegrity:'sha384-jLuaxTTBR42U2qJ/pm4JRouHkEDHkVqH0T1nyQXn1mZ7Snycpf6Rl25VBNthU4z0', crossorigin:"anonymous" },
+      { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.6.3/css/all.css', ingegrity:'sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/', crossorigin:"anonymous" },
       { rel: 'stylesheet', href:"https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"}
     ]
   },

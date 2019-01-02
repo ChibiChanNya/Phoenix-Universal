@@ -401,7 +401,7 @@
         }
       }
 
-      .theme--light .v-icon {
+      .theme--light.v-icon {
         color: #0db7cd;
       }
     }

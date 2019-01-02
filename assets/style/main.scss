@@ -31,6 +31,9 @@ $dev-color: #0db7cd;
 
 
 // ANIMATIONS
+.before-enter{
+  visibility: hidden !important;
+}
 .fade-enter-active,
 .fade-leave-active {
   transition-duration: 0.3s;

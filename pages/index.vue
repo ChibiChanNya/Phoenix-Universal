@@ -32,7 +32,7 @@
     <!-- HERO SECTION END-->
 
     <!-- SERVICES SECTION START-->
-    <section>
+    <section id="services">
       <v-layout
         column
         wrap
@@ -56,12 +56,12 @@
         >
           <v-layout row wrap>
             <v-flex
-              v-for="card in cards"
+              v-for="(card, index) in cards"
               v-bind="{ [`xs${card.flex}`]: true }"
               :key="card.title"
               md4 xs12
             >
-                <v-card class="elevation-2 transparent pa-2" height="100%">
+                <v-card class=" pa-2" height="100%" v-vpshow="'flipInY'" hover>
                   <v-card-title primary-title class="layout ">
                     <v-icon x-large class="blue--text text--lighten-2 mr-4 ml-2">{{card.icon}}</v-icon>
                     <span class="headline">{{card.title}}</span>
@@ -88,10 +88,10 @@
     <section>
       <v-parallax :src="require('@/assets/img/section.jpg')" height="380">
         <v-layout column align-center justify-center>
-          <div class="headline white--text mb-3 text-xs-center">Web development has never been easier</div>
-          <em>Kick-start your application today</em>
+          <div class="headline white--text mb-3 text-xs-center" v-vpshow="'rollIn'">Web development has never been easier</div>
+          <em v-vpshow="'rollIn'">Kick-start your application today</em>
 
-          <v-btn
+          <v-btn v-vpshow="'rollIn'"
             class="blue lighten-2 mt-5"
             dark
             large
@@ -298,25 +298,25 @@
             list: ['Sitios Web', 'E-Commerce', 'Plataformas Innovadoras', 'Sistemas Empresariales']
           },
           {
-            icon: 'code',
+            icon: 'fas fa-mobile-alt',
             title: 'Desarrollo Móvil',
             text: 'Diseño y desarrollo de:',
             list: ['Aplicaciones para iOS', 'Aplicaciones para Android', 'Aplicaciones Híbridas']
           },
           {
-            icon: 'code',
+            icon: 'fas fa-chart-line',
             title: 'Marketing Digital',
             text: 'Creación, desarrollo y ejecución de Estrategias de Marketing Digital utilizando:',
             list: ['Inbound Marketing', 'Posicionamiento Web SEO/SEM', 'Campañas publicitarias', 'Social Media', 'Estrategia de contenidos']
           },
           {
-            icon: 'code',
+            icon: 'fas fa-briefcase',
             title: 'Imagen Corporativa',
             text: 'Desarrollamos la identidad de tu compañía a través de la creación de:',
             list: ['Manual de Marca', 'Manual de Identidad Corporativa', 'Branding Corporativo']
           },
           {
-            icon: 'code',
+            icon: 'fas fa-slideshare',
             title: 'Consultoría',
             text: 'Cursos y Capacitación en:',
             list: ['Creación y Desarrollo de Negocios', 'Imagen Corporativa', 'Marketing Digital']
@@ -356,6 +356,12 @@
       this.$store.commit('rename', 'Home')
     },
 
+    // BEGIN METHODS
+    methods:{
+
+    },
+  //  END METHODS
+
 
   }
 </script>
@@ -380,7 +386,16 @@
     background: #ffff;
   }
 
+  #services .v-card--hover:hover{
+    background: #0db7cd;
+  }
+  #services .v-card--hover:hover .v-card__text{
+    color: white;
+  }
 
+  #services .v-card--hover{
+    transition: background-color 1s ease, color 1s ease;
 
+  }
 
 </style>

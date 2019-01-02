@@ -9,13 +9,45 @@ module.exports = {
   head: {
     title: "",
     titleTemplate: '%s - Phoenix Development',
+
     meta: [
+      // Basic meta tags boilerplate
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: "Agencia Mexicana de desarrollo de páginas web, marketing digital e imagen corporativa." }
+      {'http-equiv':"X-UA-Compatible", content:"IE=edge"},
+      { hid: 'description', name: 'description', content: "Agencia Mexicana de desarrollo de páginas web, marketing digital e imagen corporativa." },
+      // TWITTER CARD
+      { hid: "Twitter Default Card", name: "twitter:card", content:"summary"},
+      { hid: "Twitter Default Title", name:"twitter:title", content:"Phoenix Development"},
+      { hid: "Twitter Default Desc", name:"twitter:description", content:"CREA. TRANSFORMA. EVOLUCIONA"},
+      { hid: "Twitter Default Img", name: "twitter:image:src", content:"/Logo100.png"},
+      // SCHEMA.ORG META TAGS
+      { hid: "Schema Default Title", property:"og:title", content:"Phoenix Development" },
+      { hid: "Schema Default Type", property:"og:type", content:"website" },
+      { hid: "Schema Default Image", property:"og:image", content:"https://phoenixdevelopment.mx/static/img/logo100.jpg" },
+      { hid: "Schema Default ImgWidth", property:"og:image:width", content:"612" },
+      { hid: "Schema Default ImgHeight", property:"og:image:height", content:"612" },
+      { hid: "Schema Default URL", property:"og:url", content:"https://phoenixdevelopment.mx.mx/" },
+      { hid: "Schema Default Description", property:"og:description", content:"Pho Consulting Services S. de R.L. de C.V. Agencia de desarrollo de páginas web, marketing digital e imagen coportativa." },
+      { hid: "Schema Default SITENAME", property:"og:site_name", content:"PHOENIX" },
+      // FACEBOOK TAG
+      { property:"fb:app_id", content:"478115346000965" },
+      
+],
+
+    script:[
+      //Analytics
+      { src: "https://www.googletagmanager.com/gtag/js?id=UA-130597461-1"},
+      { src: "https://www.google-analytics.com/analytics.js"},
+      { src: "/js/google.js"},
+      { src: "/js/pixel.js"},
     ],
+
+
     link: [
+      //FAVICON
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
+      // Global External Styles
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' },
       { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.6.3/css/brands.css', ingegrity:'sha384-1KLgFVb/gHrlDGLFPgMbeedi6tQBLcWvyNUN+YKXbD7ZFbjX6BLpMDf0PJ32XJfX', crossorigin:"anonymous" },
       { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.6.3/css/fontawesome.css', ingegrity:'sha384-jLuaxTTBR42U2qJ/pm4JRouHkEDHkVqH0T1nyQXn1mZ7Snycpf6Rl25VBNthU4z0', crossorigin:"anonymous" },
@@ -42,8 +74,9 @@ module.exports = {
   */
   plugins: [
     '@/plugins/vuetify',
-    {src:'@/plugins/vue-typer', ssr: false},
-    { src: '~/plugins/vue-masonry', ssr: false }
+    { src: '@/plugins/vue-typer', ssr: false},
+    { src: '~/plugins/vue-masonry', ssr: false },
+    { src: '~/plugins/directives' }
   ],
 
   /*

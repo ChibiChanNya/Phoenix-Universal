@@ -63,7 +63,7 @@
     </v-content>
 
     <!-- FIXED BOTTOM RIGHT DIALOG BUTTON + POPUP -->
-    <v-layout row justify-center>
+    <v-layout row justify-center v-if="false">
       <v-dialog v-model="dialog" persistent max-width="600px" light lazy >
         <v-btn slot="activator" fixed bottom right ripple dark fab color="#d83b00">
           <v-icon dark>message</v-icon>
@@ -103,6 +103,10 @@
       </v-dialog>
     </v-layout>
     <!-- END FIXED DIALOG BUTTON-->
+
+    <!--FACEBOOK MESSENEGR-->
+
+    <div class="fb-customerchat" page_id="691184954595484"></div>
 
     <!--FOOTER START-->
     <v-footer
@@ -178,6 +182,17 @@
       navTitle() {
         return this.$store.state.navTitle
       }
+    },
+
+    created(){
+
+    },
+
+    mounted(){
+      window.extAsyncInit = function() {
+        // the Messenger Extensions JS SDK is done loading
+        FB.CustomerChat.show(false);
+      };
     }
 
   }

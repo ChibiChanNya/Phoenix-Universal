@@ -37,10 +37,12 @@ module.exports = {
 
     script:[
       //Analytics
-      { src: "https://www.googletagmanager.com/gtag/js?id=UA-130597461-1"},
-      { src: "https://www.google-analytics.com/analytics.js"},
-      { src: "/js/google.js"},
-      { src: "/js/pixel.js"},
+      { src: "https://www.googletagmanager.com/gtag/js?id=UA-130597461-1", defer: true},
+      { src: "https://www.google-analytics.com/analytics.js", defer: true},
+      { src: "/js/google.js", defer: true},
+      { src: "/js/pixel.js", defer: true},
+      //Messenger chat
+      { src: "/js/facebook.js", defer: true},
     ],
 
 
@@ -49,8 +51,8 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
       // Global External Styles
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' },
-      { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.6.3/css/all.css', ingegrity:'sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/', crossorigin:"anonymous" },
-      { rel: 'stylesheet', href:"https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"}
+      { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.6.3/css/all.css', ingegrity:'sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/', crossorigin:"anonymous", defer: true },
+      { rel: 'stylesheet', href:"https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css", defer: true}
     ]
   },
 

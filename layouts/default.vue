@@ -105,8 +105,7 @@
     <!-- END FIXED DIALOG BUTTON-->
 
     <!--FACEBOOK MESSENEGR-->
-
-    <div class="fb-customerchat" page_id="691184954595484"></div>
+    <!--<div class="fb-customerchat" page_id="691184954595484"></div>-->
 
     <!--FOOTER START-->
     <v-footer

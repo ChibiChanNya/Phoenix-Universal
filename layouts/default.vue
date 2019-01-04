@@ -105,7 +105,7 @@
     <!-- END FIXED DIALOG BUTTON-->
 
     <!--FACEBOOK MESSENEGR-->
-    <!--<div class="fb-customerchat" page_id="691184954595484"></div>-->
+    <div class="fb-customerchat" page_id="691184954595484" logged_in_greeting=""></div>
 
     <!--FOOTER START-->
     <v-footer
@@ -187,12 +187,7 @@
 
     },
 
-    mounted(){
-      window.extAsyncInit = function() {
-        // the Messenger Extensions JS SDK is done loading
-        FB.CustomerChat.show(false);
-      };
-    }
+
 
   }
 </script>
@@ -205,32 +200,5 @@
     bottom: 20px;
   }
 
-  /* TRANSITION CSS*/
-  /*.page-enter-active {*/
-  /*animation: acrossIn .40s ease-out both;*/
-  /*}*/
-  /*.page-leave-active {*/
-  /*animation: acrossOut .60s ease-in both;*/
-  /*}*/
-  /*@keyframes acrossIn {*/
-  /*0% {*/
-  /*transform: translate3d(-100%, 0, 0);*/
-  /*opacity: 0;*/
-  /*}*/
-  /*100% {*/
-  /*transform: translate3d(0, 0, 0);*/
-  /*opacity: 100%;*/
-  /*}*/
-  /*}*/
-  /*@keyframes acrossOut {*/
-  /*0% {*/
-  /*transform: translate3d(0, 0, 0);*/
-  /*opacity: 100%;*/
 
-  /*}*/
-  /*100% {*/
-  /*transform: translate3d(100%, 0, 0);*/
-  /*opacity:0;*/
-  /*}*/
-  /*}*/
 </style>

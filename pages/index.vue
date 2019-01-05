@@ -254,6 +254,52 @@
                     <v-list-tile-title>john@vuetifyjs.com</v-list-tile-title>
                   </v-list-tile-content>
                 </v-list-tile>
+                <v-list-tile class="my-3">
+                  <v-list-tile-action>
+                    <!-- FIXED BOTTOM RIGHT DIALOG BUTTON + POPUP -->
+                      <v-dialog v-model="dialog" persistent max-width="800px" dark>
+                        <v-btn slot="activator" round large="" dark color="#d83b00" class="pa-4 mx-auto">
+                          <v-icon class="mr-3">message</v-icon> Ponte en contacto
+                        </v-btn>
+                          <v-card-title class="pb-0">
+                            <span
+                              class="headline text-xs-center">
+                              Envíanos un mensaje si tienes cualquier duda o quieres una cotización
+                            </span>
+                          </v-card-title>
+                          <v-card-text class="pb-0">
+                            <v-container grid-list-md class="pb-0">
+                              <v-layout wrap>
+                                <v-flex xs12>
+                                  <v-text-field outline light label="Nombre*" v-model="contact.name" hint="Nombre y apellidos" color="#0db7cd" required ></v-text-field>
+                                </v-flex>
+                                <v-flex xs12 md6>
+                                  <v-text-field outline light label="Empresa" v-model="contact.company" hint="Empresa a la cual representas" color="#0db7cd"
+                                                required></v-text-field>
+                                </v-flex>
+                                <v-flex xs12 md6>
+                                  <v-text-field outline="" light label="Email*" required v-model="contact.email"
+                                                hint="Dirección de correo electrónico" color="#0db7cd"
+                                  ></v-text-field>
+                                </v-flex>
+                                <v-flex xs12>
+                                  <v-textarea outline light label="Mensaje*" color="#0db7cd" v-model="contact.message" required></v-textarea>
+                                </v-flex>
+                              </v-layout>
+                            </v-container>
+                          </v-card-text>
+                          <v-card-actions>
+                            <small class="red--text">*Campo requerido</small>
+                            <v-spacer></v-spacer>
+                            <v-btn color="#0db7cd" round  @click="submit_contact">Enviar</v-btn>
+                            <v-btn color="#0db7cd" round @click="dialog = false">Cancelar</v-btn>
+
+                          </v-card-actions>
+                      </v-dialog>
+                    <!-- END FIXED DIALOG BUTTON-->
+                  </v-list-tile-action>
+
+                </v-list-tile>
               </v-list>
             </v-card>
           </v-flex>
@@ -289,7 +335,14 @@
 
     data() {
       return {
+        dialog: false,
         window: 0,
+        contact:{
+          name: null,
+          company: null,
+          email: null,
+          message: null,
+        },
         cards: [
           {
             icon: 'code',
@@ -357,7 +410,31 @@
     },
 
     // BEGIN METHODS
-    methods: {}
+    methods: {
+      submit_contact: function () {
+        fbq('track', 'contact');
+        ga('send', 'event', 'Contact', 'sent');
+
+        console.log("Sending mail to: ", process.env.SERVER_URL + '/api/contact');
+        this.$axios.post(
+          process.env.SERVER_URL + '/api/contact', {
+            name: this.contact.name,
+            email: this.contact.mail,
+            company: this.contact.company,
+            message: this.contact.message
+          }
+        ).then((res) => {
+          console.log("MAIL GOT SENT");
+          this.dialog = false;
+          alert("Tu mensaje fúe enviado exitosamente. Nos pondremos en contacto contigo muy pronto.");
+
+        })
+          .catch(e => {
+            console.error(e);
+            alert("¡Oops! Sucedió un error registrando tu mensaje. Por favor contáctanos directamente o intenta de nuevo mas tarde.")
+          });
+      },
+    }
     //  END METHODS
 
 
@@ -365,6 +442,26 @@
 </script>
 
 <style lang="scss">
+
+  .v-overlay--active::before {
+    opacity: 1;
+  }
+
+  .v-overlay::before {
+    background-color: #ffffff;
+  }
+
+  .theme--light.v-messages{
+    color: #0db7cd;
+  }
+
+  .v-dialog{
+    box-shadow:none;
+
+    @media(max-width:900px){
+      margin:0;
+    }
+  }
 
   .vue-typer {
     font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;

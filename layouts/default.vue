@@ -62,48 +62,6 @@
       <nuxt/>
     </v-content>
 
-    <!-- FIXED BOTTOM RIGHT DIALOG BUTTON + POPUP -->
-    <v-layout row justify-center v-if="false">
-      <v-dialog v-model="dialog" persistent max-width="600px" light lazy >
-        <v-btn slot="activator" fixed bottom right ripple dark fab color="#d83b00">
-          <v-icon dark>message</v-icon>
-        </v-btn>
-        <v-card>
-          <v-card-title class="pb-0">
-            <span
-              class="headline text-xs-center">Envíanos un mensaje si tienes cualquier duda o quieres una cotización</span>
-          </v-card-title>
-          <v-card-text>
-            <v-container grid-list-md>
-              <v-layout wrap>
-
-                <v-flex xs12>
-                  <v-text-field label="Nombre*" hint="Nombre y apellidos" required></v-text-field>
-                </v-flex>
-                <v-flex xs12>
-                  <v-text-field label="Empresa" hint="Empresa a la cual representas" required></v-text-field>
-                </v-flex>
-                <v-flex xs12>
-                  <v-text-field label="Email*" required hint="Dirección de correo electrónico"></v-text-field>
-                </v-flex>
-                <v-flex xs12>
-                  <v-textarea label="Mensaje*" required></v-textarea>
-                </v-flex>
-              </v-layout>
-            </v-container>
-            <small class="red--text">*Campo requerido</small>
-          </v-card-text>
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="#0db7cd" flat @click="dialog = false">Enviar</v-btn>
-            <v-btn color="#0db7cd" flat @click="dialog = false">Cancelar</v-btn>
-
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
-    </v-layout>
-    <!-- END FIXED DIALOG BUTTON-->
-
     <!--FACEBOOK MESSENEGR-->
     <div class="fb-customerchat" page_id="691184954595484" logged_in_greeting=""></div>
 
@@ -154,7 +112,6 @@
     data() {
       return {
         drawer: false,
-        dialog: false,
         items: [
           { icon: 'home', title: 'Home', to: '/' },
           { icon: 'important_devices', title: 'Proyectos', to: '/projects' },

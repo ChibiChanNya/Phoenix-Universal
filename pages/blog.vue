@@ -5,53 +5,89 @@
 
     </v-layout>
 
+    <masonry
+      :key=""
+      :cols="{default: 4, 1500: 3, 700: 2, 400: 1}"
+      :gutter="{default: '30px', 700: '15px'}"
+    >
+      <template v-for="post in posts">
+        <v-card md4
+                class="my-3" hover :key="post.id">
+          <v-card-media
+            class="white--text"
+            :src="post._embedded['wp:featuredmedia'][0].source_url"
+            :lazy-src="require('@/assets/img/post-placeholder.png')" transition="fade"
+          >
+            <v-container fill-height fluid>
+              <v-layout>
+                <v-flex xs12 align-end d-flex>
+                  <span class="headline white--text" style="text-shadow:0 0 2px black">{{ post.title.rendered }}</span>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-card-media>
+          <v-card-text>
+            <span v-html="post.excerpt.rendered"></span>
+          </v-card-text>
+          <v-card-actions>
+            <v-btn icon class="red--text">
+              <v-icon medium>fab fa-reddit</v-icon>
+            </v-btn>
+            <v-btn icon class="light-blue--text">
+              <v-icon medium>fab fa-twitter</v-icon>
+            </v-btn>
+            <v-btn icon class="blue--text text--darken-4">
+              <v-icon medium>fab fa-facebook</v-icon>
+            </v-btn>
+            <v-spacer></v-spacer>
+            <v-btn flat class="blue--text" :to="'/blog/post/'+post.id">Leer más</v-btn>
+          </v-card-actions>
+        </v-card>
+      </template>
+    </masonry>
 
-    <no-ssr>
-      <masonry
-        :cols="{default: 4, 1500: 3, 700: 2, 400: 1}"
-        :gutter="{default: '30px', 700: '15px'}"
-      >
-        <div v-for="(post,index) in posts" :key="post.id">
-          <transition name="posts" :appear="index>3" >
-            <v-card  md4
-                     class="my-3" hover>
-              <v-card-media
-                class="white--text"
-                :src="post._embedded['wp:featuredmedia'][0].link"
-              >
-                <v-container fill-height fluid>
-                  <v-layout>
-                    <v-flex xs12 align-end d-flex>
-                    <span class="headline white--text"
-                          style="text-shadow:0 0 2px black">{{ post.title.rendered }}</span>
-                    </v-flex>
-                  </v-layout>
-                </v-container>
-              </v-card-media>
-              <v-card-text>
-                <span v-html="post.excerpt.rendered"></span>
-              </v-card-text>
-              <v-card-actions>
-                <v-btn icon class="red--text">
-                  <v-icon medium>fab fa-reddit</v-icon>
-                </v-btn>
-                <v-btn icon class="light-blue--text">
-                  <v-icon medium>fab fa-twitter</v-icon>
-                </v-btn>
-                <v-btn icon class="blue--text text--darken-4">
-                  <v-icon medium>fab fa-facebook</v-icon>
-                </v-btn>
-                <v-spacer></v-spacer>
-                <v-btn flat class="blue--text" :to="'/blog/post/'+post.id">Leer más</v-btn>
-              </v-card-actions>
-            </v-card>
-          </transition>
-        </div>
+    <!--<v-container fluid grid-list-md>-->
+    <!--<v-layout row wrap>-->
+    <!--<transition-group name="posts" mode="out-in">-->
+    <!--<v-flex v-for="post in posts" :key="post.id" md4>-->
+    <!--<v-card class="my-3" hover>-->
+    <!--<v-card-media-->
+    <!--class="white&#45;&#45;text"-->
+    <!--:src="post._embedded['wp:featuredmedia'][0].link" :lazy-src="require('@/assets/img/post-placeholder.png')"-->
+    <!--&gt;-->
+    <!--<v-container fill-height fluid>-->
+    <!--<v-layout>-->
+    <!--<v-flex xs12 align-end d-flex>-->
+    <!--<span class="headline white&#45;&#45;text"-->
+    <!--style="text-shadow:0 0 2px black">{{ post.title.rendered }}</span>-->
+    <!--</v-flex>-->
+    <!--</v-layout>-->
+    <!--</v-container>-->
+    <!--</v-card-media>-->
+    <!--<v-card-text>-->
+    <!--<span v-html="post.excerpt.rendered"></span>-->
+    <!--</v-card-text>-->
+    <!--<v-card-actions>-->
+    <!--<v-btn icon class="red&#45;&#45;text">-->
+    <!--<v-icon medium>fab fa-reddit</v-icon>-->
+    <!--</v-btn>-->
+    <!--<v-btn icon class="light-blue&#45;&#45;text">-->
+    <!--<v-icon medium>fab fa-twitter</v-icon>-->
+    <!--</v-btn>-->
+    <!--<v-btn icon class="blue&#45;&#45;text text&#45;&#45;darken-4">-->
+    <!--<v-icon medium>fab fa-facebook</v-icon>-->
+    <!--</v-btn>-->
+    <!--<v-spacer></v-spacer>-->
+    <!--<v-btn flat class="blue&#45;&#45;text" :to="'/blog/post/'+post.id">Leer más</v-btn>-->
+    <!--</v-card-actions>-->
+    <!--</v-card>-->
+    <!--</v-flex>-->
+    <!--</transition-group>-->
 
 
-      </masonry>
-    </no-ssr>
+    <!--</v-layout>-->
 
+    <!--</v-container>-->
 
 
     <v-layout justify-center>
@@ -68,11 +104,11 @@
   export default {
 
     transition: {
-      name: 'tweakOpacity',
+      name: 'tweakOpacity'
     },
 
-    head:{
-        title: "Blog",
+    head: {
+      title: 'Blog'
     },
 
     components: {
@@ -82,67 +118,83 @@
 
     data() {
       return {
-        posts:[],
+        posts_load: [],
+        posts: [],
         page: 1,
-        loading_posts: false,
+        loading_posts: false
       }
     },
 
     async asyncData({ $axios }) {
-      const posts = await $axios.$get('https://wp.phoenixdevelopment.mx/wp-json/wp/v2/posts?_embed&per_page=4&page=1')
-      return { posts }
+      const posts_load = await $axios.$get('https://wp.phoenixdevelopment.mx/wp-json/wp/v2/posts?_embed&per_page=4&page=1')
+      return { posts_load }
     },
 
     methods: {
-     async handleScroll (posts) {
-          let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight >= document.documentElement.offsetHeight;
+      async handleScroll(posts) {
+        let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight >= document.documentElement.offsetHeight
 
-          if (bottomOfWindow && !this.loading_posts) {
-            this.loading_posts = true;
-            let mobile =  window.innerWidth <= 960;
-            let next_page = ++ this.page
-            if(mobile) next_page += 3
-            let per_page = mobile? 1 : 4;
+        if (bottomOfWindow && !this.loading_posts) {
+          this.loading_posts = true
+          let mobile = window.innerWidth <= 960
+          let next_page = ++this.page
+          if (mobile) next_page += 3
+          let per_page = mobile ? 1 : 4
 
-            try{
-              let new_posts = await this.$axios.$get(`https://wp.phoenixdevelopment.mx/wp-json/wp/v2/posts?_embed&per_page=${per_page}&page=${next_page}`);
-              this.posts = this.posts.concat(new_posts);
-              this.loading_posts = false;
-            } catch(e){
-              console.log(e);
-              this.loading_posts = false;
-              window.removeEventListener('scroll', this.handleScroll);
-            }
+          try {
+            let new_posts = await this.$axios.$get(`https://wp.phoenixdevelopment.mx/wp-json/wp/v2/posts?_embed&per_page=${per_page}&page=${next_page}`)
+            new_posts.forEach((post) => {
+              this.posts.push(post)
+            })
+            this.loading_posts = false
+          } catch (e) {
+            console.log(e)
+            this.loading_posts = false
+            window.removeEventListener('scroll', this.handleScroll)
           }
-      },
+        }
+      }
 
     },
 
-    beforeMount () {
-      window.addEventListener('scroll', this.handleScroll);
+    beforeMount() {
+      window.addEventListener('scroll', this.handleScroll)
     },
-    beforeDestroy () {
-      window.removeEventListener('scroll', this.handleScroll);
+    beforeDestroy() {
+      window.removeEventListener('scroll', this.handleScroll)
     },
 
-    mounted(){
+    mounted() {
       this.$store.commit('rename', 'Blog')
+      this.posts_load.forEach((post) => {
+        this.posts.push(post)
+      })
     }
-
 
 
   }
 </script>
 
-<style scoped>
-   /*TRANSITION STYLES*/
+<style>
+  /*TRANSITION STYLES*/
 
-   .posts-enter-active, .posts-leave-active {
-     transition: all 1s ease-in-out;
-   }
-   .posts-enter, .posts-leave-to /* .posts-leave-active below version 2.1.8 */ {
-     opacity: 0;
-     transform: translateY(30px);
-   }
+  .posts-enter-active, .posts-leave-active {
+    transition: all 1s ease-in-out;
+  }
+
+  .posts-enter, .posts-leave-to /* .posts-leave-active below version 2.1.8 */
+  {
+    opacity: 0;
+    transform: translateY(300px);
+  }
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
+  {
+    opacity: 0;
+  }
 
 </style>

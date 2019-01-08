@@ -98,7 +98,7 @@ module.exports = {
   plugins: [
     '@/plugins/vuetify',
     { src: '@/plugins/vue-typer', ssr: false },
-    { src: '~/plugins/vue-masonry-css', ssr: false },
+    { src: '~/plugins/vue-masonry-css' },
     { src: '~/plugins/directives' }
   ],
 

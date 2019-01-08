@@ -5,46 +5,54 @@
 
     </v-layout>
 
+
     <no-ssr>
-      <div v-masonry transition-duration="2s" stagger="0.3s" item-selector=".item" column-width="30" gutter=".v-card"  class="masonry-container">
-        <v-flex md4 v-masonry-tile
-          v-for="post in posts"
-          :key="post.id"
-        class="item">
-          <v-card
-            class="my-3" hover>
-            <v-card-media
-              class="white--text"
-              :src="post._embedded['wp:featuredmedia'][0].link"
-            >
-              <v-container fill-height fluid>
-                <v-layout>
-                  <v-flex xs12 align-end d-flex>
-                    <span class="headline white--text" style="text-shadow:0 0 2px black">{{ post.title.rendered }}</span>
-                  </v-flex>
-                </v-layout>
-              </v-container>
-            </v-card-media>
-            <v-card-text>
-              <span v-html="post.excerpt.rendered"></span>
-            </v-card-text>
-            <v-card-actions>
-              <v-btn icon class="red--text">
-                <v-icon medium>fab fa-reddit</v-icon>
-              </v-btn>
-              <v-btn icon class="light-blue--text">
-                <v-icon medium>fab fa-twitter</v-icon>
-              </v-btn>
-              <v-btn icon class="blue--text text--darken-4">
-                <v-icon medium>fab fa-facebook</v-icon>
-              </v-btn>
-              <v-spacer></v-spacer>
-              <v-btn flat class="blue--text" :to="'/blog/post/'+post.id">Leer más</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-flex>
-      </div>
+      <masonry
+        :cols="{default: 4, 1500: 3, 700: 2, 400: 1}"
+        :gutter="{default: '30px', 700: '15px'}"
+      >
+        <div v-for="(post,index) in posts" :key="post.id">
+          <transition name="posts" :appear="index>3" >
+            <v-card  md4
+                     class="my-3" hover>
+              <v-card-media
+                class="white--text"
+                :src="post._embedded['wp:featuredmedia'][0].link"
+              >
+                <v-container fill-height fluid>
+                  <v-layout>
+                    <v-flex xs12 align-end d-flex>
+                    <span class="headline white--text"
+                          style="text-shadow:0 0 2px black">{{ post.title.rendered }}</span>
+                    </v-flex>
+                  </v-layout>
+                </v-container>
+              </v-card-media>
+              <v-card-text>
+                <span v-html="post.excerpt.rendered"></span>
+              </v-card-text>
+              <v-card-actions>
+                <v-btn icon class="red--text">
+                  <v-icon medium>fab fa-reddit</v-icon>
+                </v-btn>
+                <v-btn icon class="light-blue--text">
+                  <v-icon medium>fab fa-twitter</v-icon>
+                </v-btn>
+                <v-btn icon class="blue--text text--darken-4">
+                  <v-icon medium>fab fa-facebook</v-icon>
+                </v-btn>
+                <v-spacer></v-spacer>
+                <v-btn flat class="blue--text" :to="'/blog/post/'+post.id">Leer más</v-btn>
+              </v-card-actions>
+            </v-card>
+          </transition>
+        </div>
+
+
+      </masonry>
     </no-ssr>
+
+
 
     <v-layout justify-center>
       <v-icon v-if="loading_posts">fas fa-spinner fa-spin</v-icon>
@@ -81,24 +89,25 @@
     },
 
     async asyncData({ $axios }) {
-      const posts = await $axios.$get('https://wp.phoenixdevelopment.mx/wp-json/wp/v2/posts?_embed&per_page=3&page=1')
+      const posts = await $axios.$get('https://wp.phoenixdevelopment.mx/wp-json/wp/v2/posts?_embed&per_page=4&page=1')
       return { posts }
     },
 
     methods: {
      async handleScroll (posts) {
-          let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
+          let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight >= document.documentElement.offsetHeight;
 
           if (bottomOfWindow && !this.loading_posts) {
             this.loading_posts = true;
             let mobile =  window.innerWidth <= 960;
             let next_page = ++ this.page
-            if(mobile) next_page += 2
-            let per_page = mobile? 1 : 3;
+            if(mobile) next_page += 3
+            let per_page = mobile? 1 : 4;
 
             try{
               let new_posts = await this.$axios.$get(`https://wp.phoenixdevelopment.mx/wp-json/wp/v2/posts?_embed&per_page=${per_page}&page=${next_page}`);
               this.posts = this.posts.concat(new_posts);
+              this.loading_posts = false;
             } catch(e){
               console.log(e);
               this.loading_posts = false;
@@ -128,11 +137,12 @@
 <style scoped>
    /*TRANSITION STYLES*/
 
-   .tweakOpacity-enter-active, .tweakOpacity-leave-active {
-     transition: opacity .40s ease-out;
+   .posts-enter-active, .posts-leave-active {
+     transition: all 1s ease-in-out;
    }
-   .tweakOpacity-enter, .tweakOpacity-leave-active {
+   .posts-enter, .posts-leave-to /* .posts-leave-active below version 2.1.8 */ {
      opacity: 0;
+     transform: translateY(30px);
    }
 
 </style>

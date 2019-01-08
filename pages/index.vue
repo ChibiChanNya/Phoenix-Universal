@@ -150,6 +150,7 @@
         <v-flex xs12 md8>
           <v-window
             v-model="window"
+            v-vpshow="'rotateInUpRight'"
           >
             <v-window-item
               v-for="(project, i) in projects"
@@ -269,23 +270,26 @@
                           </v-card-title>
                           <v-card-text class="pb-0">
                             <v-container grid-list-md class="pb-0">
-                              <v-layout wrap>
-                                <v-flex xs12>
-                                  <v-text-field outline light label="Nombre*" v-model="contact.name" hint="Nombre y apellidos" color="#0db7cd" required ></v-text-field>
-                                </v-flex>
-                                <v-flex xs12 md6>
-                                  <v-text-field outline light label="Empresa" v-model="contact.company" hint="Empresa a la cual representas" color="#0db7cd"
-                                                required></v-text-field>
-                                </v-flex>
-                                <v-flex xs12 md6>
-                                  <v-text-field outline="" light label="Email*" required v-model="contact.email"
-                                                hint="Dirección de correo electrónico" color="#0db7cd"
-                                  ></v-text-field>
-                                </v-flex>
-                                <v-flex xs12>
-                                  <v-textarea outline light label="Mensaje*" color="#0db7cd" v-model="contact.message" required></v-textarea>
-                                </v-flex>
-                              </v-layout>
+                              <v-form v-model="contact.valid" ref="form">
+                                <v-layout wrap>
+                                  <v-flex xs12>
+                                    <v-text-field outline light  label="Nombre*" v-model="contact.name" hint="Nombre y apellidos" color="#0db7cd" required :rules="contact.rules.name"></v-text-field>
+                                  </v-flex>
+                                  <v-flex xs12 md6>
+                                    <v-text-field outline light label="Empresa" v-model="contact.company" hint="Empresa a la cual representas" color="#0db7cd"
+                                                  required></v-text-field>
+                                  </v-flex>
+                                  <v-flex xs12 md6>
+                                    <v-text-field outline="" light label="Email*" required v-model="contact.email"
+                                                  hint="Dirección de correo electrónico" color="#0db7cd" :rules="contact.rules.email">
+                                    </v-text-field>
+                                  </v-flex>
+                                  <v-flex xs12>
+                                    <v-textarea outline light label="Mensaje*" color="#0db7cd" v-model="contact.message" required :rules="contact.rules.message"></v-textarea>
+                                  </v-flex>
+                                </v-layout>
+                              </v-form>
+
                             </v-container>
                           </v-card-text>
                           <v-card-actions>
@@ -338,10 +342,24 @@
         dialog: false,
         window: 0,
         contact:{
-          name: null,
-          company: null,
-          email: null,
-          message: null,
+          name: '',
+          company: '',
+          email: '',
+          message: '',
+          valid: false,
+
+          rules:{
+            name: [
+              v => !!v || 'Nombre obligatorio',
+            ],
+            email: [
+              v => !!v || 'E-mail obligatorio',
+              v => /.+@.+\..+/.test(v) || 'E-mail inválido'
+            ],
+            message: [
+              v => !!v || 'Mensaje obligatorio',
+            ],
+          }
         },
         cards: [
           {
@@ -412,26 +430,38 @@
     // BEGIN METHODS
     methods: {
       submit_contact: function () {
+        if(!this.$refs.form.validate()){
+          alert("Asegurate de llenar todos los campos requeridos");
+          return;
+        }
+
         fbq('track', 'contact');
         ga('send', 'event', 'Contact', 'sent');
 
-        console.log("Sending mail to: ", process.env.SERVER_URL + '/api/contact');
         this.$axios.post(
           process.env.SERVER_URL + '/api/contact', {
             name: this.contact.name,
-            email: this.contact.mail,
+            email: this.contact.email,
             company: this.contact.company,
             message: this.contact.message
           }
         ).then((res) => {
-          console.log("MAIL GOT SENT");
           this.dialog = false;
           alert("Tu mensaje fúe enviado exitosamente. Nos pondremos en contacto contigo muy pronto.");
+          // this.$dialog.notify.success('Tu mensaje fúe enviado exitosamente. Nos pondremos en contacto contigo muy pronto.', {
+          //   position: 'top-right',
+          //   timeout: 5000
+          // })
 
         })
           .catch(e => {
             console.error(e);
-            alert("¡Oops! Sucedió un error registrando tu mensaje. Por favor contáctanos directamente o intenta de nuevo mas tarde.")
+            alert("¡Oops! Sucedió un error registrando tu mensaje. Por favor contáctanos directamente o intenta de nuevo mas tarde.");
+            // this.$dialog.notify.error('¡Oops! Sucedió un error registrando tu mensaje. Por favor contáctanos directamente o intenta de nuevo mas tarde.', {
+            //   position: 'top-right',
+            //   timeout: 5000
+            // })
+            // this.dialog = false;
           });
       },
     }

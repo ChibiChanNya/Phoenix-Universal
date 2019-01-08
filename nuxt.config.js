@@ -98,7 +98,7 @@ module.exports = {
   plugins: [
     '@/plugins/vuetify',
     { src: '@/plugins/vue-typer', ssr: false },
-    { src: '~/plugins/vue-masonry', ssr: false },
+    { src: '~/plugins/vue-masonry-css', ssr: false },
     { src: '~/plugins/directives' }
   ],
 
@@ -109,6 +109,7 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
+    // ['vuetify-dialog/nuxt', { property: '$dialog' }]
   ],
   /*
   ** Axios module configuration
@@ -127,9 +128,7 @@ module.exports = {
   /*
   ** ENVIRONMENT VARS
   */
-  env: {
-
-  },
+  env: {},
 
   /*
   ** Build configuration
@@ -138,8 +137,11 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
+
     extend(config, ctx) {
 
-    }
+
+    },
+
   }
 }

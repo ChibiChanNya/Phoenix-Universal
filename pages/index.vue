@@ -208,7 +208,7 @@
     <!-- CONTACT SECTION START-->
     <section>
 
-      <v-container grid-list-xl fluid>
+      <v-container grid-list-xl fluid v-vpshow="'fadeInLeft'">
 
         <v-layout
           align-center
@@ -223,7 +223,7 @@
 
         <v-layout row wrap justify-center class="my-5">
           <v-flex xs12 sm5>
-            <GmapMap v-vpshow
+            <GmapMap
                      :center="map.center"
                      :zoom="15"
                      map-type-id="roadmap"

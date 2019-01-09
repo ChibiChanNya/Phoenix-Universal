@@ -110,7 +110,7 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
-    // 'vuetify-dialog/nuxt',
+    'vuetify-dialog/nuxt',
   ],
   /*
   ** Axios module configuration

@@ -512,21 +512,21 @@
           }
         ).then((res) => {
           this.dialog = false
-          alert('Tu mensaje fúe enviado exitosamente. Nos pondremos en contacto contigo muy pronto.')
-          // this.$dialog.notify.success('Tu mensaje fúe enviado exitosamente. Nos pondremos en contacto contigo muy pronto.', {
-          //   position: 'top-right',
-          //   timeout: 5000
-          // })
+          // alert('Tu mensaje fúe enviado exitosamente. Nos pondremos en contacto contigo muy pronto.')
+          this.$dialog.notify.success('Tu mensaje fúe enviado exitosamente. Nos pondremos en contacto contigo muy pronto.', {
+            position: 'top-right',
+            timeout: 5000
+          })
 
         })
           .catch(e => {
             console.error(e)
-            alert('¡Oops! Sucedió un error registrando tu mensaje. Por favor contáctanos directamente o intenta de nuevo mas tarde.')
-            // this.$dialog.notify.error('¡Oops! Sucedió un error registrando tu mensaje. Por favor contáctanos directamente o intenta de nuevo mas tarde.', {
-            //   position: 'top-right',
-            //   timeout: 5000
-            // })
-            // this.dialog = false;
+            // alert('¡Oops! Sucedió un error registrando tu mensaje. Por favor contáctanos directamente o intenta de nuevo mas tarde.')
+            this.$dialog.notify.error('¡Oops! Sucedió un error registrando tu mensaje. Por favor contáctanos directamente o intenta de nuevo mas tarde.', {
+              position: 'top-right',
+              timeout: 5000
+            })
+            this.dialog = false;
           })
       }
     }

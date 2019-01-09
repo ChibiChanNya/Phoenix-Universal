@@ -29,6 +29,7 @@
     "vue-typer": "^1.2.0",
     "vue2-google-maps": "^0.10.5",
     "vuetify": "^1.4.1",
+    "vuetify-dialog": "^0.1.9",
     "xss-filters": "^1.2.7"
   },
   "devDependencies": {

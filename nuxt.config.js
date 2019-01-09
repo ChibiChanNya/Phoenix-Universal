@@ -99,6 +99,7 @@ module.exports = {
     '@/plugins/vuetify',
     { src: '@/plugins/vue-typer', ssr: false },
     { src: '~/plugins/vue-masonry-css' },
+    { src: '~/plugins/vue-google-map' },
     { src: '~/plugins/directives' }
   ],
 
@@ -109,7 +110,7 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
-    // ['vuetify-dialog/nuxt', { property: '$dialog' }]
+    // 'vuetify-dialog/nuxt',
   ],
   /*
   ** Axios module configuration
@@ -134,12 +135,27 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    /*
-    ** You can extend webpack config here
-    */
+    vendors: ['babel-polyfill'],
 
+    transpile: [/^vue2-google.*/, /^vuetify-dialog.*/, /^vuedl.*/],
+
+    /*
+   ** You can extend webpack config here
+   */
     extend(config, ctx) {
 
+    //  GOOGLE MAPS
+      if (!ctx.isClient) {
+        // This instructs Webpack to include `vue2-google-maps`'s Vue files
+        // for server-side rendering
+        config.externals=[function (context, request, callback) {
+          if (/^vue2-google-maps($|\/)/.test(request)) {
+            callback(null, false)
+          } else {
+            callback()
+          }
+        }]
+      }
 
     },
 

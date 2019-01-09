@@ -208,25 +208,39 @@
     <!-- CONTACT SECTION START-->
     <section>
 
-      <v-container grid-list-xl>
-        <v-layout row wrap justify-center class="my-5">
-          <v-flex xs12 sm4>
-            <v-card class="elevation-0 transparent">
-              <v-card-title primary-title class="layout justify-center">
-                <div class="headline">Company info</div>
-              </v-card-title>
-              <v-card-text>
-                Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
-                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti.
-              </v-card-text>
-            </v-card>
+      <v-container grid-list-xl fluid>
+
+        <v-layout
+          align-center
+          justify-center
+        >
+          <v-flex xs12 sm4 class="my-3">
+            <div class="text-xs-center">
+              <h1 class="headline">Ponte en Contacto</h1>
+            </div>
           </v-flex>
-          <v-flex xs12 sm4 offset-sm1>
-            <v-card class="elevation-0 transparent">
-              <v-card-title primary-title class="layout justify-center">
-                <div class="headline">Contact us</div>
-              </v-card-title>
+        </v-layout>
+
+        <v-layout row wrap justify-center class="my-5">
+          <v-flex xs12 sm5>
+            <GmapMap v-vpshow
+                     :center="map.center"
+                     :zoom="15"
+                     map-type-id="roadmap"
+                     :options="map.map_options"
+                     style="width: 100%; height: 100%; color: black"
+            >
+              <gmap-info-window :options="map.infoOptions" :position="map.infoWindowPos" :opened="map.infoWinOpen"
+                                @closeclick="map.infoWinOpen=false">
+                Av. Paseo de la Reforma 389 Piso 10, <br> Col. Cuauhtemoc CP 06500, <br> Ciudad de México, México
+              </gmap-info-window>
+
+              <gmap-marker :key="i" v-for="(m,i) in map.markers" :position="m.position" :clickable="true"
+                           @click="toggleInfoWindow(m,i)"></gmap-marker>
+            </GmapMap>
+          </v-flex>
+          <v-flex xs12 sm5>
+            <v-layout column>
               <v-card-text>
                 Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
               </v-card-text>
@@ -236,7 +250,7 @@
                     <v-icon class="blue--text text--lighten-2">phone</v-icon>
                   </v-list-tile-action>
                   <v-list-tile-content>
-                    <v-list-tile-title>777-867-5309</v-list-tile-title>
+                    <v-list-tile-title>(+52) 5980 3626</v-list-tile-title>
                   </v-list-tile-content>
                 </v-list-tile>
                 <v-list-tile>
@@ -244,7 +258,7 @@
                     <v-icon class="blue--text text--lighten-2">place</v-icon>
                   </v-list-tile-action>
                   <v-list-tile-content>
-                    <v-list-tile-title>Chicago, US</v-list-tile-title>
+                    <v-list-tile-title>Paseo de la Reforma 389 piso 10, CDMX, México</v-list-tile-title>
                   </v-list-tile-content>
                 </v-list-tile>
                 <v-list-tile>
@@ -252,60 +266,66 @@
                     <v-icon class="blue--text text--lighten-2">email</v-icon>
                   </v-list-tile-action>
                   <v-list-tile-content>
-                    <v-list-tile-title>john@vuetifyjs.com</v-list-tile-title>
+                    <v-list-tile-title>contacto@phoenixdevelopment.mx</v-list-tile-title>
                   </v-list-tile-content>
                 </v-list-tile>
                 <v-list-tile class="my-3">
-                  <v-list-tile-action>
+                  <v-list-tile-action class="mx-auto">
                     <!-- FIXED BOTTOM RIGHT DIALOG BUTTON + POPUP -->
-                      <v-dialog v-model="dialog" persistent max-width="800px" dark>
-                        <v-btn slot="activator" round large="" dark color="#d83b00" class="pa-4 mx-auto">
-                          <v-icon class="mr-3">message</v-icon> Ponte en contacto
-                        </v-btn>
-                          <v-card-title class="pb-0">
+                    <v-dialog v-model="dialog" persistent max-width="800px" dark>
+                      <v-btn slot="activator" round large="" dark color="#d83b00" class="pa-4 mx-auto">
+                        <v-icon class="mr-3">message</v-icon>
+                        Ponte en contacto
+                      </v-btn>
+                      <v-card-title class="pb-0">
                             <span
                               class="headline text-xs-center">
                               Envíanos un mensaje si tienes cualquier duda o quieres una cotización
                             </span>
-                          </v-card-title>
-                          <v-card-text class="pb-0">
-                            <v-container grid-list-md class="pb-0">
-                              <v-form v-model="contact.valid" ref="form">
-                                <v-layout wrap>
-                                  <v-flex xs12>
-                                    <v-text-field outline light  label="Nombre*" v-model="contact.name" hint="Nombre y apellidos" color="#0db7cd" required :rules="contact.rules.name"></v-text-field>
-                                  </v-flex>
-                                  <v-flex xs12 md6>
-                                    <v-text-field outline light label="Empresa" v-model="contact.company" hint="Empresa a la cual representas" color="#0db7cd"
-                                                  required></v-text-field>
-                                  </v-flex>
-                                  <v-flex xs12 md6>
-                                    <v-text-field outline="" light label="Email*" required v-model="contact.email"
-                                                  hint="Dirección de correo electrónico" color="#0db7cd" :rules="contact.rules.email">
-                                    </v-text-field>
-                                  </v-flex>
-                                  <v-flex xs12>
-                                    <v-textarea outline light label="Mensaje*" color="#0db7cd" v-model="contact.message" required :rules="contact.rules.message"></v-textarea>
-                                  </v-flex>
-                                </v-layout>
-                              </v-form>
+                      </v-card-title>
+                      <v-card-text class="pb-0">
+                        <v-container grid-list-md class="pb-0">
+                          <v-form v-model="contact.valid" ref="form">
+                            <v-layout wrap>
+                              <v-flex xs12>
+                                <v-text-field outline light label="Nombre*" v-model="contact.name"
+                                              hint="Nombre y apellidos" color="#0db7cd" required
+                                              :rules="contact.rules.name"></v-text-field>
+                              </v-flex>
+                              <v-flex xs12 md6>
+                                <v-text-field outline light label="Empresa" v-model="contact.company"
+                                              hint="Empresa a la cual representas" color="#0db7cd"
+                                              required></v-text-field>
+                              </v-flex>
+                              <v-flex xs12 md6>
+                                <v-text-field outline="" light label="Email*" required v-model="contact.email"
+                                              hint="Dirección de correo electrónico" color="#0db7cd"
+                                              :rules="contact.rules.email">
+                                </v-text-field>
+                              </v-flex>
+                              <v-flex xs12>
+                                <v-textarea outline light label="Mensaje*" color="#0db7cd" v-model="contact.message"
+                                            required :rules="contact.rules.message"></v-textarea>
+                              </v-flex>
+                            </v-layout>
+                          </v-form>
 
-                            </v-container>
-                          </v-card-text>
-                          <v-card-actions>
-                            <small class="red--text">*Campo requerido</small>
-                            <v-spacer></v-spacer>
-                            <v-btn color="#0db7cd" round  @click="submit_contact">Enviar</v-btn>
-                            <v-btn color="#0db7cd" round @click="dialog = false">Cancelar</v-btn>
+                        </v-container>
+                      </v-card-text>
+                      <v-card-actions>
+                        <small class="red--text">*Campo requerido</small>
+                        <v-spacer></v-spacer>
+                        <v-btn color="#0db7cd" round @click="submit_contact">Enviar</v-btn>
+                        <v-btn color="#0db7cd" round @click="dialog = false">Cancelar</v-btn>
 
-                          </v-card-actions>
-                      </v-dialog>
+                      </v-card-actions>
+                    </v-dialog>
                     <!-- END FIXED DIALOG BUTTON-->
                   </v-list-tile-action>
 
                 </v-list-tile>
               </v-list>
-            </v-card>
+            </v-layout>
           </v-flex>
         </v-layout>
       </v-container>
@@ -341,24 +361,24 @@
       return {
         dialog: false,
         window: 0,
-        contact:{
+        contact: {
           name: '',
           company: '',
           email: '',
           message: '',
           valid: false,
 
-          rules:{
+          rules: {
             name: [
-              v => !!v || 'Nombre obligatorio',
+              v => !!v || 'Nombre obligatorio'
             ],
             email: [
               v => !!v || 'E-mail obligatorio',
               v => /.+@.+\..+/.test(v) || 'E-mail inválido'
             ],
             message: [
-              v => !!v || 'Mensaje obligatorio',
-            ],
+              v => !!v || 'Mensaje obligatorio'
+            ]
           }
         },
         cards: [
@@ -419,7 +439,49 @@
             text: 'Máquinas francesas para descarbonizar por medio de hidrógeno el motor de los automóviles. ',
             src: require('@/assets/img/projects/GREENPIT.jpg')
           }
-        ]
+        ],
+
+        map: {
+          center: { lat: 19.426495, lng: -99.170212 },
+          map_options: {
+            disableDefaultUI: true,
+            styles: [{
+              featureType: 'all',
+              stylers: [{
+                saturation: -80
+              }]
+            }, {
+              featureType: 'road.arterial',
+              elementType: 'geometry',
+              stylers: [{
+                hue: '#00ffee'
+              }, {
+                saturation: 50
+              }]
+            }, {
+              featureType: 'poi.business',
+              elementType: 'labels',
+              stylers: [{
+                visibility: 'off'
+              }]
+            }]
+          },
+          infoWindowPos: { lat: 19.426495, lng: -99.170212 },
+          infoWinOpen: true,
+          currentMidx: null,
+          //optional: offset infowindow so it visually sits nicely on top of our marker
+          infoOptions: {
+            pixelOffset: {
+              width: 0,
+              height: -35
+            }
+          },
+          markers: [
+            {
+              position: { lat: 19.426495, lng: -99.170212 }
+            }
+          ]
+        }
       }
     },
 
@@ -429,14 +491,17 @@
 
     // BEGIN METHODS
     methods: {
-      submit_contact: function () {
-        if(!this.$refs.form.validate()){
-          alert("Asegurate de llenar todos los campos requeridos");
-          return;
+      submit_contact: function() {
+        if (!this.$refs.form.validate()) {
+          this.$dialog.notify.warning('Asegurate de llenar todos los campos requeridos', {
+            position: 'top-right',
+            timeout: 5000
+          })
+          return
         }
 
-        fbq('track', 'contact');
-        ga('send', 'event', 'Contact', 'sent');
+        fbq('track', 'contact')
+        ga('send', 'event', 'Contact', 'sent')
 
         this.$axios.post(
           process.env.SERVER_URL + '/api/contact', {
@@ -446,8 +511,8 @@
             message: this.contact.message
           }
         ).then((res) => {
-          this.dialog = false;
-          alert("Tu mensaje fúe enviado exitosamente. Nos pondremos en contacto contigo muy pronto.");
+          this.dialog = false
+          alert('Tu mensaje fúe enviado exitosamente. Nos pondremos en contacto contigo muy pronto.')
           // this.$dialog.notify.success('Tu mensaje fúe enviado exitosamente. Nos pondremos en contacto contigo muy pronto.', {
           //   position: 'top-right',
           //   timeout: 5000
@@ -455,15 +520,15 @@
 
         })
           .catch(e => {
-            console.error(e);
-            alert("¡Oops! Sucedió un error registrando tu mensaje. Por favor contáctanos directamente o intenta de nuevo mas tarde.");
+            console.error(e)
+            alert('¡Oops! Sucedió un error registrando tu mensaje. Por favor contáctanos directamente o intenta de nuevo mas tarde.')
             // this.$dialog.notify.error('¡Oops! Sucedió un error registrando tu mensaje. Por favor contáctanos directamente o intenta de nuevo mas tarde.', {
             //   position: 'top-right',
             //   timeout: 5000
             // })
             // this.dialog = false;
-          });
-      },
+          })
+      }
     }
     //  END METHODS
 
@@ -481,15 +546,15 @@
     background-color: #ffffff;
   }
 
-  .theme--light.v-messages{
+  .theme--light.v-messages {
     color: #0db7cd;
   }
 
-  .v-dialog{
-    box-shadow:none;
+  .v-dialog {
+    box-shadow: none;
 
-    @media(max-width:900px){
-      margin:0;
+    @media(max-width: 900px) {
+      margin: 0;
     }
   }
 

@@ -26,6 +26,7 @@
           >
             Conócenos
           </v-btn>
+
         </v-layout>
       </v-parallax>
     </section>
@@ -88,18 +89,17 @@
     <section>
       <v-parallax :src="require('@/assets/img/section.jpg')" height="380">
         <v-layout column align-center justify-center>
-          <div class="headline white--text mb-3 text-xs-center" v-vpshow="'rollIn'">Web development has never been
-            easier
+          <div class="headline white--text mb-3 text-xs-center" v-vpshow="'rollIn'">Nunca ha sido tan fácil tener un sitio web profesional
           </div>
-          <em v-vpshow="'rollIn'">Kick-start your application today</em>
+          <em v-vpshow="'rollIn'">¡Inicia tu proyecto con nosotros!</em>
 
           <v-btn v-vpshow="'rollIn'"
-                 class="blue lighten-2 mt-5"
+                 class="phoenix-blue mt-5"
                  dark
                  large
-                 href="/pre-made-themes"
+                 href="#"
           >
-            Get Started
+            Solicita una cotización
           </v-btn>
         </v-layout>
       </v-parallax>
@@ -221,6 +221,7 @@
           </v-flex>
         </v-layout>
 
+
         <v-layout row wrap justify-center class="my-5">
           <v-flex xs12 sm5>
             <GmapMap
@@ -272,7 +273,7 @@
                 <v-list-tile class="my-3">
                   <v-list-tile-action class="mx-auto">
                     <!-- FIXED BOTTOM RIGHT DIALOG BUTTON + POPUP -->
-                    <v-dialog v-model="dialog" persistent max-width="800px" dark>
+                    <v-dialog v-model="show_contact_dialog" persistent max-width="800px" dark>
                       <v-btn slot="activator" round large="" dark color="#d83b00" class="pa-4 mx-auto">
                         <v-icon class="mr-3">message</v-icon>
                         Ponte en contacto
@@ -359,7 +360,7 @@
 
     data() {
       return {
-        dialog: false,
+        show_contact_dialog: false,
         window: 0,
         contact: {
           name: '',
@@ -511,7 +512,7 @@
             message: this.contact.message
           }
         ).then((res) => {
-          this.dialog = false
+          this.show_contact_dialog = false
           // alert('Tu mensaje fúe enviado exitosamente. Nos pondremos en contacto contigo muy pronto.')
           this.$dialog.notify.success('Tu mensaje fúe enviado exitosamente. Nos pondremos en contacto contigo muy pronto.', {
             position: 'top-right',
@@ -526,7 +527,7 @@
               position: 'top-right',
               timeout: 5000
             })
-            this.dialog = false;
+            this.show_contact_dialog = false;
           })
       }
     }

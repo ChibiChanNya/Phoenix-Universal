@@ -54,7 +54,9 @@ module.exports = {
       { src: '/js/google.js', defer: true },
       { src: '/js/pixel.js', defer: true },
       //Messenger chat
-      { src: '/js/facebook.js', defer: true }
+      { src: '/js/facebook.js', defer: true },
+      //  ELEVATOR JS
+      {src: 'https://cdnjs.cloudflare.com/ajax/libs/elevator.js/1.0.1/elevator.min.js', defer: true}
     ],
 
 
@@ -110,7 +112,7 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
-    'vuetify-dialog/nuxt',
+    // ['vuetify-dialog/nuxt', { property: '$vdialog' }],
   ],
   /*
   ** Axios module configuration
@@ -137,7 +139,7 @@ module.exports = {
   build: {
     vendors: ['babel-polyfill'],
 
-    transpile: [/^vue2-google.*/, /^vuetify-dialog.*/, /^vuedl.*/],
+    transpile: [/^vue2-google.*/],
 
     /*
    ** You can extend webpack config here

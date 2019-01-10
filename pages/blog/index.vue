@@ -40,7 +40,7 @@
               <v-icon medium>fab fa-facebook</v-icon>
             </v-btn>
             <v-spacer></v-spacer>
-            <v-btn flat class="blue--text" :to="'/blog/post/'+post.id">Leer más</v-btn>
+            <v-btn flat class="blue--text" :to="'/blog/'+post.id">Leer más</v-btn>
           </v-card-actions>
         </v-card>
       </template>

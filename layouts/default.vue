@@ -34,12 +34,14 @@
         <v-img :src="require('@/assets/img/logo-dark-h.png')" contain max-height="100%" max-width="150px"/>
       </nuxt-link>
 
+      <span id="nav_title" class="cur">
       <transition name="title" mode="out-in" enter-active-class="animated bounceIn"
                   leave-active-class="animated fadeOut" :duration="{ enter: 600, leave: 200 }">
         <v-toolbar-title :key="navTitle">
           {{navTitle}}
         </v-toolbar-title>
       </transition>
+        </span>
 
       <v-spacer></v-spacer>
 
@@ -130,8 +132,7 @@
             icon: 'fab fa-instagram',
             url: 'https://www.instagram.com/phoenixdevelopmentcompany/?hl=es-la'
           }
-
-        ]
+        ],
       }
     },
     computed: {
@@ -140,8 +141,17 @@
       }
     },
 
-    created(){
+    mounted(){
+      let elevator = new Elevator({
+        element: document.querySelector('#nav_title'),
+        // mainAudio: 'http://tholman.com/elevator.js/music/elevator.mp3',
+        // endAudio: 'http://tholman.com/elevator.js/music/ding.mp3',
 
+        mainAudio: '/mp3/elevator.mp3',
+        endAudio: '/mp3//ding.mp3',
+        volume: 0.1,
+
+      });
     },
 
 

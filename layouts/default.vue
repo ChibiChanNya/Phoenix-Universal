@@ -34,7 +34,7 @@
         <v-img :src="require('@/assets/img/logo-dark-h.png')" contain max-height="100%" max-width="150px"/>
       </nuxt-link>
 
-      <span id="nav_title" class="cur">
+      <span id="nav_title" class="clickable">
       <transition name="title" mode="out-in" enter-active-class="animated bounceIn"
                   leave-active-class="animated fadeOut" :duration="{ enter: 600, leave: 200 }">
         <v-toolbar-title :key="navTitle">

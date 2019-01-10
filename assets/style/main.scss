@@ -28,6 +28,10 @@ $dev-color: #0db7cd;
   background-color: $phoenix-color;
 }
 
+.clickable{
+  cursor: pointer;
+}
+
 // ALERTS
 .v-alert div{
   font-family: 'Roboto', sans-serif;

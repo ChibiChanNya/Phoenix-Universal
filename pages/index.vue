@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="home">
     <!-- HERO SECTION START-->
     <section>
       <v-parallax :src="require('@/assets/img/hero.jpg')" height="600">
@@ -10,6 +10,7 @@
           class="white--text"
         >
           <img src="~/assets/img/logo-light-v.png" alt="Phoenix Development Logo" height="200">
+
           <no-ssr>
             <vue-typer class="mb-2" :text='["CREA", "TRANSFORMA", "EVOLUCIONA"]' :repeat="1" :pre-type-delay="500"
                        :type-delay=150></vue-typer>
@@ -74,7 +75,6 @@
                   </ul>
                 </v-card-text>
               </v-card>
-
             </v-flex>
           </v-layout>
         </v-container>
@@ -272,54 +272,65 @@
                 </v-list-tile>
                 <v-list-tile class="my-3">
                   <v-list-tile-action class="mx-auto">
+
                     <!-- FIXED BOTTOM RIGHT DIALOG BUTTON + POPUP -->
-                    <v-dialog v-model="show_contact_dialog" persistent max-width="800px" dark>
+                    <v-dialog v-model="show_contact_dialog" persistent dark fullscreen content-class="contact-overlay" transition="fade">
                       <v-btn slot="activator" round large="" dark color="#d83b00" class="pa-4 mx-auto">
                         <v-icon class="mr-3">message</v-icon>
                         Ponte en contacto
                       </v-btn>
-                      <v-card-title class="pb-0">
+                      <v-container>
+                        <v-layout justify-center>
+                          <v-card max-width="800px" elevation="0" light>
+                            <v-card-title class="pb-0">
                             <span
                               class="headline text-xs-center">
                               Envíanos un mensaje si tienes cualquier duda o quieres una cotización
                             </span>
-                      </v-card-title>
-                      <v-card-text class="pb-0">
-                        <v-container grid-list-md class="pb-0">
-                          <v-form v-model="contact.valid" ref="form">
-                            <v-layout wrap>
-                              <v-flex xs12>
-                                <v-text-field outline light label="Nombre*" v-model="contact.name"
-                                              hint="Nombre y apellidos" color="#0db7cd" required
-                                              :rules="contact.rules.name"></v-text-field>
-                              </v-flex>
-                              <v-flex xs12 md6>
-                                <v-text-field outline light label="Empresa" v-model="contact.company"
-                                              hint="Empresa a la cual representas" color="#0db7cd"
-                                              required></v-text-field>
-                              </v-flex>
-                              <v-flex xs12 md6>
-                                <v-text-field outline="" light label="Email*" required v-model="contact.email"
-                                              hint="Dirección de correo electrónico" color="#0db7cd"
-                                              :rules="contact.rules.email">
-                                </v-text-field>
-                              </v-flex>
-                              <v-flex xs12>
-                                <v-textarea outline light label="Mensaje*" color="#0db7cd" v-model="contact.message"
-                                            required :rules="contact.rules.message"></v-textarea>
-                              </v-flex>
-                            </v-layout>
-                          </v-form>
+                            </v-card-title>
+                            <v-card-text class="pb-0">
+                              <v-container grid-list-md class="pb-0">
+                                <v-form v-model="contact.valid" ref="form">
+                                  <v-layout wrap>
+                                    <v-flex xs12>
+                                      <v-text-field outline light label="Nombre*" v-model="contact.name"
+                                                    hint="Nombre y apellidos" color="#0db7cd" required
+                                                    :rules="contact.rules.name"></v-text-field>
+                                    </v-flex>
+                                    <v-flex xs12 md6>
+                                      <v-text-field outline light label="Empresa" v-model="contact.company"
+                                                    hint="Empresa a la cual representas" color="#0db7cd"
+                                                    required></v-text-field>
+                                    </v-flex>
+                                    <v-flex xs12 md6>
+                                      <v-text-field outline="" light label="Email*" required v-model="contact.email"
+                                                    hint="Dirección de correo electrónico" color="#0db7cd"
+                                                    :rules="contact.rules.email">
+                                      </v-text-field>
+                                    </v-flex>
+                                    <v-flex xs12>
+                                      <v-textarea outline light label="Mensaje*" color="#0db7cd" v-model="contact.message"
+                                                  required :rules="contact.rules.message"></v-textarea>
+                                    </v-flex>
+                                  </v-layout>
+                                </v-form>
 
-                        </v-container>
-                      </v-card-text>
-                      <v-card-actions>
-                        <small class="red--text">*Campo requerido</small>
-                        <v-spacer></v-spacer>
-                        <v-btn color="#0db7cd" round @click="submit_contact">Enviar</v-btn>
-                        <v-btn color="#0db7cd" round @click="dialog = false">Cancelar</v-btn>
+                              </v-container>
+                            </v-card-text>
+                            <v-card-actions>
+                              <small class="red--text">*Campo requerido</small>
+                              <v-spacer></v-spacer>
+                              <v-btn color="#0db7cd" round @click="submit_contact">Enviar</v-btn>
+                              <v-btn color="#0db7cd" round @click="show_contact_dialog = false">Cancelar</v-btn>
 
-                      </v-card-actions>
+                            </v-card-actions>
+                          </v-card>
+                        </v-layout>
+
+                      </v-container>
+
+
+
                     </v-dialog>
                     <!-- END FIXED DIALOG BUTTON-->
                   </v-list-tile-action>
@@ -489,7 +500,6 @@
     mounted() {
       this.$store.commit('rename', 'Home')
     },
-
     // BEGIN METHODS
     methods: {
       submit_contact: function() {
@@ -500,7 +510,6 @@
           })
           return
         }
-
         fbq('track', 'contact')
         ga('send', 'event', 'Contact', 'sent')
 
@@ -539,12 +548,8 @@
 
 <style lang="scss">
 
-  .v-overlay--active::before {
-    opacity: 1;
-  }
-
-  .v-overlay::before {
-    background-color: #ffffff;
+  .contact-overlay{
+    background-color: white;
   }
 
   .theme--light.v-messages {
@@ -598,6 +603,10 @@
         color: #0db7cd;
       }
     }
+  }
+
+  #projects{
+    /*background: url("~assets/img/tech_bg.png");*/
   }
 
 </style>

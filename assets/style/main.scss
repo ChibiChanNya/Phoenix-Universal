@@ -24,6 +24,10 @@ $dev-color: #0db7cd;
   background-color: $dev-color !important;
 }
 
+.nav-gray{
+  background-color: #f5f5f5 !important;
+}
+
 .v-item--active .phoenix-blue{
   background-color: $phoenix-color;
 }
@@ -60,26 +64,29 @@ $dev-color: #0db7cd;
 // BLOG
 /* Alignments */
 
-img.alignleft, .wp-caption.alignleft {
-  margin: 5px 20px 5px 0;
-  display: inline-block;
-  float: left;
-}
+@media(min-width: 900px){
+  img.alignleft, .wp-caption.alignleft {
+    margin: 5px 20px 5px 0;
+    display: inline-block;
+    float: left;
+  }
 
-img.aligncenter, .wp-caption.aligncenter {
-  margin: 0 auto 24px;
-  display: block;
-  clear: both;
-}
+  img.aligncenter, .wp-caption.aligncenter {
+    margin: 0 auto 24px;
+    display: block;
+    clear: both;
+  }
 
-img.alignright, .wp-caption.alignright {
-  margin: 5px 0 5px 20px;
-  display: inline-block;
-  float: right;
-}
+  img.alignright, .wp-caption.alignright {
+    margin: 5px 0 5px 20px;
+    display: inline-block;
+    float: right;
+  }
 
-img.alignnone, .wp-caption.alignnone {
-  display: inline-block;
-  margin: 0 0 20px 0;
-  clear: both;
+  img.alignnone, .wp-caption.alignnone {
+    display: inline-block;
+    margin: 0 0 20px 0;
+    clear: both;
+  }
+
 }

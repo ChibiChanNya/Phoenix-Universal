@@ -102,6 +102,8 @@ module.exports = {
     { src: '@/plugins/vue-typer', ssr: false },
     { src: '~/plugins/vue-masonry-css' },
     { src: '~/plugins/vue-google-map' },
+    { src: '~/plugins/vue-moment' },
+    { src: '~/plugins/vue-social' },
     { src: '~/plugins/directives' }
   ],
 
@@ -112,7 +114,7 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
-    // ['vuetify-dialog/nuxt', { property: '$vdialog' }],
+    ['vuetify-dialog/nuxt', { property: '$dialog' }],
   ],
   /*
   ** Axios module configuration

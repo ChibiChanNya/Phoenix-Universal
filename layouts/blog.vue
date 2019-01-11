@@ -26,12 +26,13 @@
     </v-navigation-drawer>
 
     <v-toolbar
-      :clipped-left="true"
+      clipped-left
+      :clipped-right="false"
       fixed
       app
     >
-      <nuxt-link to="/" class="flex">
-        <v-img :src="require('@/assets/img/logo-dark-h.png')" class="mr-3" contain max-height="100%" min-width="80px" max-width="150px"/>
+      <nuxt-link to="/" class="flex mr-1">
+        <v-img :src="require('@/assets/img/logo-dark-h.png')" contain max-height="100%" min-width="80px" max-width="150px"/>
       </nuxt-link>
 
       <span id="nav_title" class="clickable">
@@ -64,6 +65,30 @@
       <nuxt/>
     </v-content>
 
+    <!-- BLOG SIDEBAR-->
+    <v-navigation-drawer
+      v-model="blog_drawer"
+      fixed
+      right
+      clipped
+      app
+      class="nav-gray"
+    >
+      <v-list two-line id="blog-sidebar">
+        <v-subheader>Posts recientes</v-subheader>
+
+        <v-list-tile avatar v-for="post in recent_posts" :key="post.id" @click="" ripple>
+          <v-list-tile-content>
+            <v-list-tile-title>{{post.title.rendered}}</v-list-tile-title>
+            <v-list-tile-sub-title><span v-html="post.excerpt.rendered"></span></v-list-tile-sub-title>
+          </v-list-tile-content>
+        </v-list-tile>
+
+      </v-list>
+      <v-divider></v-divider>
+
+    </v-navigation-drawer>
+
     <!--FACEBOOK MESSENEGR-->
     <div class="fb-customerchat" page_id="691184954595484" logged_in_greeting=""></div>
 
@@ -71,6 +96,7 @@
     <v-footer
       dark
       height="auto"
+      style="z-index:4"
     >
       <v-card
         class="flex"
@@ -113,6 +139,7 @@
 
     data() {
       return {
+        blog_drawer: null,
         drawer: false,
         items: [
           { icon: 'home', title: 'Home', to: '/' },
@@ -133,6 +160,8 @@
             url: 'https://www.instagram.com/phoenixdevelopmentcompany/?hl=es-la'
           }
         ],
+
+        recent_posts:[],
       }
     },
     computed: {
@@ -141,17 +170,21 @@
       }
     },
 
-    mounted(){
+   async mounted(){
+      // Setup Elevator
       let elevator = new Elevator({
         element: document.querySelector('#nav_title'),
         // mainAudio: 'http://tholman.com/elevator.js/music/elevator.mp3',
-        // endAudio: 'http://tholman.com/elevator.js/music/ding.mp3',
-
+        // endAudio 'http://tholman.com/elevator.js/music/ding.mp3',
         mainAudio: '/mp3/elevator.mp3',
         endAudio: '/mp3//ding.mp3',
         volume: 0.1,
-
       });
+    //  Fill sidebar
+    //  get posts
+      let url = `https://wp.phoenixdevelopment.mx/wp-json/wp/v2/posts?_embed&per_page=5&page=1`;
+      let data = await this.$axios.get(url);
+      this.recent_posts = data.data;
     },
 
 
@@ -165,6 +198,10 @@
     position: absolute;
     right: 20px;
     bottom: 20px;
+  }
+
+  #blog-sidebar .v-subheader{
+    font-size: 20px;
   }
 
 

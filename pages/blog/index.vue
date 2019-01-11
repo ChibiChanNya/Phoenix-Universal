@@ -7,7 +7,7 @@
 
     <masonry
       :key=""
-      :cols="{default: 4, 1500: 3, 700: 2, 400: 1}"
+      :cols="{default: 4, 1500: 3, 700: 2, 500: 1}"
       :gutter="{default: '30px', 700: '15px'}"
     >
       <template v-for="post in posts">
@@ -45,49 +45,6 @@
         </v-card>
       </template>
     </masonry>
-
-    <!--<v-container fluid grid-list-md>-->
-    <!--<v-layout row wrap>-->
-    <!--<transition-group name="posts" mode="out-in">-->
-    <!--<v-flex v-for="post in posts" :key="post.id" md4>-->
-    <!--<v-card class="my-3" hover>-->
-    <!--<v-card-media-->
-    <!--class="white&#45;&#45;text"-->
-    <!--:src="post._embedded['wp:featuredmedia'][0].link" :lazy-src="require('@/assets/img/post-placeholder.png')"-->
-    <!--&gt;-->
-    <!--<v-container fill-height fluid>-->
-    <!--<v-layout>-->
-    <!--<v-flex xs12 align-end d-flex>-->
-    <!--<span class="headline white&#45;&#45;text"-->
-    <!--style="text-shadow:0 0 2px black">{{ post.title.rendered }}</span>-->
-    <!--</v-flex>-->
-    <!--</v-layout>-->
-    <!--</v-container>-->
-    <!--</v-card-media>-->
-    <!--<v-card-text>-->
-    <!--<span v-html="post.excerpt.rendered"></span>-->
-    <!--</v-card-text>-->
-    <!--<v-card-actions>-->
-    <!--<v-btn icon class="red&#45;&#45;text">-->
-    <!--<v-icon medium>fab fa-reddit</v-icon>-->
-    <!--</v-btn>-->
-    <!--<v-btn icon class="light-blue&#45;&#45;text">-->
-    <!--<v-icon medium>fab fa-twitter</v-icon>-->
-    <!--</v-btn>-->
-    <!--<v-btn icon class="blue&#45;&#45;text text&#45;&#45;darken-4">-->
-    <!--<v-icon medium>fab fa-facebook</v-icon>-->
-    <!--</v-btn>-->
-    <!--<v-spacer></v-spacer>-->
-    <!--<v-btn flat class="blue&#45;&#45;text" :to="'/blog/post/'+post.id">Leer más</v-btn>-->
-    <!--</v-card-actions>-->
-    <!--</v-card>-->
-    <!--</v-flex>-->
-    <!--</transition-group>-->
-
-
-    <!--</v-layout>-->
-
-    <!--</v-container>-->
 
 
     <v-layout justify-center>

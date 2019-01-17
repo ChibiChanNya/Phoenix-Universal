@@ -148,7 +148,7 @@
           // TWITTER CARD
           { hid: 'TwitterCard', name: 'twitter:card', content: 'summary_large_image' },
           { hid: 'TwitterTitle', name: 'twitter:title', content: this.post.title.rendered },
-          { hid: 'TwitterDesc', name: 'twitter:description', content: this.post.excerpt.rendered },
+          { hid: 'TwitterDesc', name: 'twitter:description', content: this.stripHTML(this.post.excerpt.rendered) },
           { hid: 'TwitterImg', name: 'twitter:image:src', content: this.post._embedded['wp:featuredmedia'][0].source_url },
           // OPENGRAPH META TAGS
           { hid: 'SchemaTitle', property: 'og:title', content: this.post.title.rendered },
@@ -167,7 +167,7 @@
           {
             hid: 'SchemaDescription',
             property: 'og:description',
-            content: this.post.excerpt.rendered,
+            content: this.stripHTML(this.post.excerpt.rendered),
           },
         ],
       }
@@ -177,6 +177,14 @@
     async mounted() {
       this.$store.commit('rename', this.post.title.rendered)
       this.url = process.env.SERVER_URL + '/blog/' + this.post.id
+    },
+
+    methods:{
+      stripHTML(text){
+        let tmp = document.createElement("DIV");
+        tmp.innerHTML = html;
+        return tmp.textContent || tmp.innerText || "";
+      }
     }
 
   }

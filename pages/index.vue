@@ -16,7 +16,7 @@
                        :type-delay=150></vue-typer>
           </no-ssr>
 
-          <div class="subheading mb-3 text-xs-center">Powered by Phoenix</div>
+          <div class="subheading mb-3 text-xs-center">Agencia Digital Mexicana</div>
 
           <v-btn
             class="phoenix mt-5"
@@ -97,6 +97,7 @@
                  class="phoenix-blue mt-5"
                  dark
                  large
+                 color="#0db7cd"
                  href="#"
           >
             Solicita una cotización
@@ -320,8 +321,8 @@
                             <v-card-actions>
                               <small class="red--text">*Campo requerido</small>
                               <v-spacer></v-spacer>
-                              <v-btn color="#0db7cd" round @click="submit_contact">Enviar</v-btn>
-                              <v-btn color="#0db7cd" round @click="show_contact_dialog = false">Cancelar</v-btn>
+                              <v-btn color="#0db7cd" dark round @click="submit_contact">Enviar</v-btn>
+                              <v-btn color="#0db7cd" dark round @click="show_contact_dialog = false">Cancelar</v-btn>
 
                             </v-card-actions>
                           </v-card>

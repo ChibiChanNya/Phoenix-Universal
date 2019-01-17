@@ -7,7 +7,7 @@
 
     <masonry
       :key=""
-      :cols="{default: 4, 1500: 3, 700: 2, 500: 1}"
+      :cols="{default: 4, 2000: 3, 700: 2, 500: 1}"
       :gutter="{default: '30px', 700: '15px'}"
     >
       <template v-for="post in posts">
@@ -30,13 +30,13 @@
             <span v-html="post.excerpt.rendered"></span>
           </v-card-text>
           <v-card-actions>
-            <v-btn icon class="red--text">
-              <v-icon medium>fab fa-reddit</v-icon>
+            <v-btn icon  class="green--text lighten-1" :href="`whatsapp://send?text=${post.title.rendered} ${server_url}/blog/${post.id}`" :data-text="`whatsapp://send?text=${post.title.rendered} ${server_url}/blog/${post.id}`" data-action="share/whatsapp/share">
+              <v-icon medium>fab fa-whatsapp</v-icon>
             </v-btn>
-            <v-btn icon class="light-blue--text">
+            <v-btn icon class="light-blue--text" :href="`https://twitter.com/intent/tweet?text=${post.title.rendered} ${server_url}/blog/${post.id}`" target="_blank">
               <v-icon medium>fab fa-twitter</v-icon>
             </v-btn>
-            <v-btn icon class="blue--text text--darken-4">
+            <v-btn icon class="blue--text text--darken-4" :href="`https://www.facebook.com/sharer/sharer.php?u=${server_url}/blog/${post.id}`">
               <v-icon medium>fab fa-facebook</v-icon>
             </v-btn>
             <v-spacer></v-spacer>
@@ -78,7 +78,8 @@
         posts_load: [],
         posts: [],
         page: 1,
-        loading_posts: false
+        loading_posts: false,
+        server_url: process.env.SERVER_URL,
       }
     },
 

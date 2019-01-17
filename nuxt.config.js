@@ -21,27 +21,30 @@ module.exports = {
         content: 'Agencia Mexicana de desarrollo de páginas web, marketing digital e imagen corporativa.'
       },
       // TWITTER CARD
-      { hid: 'Twitter Default Card', name: 'twitter:card', content: 'summary' },
-      { hid: 'Twitter Default Title', name: 'twitter:title', content: 'Phoenix Development' },
-      { hid: 'Twitter Default Desc', name: 'twitter:description', content: 'CREA. TRANSFORMA. EVOLUCIONA' },
-      { hid: 'Twitter Default Img', name: 'twitter:image:src', content: '/Logo100.png' },
-      // SCHEMA.ORG META TAGS
-      { hid: 'Schema Default Title', property: 'og:title', content: 'Phoenix Development' },
-      { hid: 'Schema Default Type', property: 'og:type', content: 'website' },
+      { hid: 'TwitterCard', name: 'twitter:card', content: 'summary' },
+      { hid: 'TwitterTitle', name: 'twitter:title', content: 'Phoenix Development' },
+      { hid: 'TwitterDesc', name: 'twitter:description', content: 'CREA. TRANSFORMA. EVOLUCIONA' },
+      { hid: 'TwitterImg', name: 'twitter:image:src', content: '/Logo100.png' },
+      { hid: 'TwitterSite', name: 'twitter:site', content: 'https://phoenixdevelopment.mx' },
+      // OPENGRAPH META TAGS
+      { hid: 'SchemaTitle', property: 'og:title', content: 'Phoenix Development' },
+      { hid: 'SchemaType', property: 'og:type', content: 'website' },
+      { hid: 'SchemaSite', property: 'og:site_name', content: "Phoenix Development" },
+      { hid: 'SchemaSite', property: 'og:locale', content: "es_MX" },
       {
-        hid: 'Schema Default Image',
+        hid: 'SchemaImage',
         property: 'og:image',
         content: 'https://phoenixdevelopment.mx/static/img/logo100.jpg'
       },
-      { hid: 'Schema Default ImgWidth', property: 'og:image:width', content: '612' },
-      { hid: 'Schema Default ImgHeight', property: 'og:image:height', content: '612' },
-      { hid: 'Schema Default URL', property: 'og:url', content: 'https://phoenixdevelopment.mx.mx/' },
+      { hid: 'SchemaImgWidth', property: 'og:image:width', content: '612' },
+      { hid: 'SchemaImgHeight', property: 'og:image:height', content: '612' },
+      { hid: 'SchemaURL', property: 'og:url', content: 'https://phoenixdevelopment.mx.mx/' },
       {
-        hid: 'Schema Default Description',
+        hid: 'SchemaDescription',
         property: 'og:description',
         content: 'Pho Consulting Services S. de R.L. de C.V. Agencia de desarrollo de páginas web, marketing digital e imagen coportativa.'
       },
-      { hid: 'Schema Default SITENAME', property: 'og:site_name', content: 'PHOENIX' },
+      { hid: 'SchemaSITENAME', property: 'og:site_name', content: 'PHOENIX' },
       // FACEBOOK TAG
       { property: 'fb:app_id', content: '478115346000965' }
 

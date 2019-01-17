@@ -1,66 +1,79 @@
 <template>
-  <v-container class="pa-4 post">
-    <v-img :src="post._embedded['wp:featuredmedia'][0].source_url" max-height="300px" contain></v-img>
+  <v-container class="pa-4 post" itemscope itemtype="BlogPosting">
+    <v-img itemprop="sharedContent" :src="post._embedded['wp:featuredmedia'][0].source_url" max-height="300px" contain></v-img>
 
     <div class="post-title text-xs-center my-4">
-      <h1>{{post.title.rendered}}</h1>
+      <h1 itemprop="name headline">{{post.title.rendered}}</h1>
       <div class="small grey--text lighten-1">
             <span class="mx-2">
-              Por: {{post._embedded.author[0].name}}
+              Por: <span itemprop="author">{{post._embedded.author[0].name}}</span>
             </span>
         <span class="mx-2">
               |
             </span>
         <span class="mx-2">
-              Categoría: {{post._embedded['wp:term'][0][0].name}}
+              Categoría: <span itemprop="articleSection">{{post._embedded['wp:term'][0][0].name}}</span>
             </span>
         <span class="mx-2">
               |
             </span>
         <span class="mx-2">
-              Publicado: {{ post.date | moment('from') }}
+              Publicado: <span itemprop="datePublished">{{ post.date | moment('from') }}</span>
             </span>
       </div>
 
     </div>
 
     <div class="text-xs-justify ml-4 pl-2 mr-1">
-      <div v-html="post.content.rendered"></div>
+      <div itemprop="body" v-html="post.content.rendered"></div>
     </div>
 
     <!--<social-sharing :url="url"-->
-                    <!--:title="this.post.title.rendered"-->
-                    <!--:description="this.post.excerpt.rendered"-->
-                    <!--:quote="this.post.excerpt.rendered"-->
-                    <!--hashtags="phoenixdevelopment"-->
-                    <!--network-tag="span"-->
-                    <!--inline-template>-->
-      <!--<div class="social-networks">-->
-        <!--<network v-for="(network,i) in networks" :key="i" :network="network.name">-->
-          <!--<v-btn class="white&#45;&#45;text" icon small :color="network.color">-->
-            <!--<v-icon>{{network.icon}}</v-icon>-->
-          <!--</v-btn>-->
-        <!--</network>-->
-        <!--<network network="facebook">-->
-          <!--<i class="fa fa-facebook"></i> Facebook-->
-        <!--</network>-->
-      <!--</div>-->
+    <!--:title="this.post.title.rendered"-->
+    <!--:description="this.post.excerpt.rendered"-->
+    <!--:quote="this.post.excerpt.rendered"-->
+    <!--hashtags="phoenixdevelopment"-->
+    <!--network-tag="span"-->
+    <!--inline-template>-->
+    <!--<div class="social-networks">-->
+    <!--<network v-for="(network,i) in networks" :key="i" :network="network.name">-->
+    <!--<v-btn class="white&#45;&#45;text" icon small :color="network.color">-->
+    <!--<v-icon>{{network.icon}}</v-icon>-->
+    <!--</v-btn>-->
+    <!--</network>-->
+    <!--<network network="facebook">-->
+    <!--<i class="fa fa-facebook"></i> Facebook-->
+    <!--</network>-->
+    <!--</div>-->
     <!--</social-sharing>-->
 
 
-    <v-layout row grid-list-xs justify-center>
+    <v-layout row grid-list-xs justify-center wrap>
       <div v-for="(network,i) in networks" :key="i">
-        <v-btn class="white--text pa-3" :color="network.color">
-          <v-icon class="mr-3">{{network.icon}}</v-icon> Compartir
+        <v-btn class="white--text pa-3"
+               :color="network.color"
+               :href="`${network.url}${post.title.rendered} ${server_url}/blog/${post.id}`"
+               target="_blank"
+        >
+          <span class="mx-auto">
+            <v-icon >{{network.icon}}</v-icon>
+            <span class="mr-3 hidden-sm-and-down"></span>
+            <span class="hidden-sm-and-down">Compartir</span>
+          </span>
         </v-btn>
       </div>
     </v-layout>
 
     <div class="social-btns" style="position:fixed; left:0; top:30%;">
       <v-layout column grid-list-xs justify-center>
-          <v-btn v-for="(network,i) in networks" :key="i" class="white--text px-2 py-4 ma-0" :color="network.color">
-            <v-icon class="mr-3">{{network.icon}}</v-icon> <span class="social-btn-text">Compartir</span>
-          </v-btn>
+        <v-btn v-for="(network,i) in networks" :key="i" class="white--text px-2 py-4 ma-0"
+               :color="network.color"
+               :href="`${network.url}${post.title.rendered} ${server_url}/blog/${post.id}`"
+               target="_blank"
+        >
+          <v-icon class="mr-3">{{network.icon}}</v-icon>
+          <span class="social-btn-text">Compartir</span>
+        </v-btn>
       </v-layout>
     </div>
 
@@ -75,6 +88,8 @@
 
   export default {
 
+    name: 'blog-article',
+
     layout: 'blog',
 
     transition: {
@@ -86,30 +101,24 @@
 
     data() {
       return {
-        url: "",
+        server_url: process.env.SERVER_URL,
         networks: [
           {
             name: 'facebook',
             icon: 'fab fa-facebook-f',
-            color: 'blue darken-4'
+            color: 'blue darken-4',
+            url: `https://www.facebook.com/sharer/sharer.php?u=`,
           }, {
             name: 'twitter',
             icon: 'fab fa-twitter',
-            color: 'light-blue'
+            color: 'light-blue',
+            url: 'https://twitter.com/intent/tweet?text='
           }, {
             name: 'whatsapp',
             icon: 'fab fa-whatsapp',
-            color: 'green'
-          }, {
-            name: 'instagram',
-            icon: 'fab fa-instagram',
-            color: 'red lighten-3'
-          }, {
-            name: 'linkedin',
-            icon: 'fab fa-linkedin-in',
-            color: 'cyan darken-1'
+            color: 'green',
+            url: 'whatsapp://send?text='
           }
-
         ]
       }
     },
@@ -128,15 +137,46 @@
 
     head() {
       return {
-        title: this.post.title.rendered
+        title: this.post.title.rendered,
+
+        meta:[
+          {
+            hid: 'description',
+            name: 'description',
+            content: this.post.title.rendered,
+          },
+          // TWITTER CARD
+          { hid: 'TwitterCard', name: 'twitter:card', content: 'summary_large_image' },
+          { hid: 'TwitterTitle', name: 'twitter:title', content: this.post.title.rendered },
+          { hid: 'TwitterDesc', name: 'twitter:description', content: this.post.excerpt.rendered },
+          { hid: 'TwitterImg', name: 'twitter:image:src', content: this.post._embedded['wp:featuredmedia'][0].source_url },
+          // OPENGRAPH META TAGS
+          { hid: 'SchemaTitle', property: 'og:title', content: this.post.title.rendered },
+          { hid: 'SchemaType', property: 'og:type', content: 'article' },
+          { hid: 'SchemaAuthor', property: 'article.author', content: this.post._embedded.author[0].name },
+          { hid: 'SchemaPublished', property: 'article:published_time ', content: this.post.date },
+          { hid: 'SchemaCategory', property: 'article:section ', content: this.post._embedded['wp:term'][0][0].name },
+          {
+            hid: 'SchemaImage',
+            property: 'og:image',
+            content: this.post._embedded['wp:featuredmedia'][0].source_url
+          },
+          { hid: 'SchemaImgWidth', property: 'og:image:width', content: this.post._embedded['wp:featuredmedia'][0].media_details.width },
+          { hid: 'SchemaImgHeight', property: 'og:image:height', content: this.post._embedded['wp:featuredmedia'][0].media_details.height },
+          { hid: 'SchemaURL', property: 'og:url', content: `https://phoenixdevelopment.mx.mx/blog/${this.post.id}` },
+          {
+            hid: 'SchemaDescription',
+            property: 'og:description',
+            content: this.post.excerpt.rendered,
+          },
+        ],
       }
     },
 
-    name: 'blog-article',
 
     async mounted() {
-      this.$store.commit('rename', this.post.title.rendered);
-      this.url = process.env.SERVER_URL +"/blog/"+this.post.id;
+      this.$store.commit('rename', this.post.title.rendered)
+      this.url = process.env.SERVER_URL + '/blog/' + this.post.id
     }
 
   }
@@ -173,36 +213,39 @@
     font-size: 14px;
   }
 
-  .social-btns{
+  .social-btns {
 
-    .v-btn{
+    .v-btn {
       border-radius: 0;
       transition: all .2s ease-in;
       min-width: 0;
       width: 50px;
 
-      .social-btn-text{
-        opacity:0;
+      .social-btn-text {
+        opacity: 0;
         transition: opacity .4s ease-out, margin .2s ease-in;
-        margin-left:-100px;
+        margin-left: -100px;
       }
+
       &:hover {
         width: 150px;
         border-radius: 2px;
 
-        .social-btn-text{
-          opacity:1;
-          display:inline-block;
+        .social-btn-text {
+          opacity: 1;
+          display: inline-block;
           margin-left: 0;
         }
       }
 
 
     }
-    :first-child{
+
+    :first-child {
       border-top-right-radius: 2px;
     }
-    :last-child{
+
+    :last-child {
       border-bottom-right-radius: 2px;
     }
   }

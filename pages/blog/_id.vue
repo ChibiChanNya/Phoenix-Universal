@@ -1,5 +1,5 @@
 <template>
-  <v-container class="pa-4 post" itemscope itemtype="BlogPosting">
+  <v-container class="pa-4 post" itemscope itemtype="https://schema.org/BlogPosting">
     <v-img itemprop="sharedContent" :src="post._embedded['wp:featuredmedia'][0].source_url" max-height="300px" contain></v-img>
 
     <div class="post-title text-xs-center my-4">
@@ -153,7 +153,7 @@
           // OPENGRAPH META TAGS
           { hid: 'SchemaTitle', property: 'og:title', content: this.post.title.rendered },
           { hid: 'SchemaType', property: 'og:type', content: 'article' },
-          { hid: 'SchemaAuthor', property: 'article.author', content: this.post._embedded.author[0].name },
+          { hid: 'SchemaAuthor', property: 'article:author', content: this.post._embedded.author[0].name },
           { hid: 'SchemaPublished', property: 'article:published_time ', content: this.post.date },
           { hid: 'SchemaCategory', property: 'article:section ', content: this.post._embedded['wp:term'][0][0].name },
           {

@@ -22,6 +22,36 @@
             <v-list-tile-title v-text="$t(item.title)"/>
           </v-list-tile-content>
         </v-list-tile>
+
+        <!--Translate Buttons-->
+        <v-list-tile v-if="$i18n.locale !== 'en'"
+               :to="switchLocalePath('en')"
+               router
+               exact>
+          <v-list-tile-action>
+            <v-icon>translate</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>
+              English
+            </v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+
+        <v-list-tile v-if="$i18n.locale !== 'es'"
+               :to="switchLocalePath('es')"
+               router
+               exact>
+          <v-list-tile-action>
+            <v-icon>translate</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>
+              Español
+            </v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+
       </v-list>
     </v-navigation-drawer>
 
@@ -112,7 +142,9 @@
         </v-card-title>
 
         <v-card-actions class="grey darken-3 justify-center">
-          &copy;2018 — <strong> Pho Consulting Services S. de R.L. de C.V.</strong>
+          &copy;2019 — <strong>PHO Consulting Services Company S. de R.L. de C.V.</strong>
+          <v-spacer></v-spacer>
+          Aviso de Privacidad
         </v-card-actions>
       </v-card>
     </v-footer>

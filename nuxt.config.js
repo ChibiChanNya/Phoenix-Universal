@@ -18,7 +18,7 @@ module.exports = {
       {
         hid: 'description',
         name: 'description',
-        content: 'Agencia Mexicana de desarrollo de páginas web, marketing digital e imagen corporativa.'
+        content: 'Agencia Digital de desarrollo de páginas web, Creación de Marca y Marketing Digital.'
       },
       // TWITTER CARD
       { hid: 'TwitterCard', name: 'twitter:card', content: 'summary' },
@@ -42,7 +42,7 @@ module.exports = {
       {
         hid: 'SchemaDescription',
         property: 'og:description',
-        content: 'Agencia de desarrollo de páginas web, marketing digital e imagen corporativa.'
+        content: 'Agencia Digital de desarrollo de páginas web, Creación de Marca y Marketing Digital.'
       },
       { hid: 'SchemaSITENAME', property: 'og:site_name', content: 'PHOENIX' },
       // FACEBOOK TAG

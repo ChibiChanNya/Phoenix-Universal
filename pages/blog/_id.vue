@@ -6,19 +6,19 @@
       <h1 itemprop="name headline">{{post.title.rendered}}</h1>
       <div class="small grey--text lighten-1">
             <span class="mx-2">
-              Por: <span itemprop="author">{{post._embedded.author[0].name}}</span>
+              {{ $t('blog.by' )}}: <span itemprop="author">{{post._embedded.author[0].name}}</span>
             </span>
         <span class="mx-2">
               |
             </span>
         <span class="mx-2">
-              Categoría: <span itemprop="articleSection">{{post._embedded['wp:term'][0][0].name}}</span>
+              {{ $t('blog.category' )}}: <span itemprop="articleSection">{{post._embedded['wp:term'][0][0].name}}</span>
             </span>
         <span class="mx-2">
               |
             </span>
         <span class="mx-2">
-              Publicado: <span itemprop="datePublished">{{ post.date | moment('from') }}</span>
+              {{ $t('blog.published' )}}: <span itemprop="datePublished">{{ post.date | moment('from') }}</span>
             </span>
       </div>
 
@@ -58,7 +58,7 @@
           <span class="mx-auto">
             <v-icon >{{network.icon}}</v-icon>
             <span class="mr-3 hidden-sm-and-down"></span>
-            <span class="hidden-sm-and-down">Compartir</span>
+            <span class="hidden-sm-and-down">{{ $t('blog.share' )}}</span>
           </span>
         </v-btn>
       </div>
@@ -72,7 +72,7 @@
                target="_blank"
         >
           <v-icon class="mr-3">{{network.icon}}</v-icon>
-          <span class="social-btn-text">Compartir</span>
+          <span class="social-btn-text">{{ $t('blog.share' )}}</span>
         </v-btn>
       </v-layout>
     </div>

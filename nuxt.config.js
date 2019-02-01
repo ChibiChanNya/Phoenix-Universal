@@ -29,8 +29,8 @@ module.exports = {
       // OPENGRAPH META TAGS
       { hid: 'SchemaTitle', property: 'og:title', content: 'Phoenix Development' },
       { hid: 'SchemaType', property: 'og:type', content: 'website' },
-      { hid: 'SchemaSite', property: 'og:site_name', content: "Phoenix Development" },
-      { hid: 'SchemaSite', property: 'og:locale', content: "es_MX" },
+      { hid: 'SchemaSite', property: 'og:site_name', content: 'Phoenix Development' },
+      { hid: 'SchemaSite', property: 'og:locale', content: 'es_MX' },
       {
         hid: 'SchemaImage',
         property: 'og:image',
@@ -59,7 +59,7 @@ module.exports = {
       //Messenger chat
       { src: '/js/facebook.js', defer: true },
       //  ELEVATOR JS
-      {src: 'https://cdnjs.cloudflare.com/ajax/libs/elevator.js/1.0.1/elevator.min.js', defer: true}
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/elevator.js/1.0.1/elevator.min.js', defer: true }
     ],
 
 
@@ -118,6 +118,16 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
     ['vuetify-dialog/nuxt', { property: '$dialog' }],
+    ['nuxt-i18n', {
+      locales: [
+        { name: "English", code: 'en', iso: 'en-US', file: 'en.js' },
+        { name: "Español", code: 'es', iso: 'es-MX', file: 'es.js' }
+      ],
+      lazy: true,
+      // defaultLocale: 'es',
+      langDir: 'lang/',
+      defaultLocale: 'es',
+    }]
   ],
   /*
   ** Axios module configuration
@@ -151,11 +161,11 @@ module.exports = {
    */
     extend(config, ctx) {
 
-    //  GOOGLE MAPS
+      //  GOOGLE MAPS
       if (!ctx.isClient) {
         // This instructs Webpack to include `vue2-google-maps`'s Vue files
         // for server-side rendering
-        config.externals=[function (context, request, callback) {
+        config.externals = [function(context, request, callback) {
           if (/^vue2-google-maps($|\/)/.test(request)) {
             callback(null, false)
           } else {
@@ -164,7 +174,7 @@ module.exports = {
         }]
       }
 
-    },
+    }
 
   }
 }

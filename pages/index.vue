@@ -12,11 +12,11 @@
           <img src="~/assets/img/logo-light-v.png" alt="Phoenix Development Logo" height="200">
 
           <no-ssr>
-            <vue-typer class="mb-2" :text='["CREA", "TRANSFORMA", "EVOLUCIONA"]' :repeat="1" :pre-type-delay="500"
+            <vue-typer class="mb-2" :text="[ $t('home.create'), $t('home.transform'), $t('home.evolve')]" :repeat="1" :pre-type-delay="500"
                        :type-delay=150></vue-typer>
           </no-ssr>
 
-          <div class="subheading mb-3 text-xs-center">Agencia Digital Mexicana</div>
+          <div class="subheading mb-3 text-xs-center">{{ $t('home.digital_agency') }}</div>
 
           <v-btn
             class="phoenix mt-5"
@@ -25,7 +25,7 @@
             color="#d83b00"
             href="#"
           >
-            Conócenos
+            {{ $t('home.know_us')}}
           </v-btn>
 
         </v-layout>
@@ -43,10 +43,10 @@
       >
         <v-flex xs12 sm4 class="my-3">
           <div class="text-xs-center">
-            <h1 class="headline mb-3">Nuestros Servicios</h1>
+            <h1 class="headline mb-3">{{$t('home.services_title')}}</h1>
             <v-flex md6 xs10 class="ma-auto">
               <span class="subheading text-xs-justify">
-                Para desarrollar proyectos que aporten valor a nuestros clientes, orientamos nuestro conocimiento a entender sus necesidades y las de sus consumidores ofreciendo soluciones en:
+                {{$t('home.services_text')}}
               </span>
             </v-flex>
           </div>
@@ -58,7 +58,7 @@
         >
           <v-layout row wrap>
             <v-flex
-              v-for="(card, index) in cards"
+              v-for="(card, index) in $t('home.cards')"
               v-bind="{ [`xs${card.flex}`]: true }"
               :key="card.title"
               md4 xs12
@@ -66,12 +66,12 @@
               <v-card class=" pa-2" height="100%" v-vpshow="'flipInY'" hover>
                 <v-card-title primary-title class="layout ">
                   <v-icon x-large class="dev-text mr-4 ml-2">{{card.icon}}</v-icon>
-                  <span class="headline">{{card.title}}</span>
+                  <span class="headline">{{$t(card.title)}}</span>
                 </v-card-title>
                 <v-card-text>
-                  <p class="margin-b-5">{{card.text}}</p>
+                  <p class="margin-b-5">{{$t(card.text)}}</p>
                   <ul>
-                    <li v-for="item in card.list">{{item}}</li>
+                    <li v-for="item in card.list">{{$t(item)}}</li>
                   </ul>
                 </v-card-text>
               </v-card>
@@ -89,9 +89,9 @@
     <section>
       <v-parallax :src="require('@/assets/img/section.jpg')" height="380">
         <v-layout column align-center justify-center>
-          <div class="headline white--text mb-3 text-xs-center" v-vpshow="'rollIn'">Nunca ha sido tan fácil tener un sitio web profesional
+          <div class="headline white--text mb-3 text-xs-center" v-vpshow="'rollIn'">{{$t('home.promo_title')}}
           </div>
-          <em v-vpshow="'rollIn'">¡Inicia tu proyecto con nosotros!</em>
+          <em v-vpshow="'rollIn'">{{$t('home.promo_text')}}</em>
 
           <v-btn v-vpshow="'rollIn'"
                  class="phoenix-blue mt-5"
@@ -100,7 +100,7 @@
                  color="#0db7cd"
                  href="#"
           >
-            Solicita una cotización
+            {{$t('home.promo_btn')}}
           </v-btn>
         </v-layout>
       </v-parallax>
@@ -116,7 +116,7 @@
       >
         <v-flex xs12 sm4 class="my-3">
           <div class="text-xs-center">
-            <h1 class="headline">Nuestros Proyectos</h1>
+            <h1 class="headline">{{ $t('home.projects_title') }}</h1>
           </div>
         </v-flex>
       </v-layout>
@@ -130,7 +130,7 @@
           mandatory
         >
           <v-item
-            v-for="(project, i) in projects"
+            v-for="(project, i) in $t('home.projects')"
             :key="i"
           >
             <div slot-scope="{ active, toggle }">
@@ -154,7 +154,7 @@
             v-vpshow="'rotateInUpRight'"
           >
             <v-window-item
-              v-for="(project, i) in projects"
+              v-for="(project, i) in $t('home.projects')"
               :key="i"
             >
               <v-card-text>
@@ -167,7 +167,7 @@
                 </v-layout>
 
                 <h3 class="dev-text mh-75">{{project.text}}</h3>
-                <v-img :src="project.src"></v-img>
+                <v-img :src="project_imgs[i]"></v-img>
               </v-card-text>
             </v-window-item>
           </v-window>
@@ -185,7 +185,7 @@
           mandatory
         >
           <v-item
-            v-for="(project, i) in projects"
+            v-for="(project, i) in $t('home.projects')"
             :key="i"
           >
             <div slot-scope="{ active, toggle }">
@@ -217,7 +217,7 @@
         >
           <v-flex xs12 sm4 class="my-3">
             <div class="text-xs-center">
-              <h1 class="headline">Ponte en Contacto</h1>
+              <h1 class="headline">{{ $t('home.contact_title') }}</h1>
             </div>
           </v-flex>
         </v-layout>
@@ -244,7 +244,7 @@
           <v-flex xs12 sm5>
             <v-layout column>
               <v-card-text>
-                Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
+                {{ $t('home.contact_text') }}
               </v-card-text>
               <v-list class="transparent">
                 <v-list-tile>
@@ -278,7 +278,7 @@
                     <v-dialog v-model="show_contact_dialog" persistent dark fullscreen content-class="contact-overlay" transition="fade">
                       <v-btn slot="activator" round large="" dark color="#d83b00" class="pa-4 mx-auto">
                         <v-icon class="mr-3">message</v-icon>
-                        Ponte en contacto
+                        {{ $t('home.modal_btn') }}
                       </v-btn>
                       <v-container>
                         <v-layout justify-center>
@@ -286,7 +286,7 @@
                             <v-card-title class="pb-0">
                             <span
                               class="headline text-xs-center">
-                              Envíanos un mensaje si tienes cualquier duda o quieres una cotización
+                              {{ $t('home.modal_headline') }}
                             </span>
                             </v-card-title>
                             <v-card-text class="pb-0">
@@ -294,23 +294,23 @@
                                 <v-form v-model="contact.valid" ref="form">
                                   <v-layout wrap>
                                     <v-flex xs12>
-                                      <v-text-field outline light label="Nombre*" v-model="contact.name"
-                                                    hint="Nombre y apellidos" color="#0db7cd" required
+                                      <v-text-field outline light :label="$t('home.modal_name')" v-model="contact.name"
+                                                    :hint="$t('home.modal_name')" color="#0db7cd" required
                                                     :rules="contact.rules.name"></v-text-field>
                                     </v-flex>
                                     <v-flex xs12 md6>
-                                      <v-text-field outline light label="Empresa" v-model="contact.company"
-                                                    hint="Empresa a la cual representas" color="#0db7cd"
+                                      <v-text-field outline light :label="$t('home.modal_company')" v-model="contact.company"
+                                                    :hint="$t('home.modal_company_hint')" color="#0db7cd"
                                                     required></v-text-field>
                                     </v-flex>
                                     <v-flex xs12 md6>
-                                      <v-text-field outline="" light label="Email*" required v-model="contact.email"
-                                                    hint="Dirección de correo electrónico" color="#0db7cd"
+                                      <v-text-field outline="" light :label="$t('home.modal_email')" required v-model="contact.email"
+                                                    :hint="$t('home.modal_email_hint')" color="#0db7cd"
                                                     :rules="contact.rules.email">
                                       </v-text-field>
                                     </v-flex>
                                     <v-flex xs12>
-                                      <v-textarea outline light label="Mensaje*" color="#0db7cd" v-model="contact.message"
+                                      <v-textarea outline light :label="$t('home.modal_message')" color="#0db7cd" v-model="contact.message"
                                                   required :rules="contact.rules.message"></v-textarea>
                                     </v-flex>
                                   </v-layout>
@@ -319,10 +319,10 @@
                               </v-container>
                             </v-card-text>
                             <v-card-actions>
-                              <small class="red--text">*Campo requerido</small>
+                              <small class="red--text">{{ $t('home.modal_asterisk') }}</small>
                               <v-spacer></v-spacer>
-                              <v-btn color="#0db7cd" dark round @click="submit_contact">Enviar</v-btn>
-                              <v-btn color="#0db7cd" dark round @click="show_contact_dialog = false">Cancelar</v-btn>
+                              <v-btn color="#0db7cd" dark round @click="submit_contact">{{ $t('home.modal_submit') }}</v-btn>
+                              <v-btn color="#0db7cd" dark round @click="show_contact_dialog = false">{{ $t('home.modal_cancel') }}</v-btn>
 
                             </v-card-actions>
                           </v-card>
@@ -361,7 +361,6 @@
       leaveActiveClass: 'fadeOut animated'
     },
 
-
     head: {
       title: 'Inicio'
     },
@@ -394,65 +393,14 @@
             ]
           }
         },
-        cards: [
-          {
-            icon: 'code',
-            title: 'Desarrollo Web',
-            text: 'Diseño y desarrollo de:',
-            list: ['Sitios Web', 'E-Commerce', 'Plataformas Innovadoras', 'Sistemas Empresariales']
-          },
-          {
-            icon: 'fas fa-mobile-alt',
-            title: 'Desarrollo Móvil',
-            text: 'Diseño y desarrollo de:',
-            list: ['Aplicaciones para iOS', 'Aplicaciones para Android', 'Aplicaciones Híbridas']
-          },
-          {
-            icon: 'fas fa-chart-line',
-            title: 'Marketing Digital',
-            text: 'Creación, desarrollo y ejecución de Estrategias de Marketing Digital utilizando:',
-            list: ['Inbound Marketing', 'Posicionamiento Web SEO/SEM', 'Campañas publicitarias', 'Social Media', 'Estrategia de contenidos']
-          },
-          {
-            icon: 'fas fa-briefcase',
-            title: 'Imagen Corporativa',
-            text: 'Desarrollamos la identidad de tu compañía a través de la creación de:',
-            list: ['Manual de Marca', 'Manual de Identidad Corporativa', 'Branding Corporativo']
-          },
-          {
-            icon: 'fas fa-chalkboard',
-            title: 'Consultoría',
-            text: 'Cursos y Capacitación en:',
-            list: ['Creación y Desarrollo de Negocios', 'Imagen Corporativa', 'Marketing Digital']
-          }
-        ],
-        projects: [
-          {
-            title: 'FUTHUB',
-            text: 'Plataforma que conecta jugadores entrenadores y clubes de fútbol profesional.',
-            src: require('@/assets/img/projects/FH.jpg')
-          },
-          {
-            title: 'PROMTEL',
-            text: 'Propuesta para Sitio Informativo del Organismo Promotor de Inversiones en Telecomunicaciones.',
-            src: require('@/assets/img/projects/PROMTEL.jpg')
-          },
-          {
-            title: 'AFER',
-            text: 'Sitio Informativo AFER PLOMERÍA ESPECIALIZADA empresa de la Cd. de Chihuahua.',
-            src: require('@/assets/img/projects/AFER.jpg')
-          },
-          {
-            title: 'QUINIELA RUSIA 2018',
-            text: 'Quiniela deportiva organizada para empleados de corporativos durante la Copa Mundial Rusia 2018. ',
-            src: require('@/assets/img/projects/QUINIELA.jpg')
-          },
-          {
-            title: 'GREEN PIT',
-            text: 'Máquinas francesas para descarbonizar por medio de hidrógeno el motor de los automóviles. ',
-            src: require('@/assets/img/projects/GREENPIT.jpg')
-          }
-        ],
+
+        project_imgs:[
+          require('@/assets/img/projects/FH.jpg'),
+          require('@/assets/img/projects/PROMTEL.jpg'),
+          require('@/assets/img/projects/AFER.jpg'),
+          require('@/assets/img/projects/QUINIELA.jpg'),
+          require('@/assets/img/projects/GREENPIT.jpg')
+    ],
 
         map: {
           center: { lat: 19.426495, lng: -99.170212 },
@@ -499,7 +447,7 @@
     },
 
     mounted() {
-      this.$store.commit('rename', 'Home')
+      this.$store.commit('rename', this.$t('pages.home'))
     },
     // BEGIN METHODS
     methods: {
@@ -542,7 +490,6 @@
       }
     }
     //  END METHODS
-
 
   }
 </script>

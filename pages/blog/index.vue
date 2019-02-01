@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-layout justify-center>
-      <h1 class="headline"> Blog de Phoenix </h1>
+      <h1 class="headline my-4"> {{ $t('blog.header') }} </h1>
 
     </v-layout>
 
@@ -40,7 +40,7 @@
               <v-icon medium>fab fa-facebook</v-icon>
             </v-btn>
             <v-spacer></v-spacer>
-            <v-btn flat class="blue--text" :to="'/blog/'+post.id">Leer más</v-btn>
+            <v-btn flat class="blue--text" :to="'/blog/'+post.id">{{ $t('blog.read_more') }}</v-btn>
           </v-card-actions>
         </v-card>
       </template>
@@ -123,7 +123,7 @@
     },
 
     mounted() {
-      this.$store.commit('rename', 'Blog')
+      this.$store.commit('rename', this.$t('pages.blog'))
       this.posts_load.forEach((post) => {
         this.posts.push(post)
       })

@@ -10,7 +10,7 @@
       <v-list>
         <v-list-tile
           v-for="(item, i) in items"
-          :to="item.to"
+          :to="localePath(item.to)"
           :key="i"
           router
           exact
@@ -19,7 +19,7 @@
             <v-icon v-html="item.icon"/>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title v-text="item.title"/>
+            <v-list-tile-title v-text="$t(item.title)"/>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
@@ -48,12 +48,25 @@
       <v-toolbar-items class="hidden-sm-and-down">
 
         <v-btn v-for="(item, i) in items"
-               :to="item.to"
+               :to="localePath(item.to)"
                :key="i"
                router
                exact
-               flat>{{item.title}}
+               flat>{{ $t(item.title) }}
         </v-btn>
+        <v-btn v-if="$i18n.locale !== 'en'"
+               :to="switchLocalePath('en')"
+               router
+               exact
+               flat>English
+        </v-btn>
+        <v-btn v-if="$i18n.locale !== 'es'"
+               :to="switchLocalePath('es')"
+               router
+               exact
+               flat>Español
+        </v-btn>
+
       </v-toolbar-items>
 
       <v-toolbar-side-icon @click="drawer = !drawer" class="hidden-md-and-up"/>
@@ -78,7 +91,7 @@
         tile
       >
         <v-card-title class="phoenix-blue px-5">
-          <strong class="subheading">¡Visítanos en nuestras redes sociales!</strong>
+          <strong class="subheading">{{ $t('footer.social_msg') }}</strong>
 
           <v-spacer></v-spacer>
 
@@ -115,11 +128,11 @@
       return {
         drawer: false,
         items: [
-          { icon: 'home', title: 'Home', to: '/' },
-          { icon: 'important_devices', title: 'Proyectos', to: '/projects' },
-          { icon: 'face', title: 'Sobre Nosotros', to: '/about' },
-          { icon: 'description', title: 'Blog', to: '/blog' },
-          { icon: 'store', title: 'Academy', to: '/academy' }
+          { icon: 'home', title: 'pages.home', to: 'index' },
+          { icon: 'important_devices', title: "pages.projects", to: 'projects' },
+          { icon: 'face', title: "pages.about_us", to: 'about' },
+          { icon: 'description', title: "pages.blog", to: 'blog' },
+          { icon: 'store', title: "pages.academy", to: 'academy' }
         ],
         social_icons: [
           {

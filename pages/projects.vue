@@ -96,7 +96,7 @@
     name: 'projects',
 
     mounted() {
-      this.$store.commit('rename', 'Proyectos')
+      this.$store.commit('rename', this.$t('pages.projects'))
     }
   }
 

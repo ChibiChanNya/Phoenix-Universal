@@ -24,6 +24,7 @@
     "express": "^4.16.3",
     "mailgun-js": "^0.22.0",
     "nuxt": "^2.0.0",
+    "nuxt-i18n": "^5.8.0",
     "validator": "^10.10.0",
     "vue-masonry-css": "^1.0.3",
     "vue-moment": "^4.0.0",
@@ -31,7 +32,7 @@
     "vue-typer": "^1.2.0",
     "vue2-google-maps": "^0.10.5",
     "vuetify": "^1.4.1",
-    "vuetify-dialog": "^0.1.11",
+    "vuetify-dialog": "^0.1.12",
     "xss-filters": "^1.2.7"
   },
   "devDependencies": {

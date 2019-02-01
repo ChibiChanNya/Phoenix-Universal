@@ -42,7 +42,7 @@ module.exports = {
       {
         hid: 'SchemaDescription',
         property: 'og:description',
-        content: 'Pho Consulting Services S. de R.L. de C.V. Agencia de desarrollo de páginas web, marketing digital e imagen coportativa.'
+        content: 'Agencia de desarrollo de páginas web, marketing digital e imagen corporativa.'
       },
       { hid: 'SchemaSITENAME', property: 'og:site_name', content: 'PHOENIX' },
       // FACEBOOK TAG

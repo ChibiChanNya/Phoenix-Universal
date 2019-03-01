@@ -18,7 +18,7 @@
       </v-container>
     </section>
 
-    <section id="about-parallax">
+    <section id="about-parallax" class="my-auto">
       <v-parallax :src="require('@/assets/img/plane.jpg')" height="250">
         <v-flex md10 class="mx-auto">
           <v-layout >
@@ -33,7 +33,7 @@
     </section>
 
 
-    <section id="about-text">
+    <section id="about-text" class="phoenix-blue py-3">
       <v-container>
         <v-flex md11 class="mx-auto">
           <v-layout class="text-xs-center" row wrap>
@@ -46,7 +46,7 @@
             </v-flex>
 
             <v-flex md5 offset-md2 xs12 >
-              <v-img class="mx-auto" contain :src="require('@/assets/img/logo-dark-v.png')" alt="Phoenix Development Logo"  height="250px"></v-img>
+              <v-img class="mx-auto" contain :src="require('@/assets/img/logo-dark-h.png')" alt="Phoenix Development Logo"  height="250px"></v-img>
             </v-flex>
           </v-layout>
         </v-flex>
@@ -56,7 +56,7 @@
     </section>
 
 
-    <section class="phoenix-blue py-3" style="border-bottom: 1px solid rgba(0,0,0,0.2);">
+    <section class=" py-3" style="border-bottom: 1px solid rgba(0,0,0,0.2);">
       <h1 class="headline text-xs-center my-3" >Nuestros Valores</h1>
       <v-container
         grid-list-xl

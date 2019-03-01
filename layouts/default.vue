@@ -141,10 +141,11 @@
 
         </v-card-title>
 
-        <v-card-actions class="grey darken-3 justify-center">
-          &copy;2019 — <strong>PHO Consulting Services Company S. de R.L. de C.V.</strong>
-          <v-spacer></v-spacer>
-          Aviso de Privacidad
+        <v-card-actions class="grey darken-3 justify-space-between">
+          <span>&copy;2019 — <strong>PHO Consulting Services Company S. de R.L. de C.V.</strong></span>
+          <v-btn depressed color="transparent" class="align-self-center elevator">Volver Arriba</v-btn>
+          <!--<v-spacer></v-spacer>-->
+          <nuxt-link to="privacy" class="white--text">Aviso de Privacidad </nuxt-link>
         </v-card-actions>
       </v-card>
     </v-footer>
@@ -188,10 +189,7 @@
 
     mounted(){
       let elevator = new Elevator({
-        element: document.querySelector('#nav_title'),
-        // mainAudio: 'http://tholman.com/elevator.js/music/elevator.mp3',
-        // endAudio: 'http://tholman.com/elevator.js/music/ding.mp3',
-
+        element: document.querySelector('.elevator'),
         mainAudio: '/mp3/elevator.mp3',
         endAudio: '/mp3//ding.mp3',
         volume: 0.1,

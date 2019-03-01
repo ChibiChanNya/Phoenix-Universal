@@ -66,12 +66,12 @@
               <v-card class=" pa-2" height="100%" v-vpshow="'flipInY'" hover>
                 <v-card-title primary-title class="layout ">
                   <v-icon x-large class="dev-text mr-4 ml-2">{{card.icon}}</v-icon>
-                  <span class="headline">{{$t(card.title)}}</span>
+                  <span class="headline">{{card.title}}</span>
                 </v-card-title>
                 <v-card-text>
-                  <p class="margin-b-5">{{$t(card.text)}}</p>
+                  <p class="margin-b-5">{{card.text}}</p>
                   <ul>
-                    <li v-for="item in card.list">{{$t(item)}}</li>
+                    <li v-for="item in card.list">{{item}}</li>
                   </ul>
                 </v-card-text>
               </v-card>

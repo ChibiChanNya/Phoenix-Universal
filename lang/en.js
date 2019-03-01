@@ -8,6 +8,7 @@ export default {
     about_us: 'About Us',
     blog: "Blog",
     academy: "Academy",
+    privacy: "Privacy Policy",
   },
   // Index page strings
   home:{

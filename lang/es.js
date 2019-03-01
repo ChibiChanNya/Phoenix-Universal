@@ -8,6 +8,8 @@ export default {
     about_us: 'Sobre Nosotros',
     blog: "Blog",
     academy: "Academy",
+    privacy: "Aviso de Privacidad",
+
   },
   // Index page strings
   home:{
@@ -103,6 +105,17 @@ export default {
     published: "Publicado",
     share: "Compartir"
   },
+
+  about:{
+    header: "Quienes Somos:",
+    p1:"Somos Phoenix Development, la agencia digital que tiene el objetivo de crear soluciones innovadoras basadas en tecnología para cada uno de nuestros clientes.",
+    p2:"Nuestros equipos de trabajo cuentan con consultores expertos en Desarrollo de Software, Marketing Digital, Creación de Marca (Branding), Negocios y Tecnologías de la Información egresados de las mejores universidades de México.",
+    p3:"Nuestros procesos y estrategias internas de trabajo nos permiten proponer soluciones que promuevan la transformación de los negocios de “tradicionales” a “digitales”.",
+    p4:"Phoenix Development nació para ser tu aliado tecnológico, para crear juntos un nuevo camino para alcanzar tus objetivos, para transformar tu negocio a través de nuevas herramientas tecnológicas y evolucionar la forma de atraer clientes a tu negocio.",
+
+
+
+  }
 
 
 

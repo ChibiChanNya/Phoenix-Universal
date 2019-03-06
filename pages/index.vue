@@ -554,7 +554,6 @@
   }
 
   #projects{
-    /*background: url("~assets/img/tech_bg.png");*/
   }
 
 </style>

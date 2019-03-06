@@ -19,34 +19,36 @@
     </section>
 
     <section id="about-parallax" class="my-auto">
-      <v-parallax :src="require('@/assets/img/plane.jpg')" height="250">
+      <v-parallax :src="require('@/assets/img/tech-business.jpg')" height="300" >
         <v-flex md10 class="mx-auto">
-          <v-layout >
-            <v-flex class="py-4 font-weight-bold" style="text-shadow: 1px 1px 1px rgba(0,0,0,0.5)"> <!--style="color:rgba(0,0,0,0.87)"> -->
+          <v-layout>
+            <v-flex class="py-4 font-weight-bold grey--text text--lighten-3" style="text-shadow: 1px 1px 5px rgba(0,0,0,0.8)">
+              <!--style="color:rgba(0,0,0,0.87)"> -->
               <p>{{$t('about.p2')}}</p>
               <p>{{$t('about.p3')}}</p>
+              <p class="">{{$t('about.p4')}}</p>
             </v-flex>
-
           </v-layout>
         </v-flex>
       </v-parallax>
     </section>
 
 
-    <section id="about-text" class="phoenix-blue py-3">
+    <section id="about-text" class="py-3 purple lighten-3">
       <v-container>
         <v-flex md11 class="mx-auto">
           <v-layout class="text-xs-center" row wrap>
-            <v-flex xs12 md5 >
-              <h1 class="headline my-3" >Misión</h1>
-              <h3 class="font-italic">"Crear desde cero, transformar tu negocio y evolucionar al ritmo de las nuevas tecnologías."</h3>
+            <v-flex xs12 md5 v-vpshow="'fadeInLeft'">
+              <h1 class="headline my-3">{{$t('about.mission')}}</h1>
+              <h3 class="font-italic">"{{$t('about.mission_text')}}"</h3>
 
-              <h1 class="headline mt-5 mb-3" >Visión</h1>
-              <h3 class="font-italic mb-3">"Convertir a nuestros clientes en aliados a través del impacto positivo de nuestros servicios en su negocio."</h3>
+              <h1 class="headline mt-5 mb-3">{{$t('about.vision')}}</h1>
+              <h3 class="font-italic mb-3">"{{$t('about.vision_text')}}"</h3>
             </v-flex>
 
-            <v-flex md5 offset-md2 xs12 >
-              <v-img class="mx-auto" contain :src="require('@/assets/img/logo-dark-h.png')" alt="Phoenix Development Logo"  height="250px"></v-img>
+            <v-flex md5 offset-md2 xs12 v-vpshow="'zoomIn'">
+              <v-img class="mx-auto" contain :src="require('@/assets/img/logo-dark-h.png')"
+                     alt="Phoenix Development Logo" height="250px"></v-img>
             </v-flex>
           </v-layout>
         </v-flex>
@@ -56,19 +58,19 @@
     </section>
 
 
-    <section class=" py-3" style="border-bottom: 1px solid rgba(0,0,0,0.2);">
-      <h1 class="headline text-xs-center my-3" >Nuestros Valores</h1>
+    <section class=" py-3" id="values" style="border-bottom: 1px solid rgba(0,0,0,0.2);">
+      <h1 class="headline text-xs-center my-3" v-vpshow="'fadeIn'">{{$t('about.values')}}</h1>
       <v-container
         grid-list-xl
       >
         <v-layout row wrap>
           <v-flex md3 xs12>
-            <v-card class=" pa-2" height="100%" v-vpshow="'fadeInRight'" color="cyan darken-2" elevation="2">
+            <v-card class="pa-2" height="100%" v-vpshow="'fadeInRight'" color="cyan darken-2" elevation="2">
               <v-card-title primary-title class="layout">
-                <span class=" mx-auto headline white--text">Felicidad</span>
+                <span class=" mx-auto headline white--text">{{$t('about.value_1.title')}}</span>
               </v-card-title>
               <v-card-text>
-                <p class="margin-b-5 white--text">Amamos lo que hacemos. Nos encanta apoyarte a transformar tu negocio.</p>
+                <p class="margin-b-5 white--text font-italic">{{$t('about.value_1.text')}}.</p>
               </v-card-text>
             </v-card>
           </v-flex>
@@ -76,11 +78,10 @@
           <v-flex md3 xs12>
             <v-card class=" pa-2" height="100%" v-vpshow="'fadeInUp'" color="purple" elevation="2">
               <v-card-title primary-title class="layout">
-                <span class="headline mx-auto white--text">Innovación</span>
+                <span class=" mx-auto headline white--text">{{$t('about.value_2.title')}}</span>
               </v-card-title>
               <v-card-text>
-                <p class="margin-b-5 white--text">Aprendemos todos los días para transformar el conocimiento en soluciones que aporten valor a tu negocio.
-                </p>
+                <p class="margin-b-5 white--text font-italic">{{$t('about.value_2.text')}}.</p>
               </v-card-text>
             </v-card>
           </v-flex>
@@ -88,11 +89,10 @@
           <v-flex md3 xs12>
             <v-card class=" pa-2" height="100%" v-vpshow="'fadeInUp'" color="blue-grey darken-2" elevation="2">
               <v-card-title primary-title class="layout">
-                <span class="headline mx-auto white--text">Impacto</span>
+                <span class=" mx-auto headline white--text">{{$t('about.value_3.title')}}</span>
               </v-card-title>
               <v-card-text>
-                <p class="margin-b-5 white--text">Nos enfocamos en resolver los problemas más importantes de tu negocio con soluciones de alto impacto.
-                </p>
+                <p class="margin-b-5 white--text font-italic">{{$t('about.value_3.text')}}.</p>
               </v-card-text>
             </v-card>
           </v-flex>
@@ -100,11 +100,10 @@
           <v-flex md3 xs12>
             <v-card class=" pa-2" height="100%" v-vpshow="'fadeInLeft'" color="red darken--2" elevation="2">
               <v-card-title primary-title class="layout">
-                <span class="headline mx-auto white--text">Instruir</span>
+                <span class=" mx-auto headline white--text">{{$t('about.value_4.title')}}</span>
               </v-card-title>
               <v-card-text>
-                <p class="margin-b-5 white--text ">Disfrutamos enseñarte cómo funciona el mundo tecnológico.
-                </p>
+                <p class="margin-b-5 white--text font-italic">{{$t('about.value_4.text')}}.</p>
               </v-card-text>
             </v-card>
           </v-flex>
@@ -113,8 +112,6 @@
       </v-container>
     </section>
   </div>
-
-
 
 
 </template>
@@ -196,7 +193,7 @@
       font-size: 2.25rem;
       text-align: center;
 
-      @media(min-width:768px){
+      @media(min-width: 768px) {
         font-size: 3.3rem;
       }
 
@@ -215,35 +212,50 @@
       white-space: nowrap;
     }
 
-    .left{
-      float:none !important;;
+    .left {
+      float: none !important;;
     }
 
 
+    #about-hero {
+      min-height: 420px;
 
-    #about-hero{
-      min-height:420px;
-
-      .headline.white--text{
-        opacity:0.7;
+      .headline.white--text {
+        opacity: 0.7;
       }
 
-      #typewriter{
-        line-height:1;
+      #typewriter {
+        line-height: 1;
       }
     }
 
-    #about-parallax{
-      p{
+    #about-parallax {
+      p {
         font-size: 1rem;
 
-        @media(min-width:768px){
+        @media(min-width: 768px) {
           font-size: 1.2rem;
         }
       }
 
     }
 
+    #values .v-card:hover {
+      box-shadow: 0px 6px 6px -3px rgba(0, 0, 0, 0.4), 0px 10px 14px 1px rgba(0, 0, 0, 0.3), 0px 4px 18px 3px rgba(0, 0, 0, 0.2) !important;
+      transition: box-shadow 0.2s ease-in-out;
+    }
+
+    #values .flex {
+      &:hover, &:focus {
+        transform: rotateZ(2deg);
+        transition: transform 0.5s;
+      }
+    }
+
+
+    .v-parallax__image{
+      filter: saturate(.5);
+    }
   }
 
 

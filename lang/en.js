@@ -6,37 +6,37 @@ export default {
     home: 'Home',
     projects: 'Projects',
     about_us: 'About Us',
-    blog: "Blog",
-    academy: "Academy",
-    privacy: "Privacy Policy",
+    blog: 'Blog',
+    academy: 'Academy',
+    privacy: 'Privacy Policy'
   },
   // Index page strings
-  home:{
-    create: "CREATE",
-    transform: "TRANSFORM",
-    evolve: "EVOLVE",
-    digital_agency: "Digital Agency in México",
-    know_us: "Get to know us",
-    services_title: "Our Services",
-    services_text: "In order develop projects that add value to our customer we focus our knowledge in understanding their needs and those of their clients by offering solutions in:",
-    promo_title: "Getting a professional level website has never been this easy!",
-    promo_text:"¡Start your project with us!",
-    promo_btn:"Request a quote",
-    projects_title: "Our Projects",
-    contact_title: "Get in touch",
-    contact_text: "Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.",
-    modal_btn: "Contact us",
-    modal_headline: "Send us a message if you have any questions or you want a quote",
-    modal_name:"Name*",
-    modal_name_hint:"First and last name",
-    modal_company:"Company",
-    modal_company_hint:"Company which you represent (optional)",
-    modal_email:"Email*",
-    modal_email_hint:"E-mail address",
-    modal_message:"Message*",
-    modal_asterisk:"* Required field",
-    modal_submit: "Send",
-    modal_cancel: "Cancel",
+  home: {
+    create: 'CREATE',
+    transform: 'TRANSFORM',
+    evolve: 'EVOLVE',
+    digital_agency: 'Digital Agency in México',
+    know_us: 'Get to know us',
+    services_title: 'Our Services',
+    services_text: 'In order develop projects that add value to our customer we focus our knowledge in understanding their needs and those of their clients by offering solutions in:',
+    promo_title: 'Getting a professional level website has never been this easy!',
+    promo_text: '¡Start your project with us!',
+    promo_btn: 'Request a quote',
+    projects_title: 'Our Projects',
+    contact_title: 'Get in touch',
+    contact_text: 'Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.',
+    modal_btn: 'Contact us',
+    modal_headline: 'Send us a message if you have any questions or you want a quote',
+    modal_name: 'Name*',
+    modal_name_hint: 'First and last name',
+    modal_company: 'Company',
+    modal_company_hint: 'Company which you represent (optional)',
+    modal_email: 'Email*',
+    modal_email_hint: 'E-mail address',
+    modal_message: 'Message*',
+    modal_asterisk: '* Required field',
+    modal_submit: 'Send',
+    modal_cancel: 'Cancel',
     cards: [
       {
         icon: 'code',
@@ -72,35 +72,64 @@ export default {
     projects: [
       {
         title: 'FUTHUB',
-        text: 'Platform that connects Professional Soccer players, coaches and clubs.',
+        text: 'Platform that connects Professional Soccer players, coaches and clubs.'
       },
       {
         title: 'PROMTEL',
-        text: 'Proposla for informative website for the Mexican Government\'s Telecom promotion organism',
+        text: 'Proposla for informative website for the Mexican Government\'s Telecom promotion organism'
       },
       {
         title: 'AFER',
-        text: 'Informative website for AFER PLOMERÍA ESPECIALIZADA, company in Chihuahua city.',
+        text: 'Informative website for AFER PLOMERÍA ESPECIALIZADA, company in Chihuahua city.'
       },
       {
         title: 'QUINIELA RUSIA 2018',
-        text: 'Russia 2018 FIFA World Cup Football pools web app for office workers.',
+        text: 'Russia 2018 FIFA World Cup Football pools web app for office workers.'
       },
       {
         title: 'GREEN PIT',
-        text: 'French Machines used for hydrogen decarbonization of car engines.',
+        text: 'French Machines used for hydrogen decarbonization of car engines.'
       }
-    ],
+    ]
   },
-  footer:{
-    social_msg: 'Check us out on social media!',
+  footer: {
+    social_msg: 'Check us out on social media!'
   },
-  blog:{
-    header:" Phoenix Development's Blog ",
-    read_more: "Read more",
-    by: "By",
-    category: "Category",
-    published: "Published",
-    share: "Share"
+  blog: {
+    header: ' Phoenix Development\'s Blog ',
+    read_more: 'Read more',
+    by: 'By',
+    category: 'Category',
+    published: 'Published',
+    share: 'Share'
   },
+
+  about: {
+    header: 'Who we are:',
+    p1: 'We are Phoenix Development, a digital agency created to offer customized tech-based solutions to each of our clients.',
+    p2: 'Our work teams employ expert consultants in Software Development, Digital Marketing, Brand Development, Business and IT from the best universities in México.',
+    p3: 'Our internal processes and strategies allow us to offer solutions that will transform any business from "traditional" to "digital".',
+    p4: 'Before offering any solution, our team of experts first studies your branding, business model and tools used in your operation.This analysis allows us to come up with a solution that adds value and has a positive effect on your specific business.',
+    mission: 'Mission',
+    mission_text: 'Develop from scratch, transform your business and evolve alongside new technologies.',
+    vision: 'Vision',
+    vision_text: 'Turn our clients into allies because of the positive impact generated by our work.',
+    values: 'Our Values',
+    value_1: {
+      title: 'Happiness',
+      text: 'We love what we do. Helping you transform your business is a pleasure.'
+    },
+    value_2: {
+      title: 'Innovation',
+      text: 'We learn every day so we can transform our knowledge into solutions for you.'
+    },
+    value_3: {
+      title: 'Impact',
+      text: 'We focus on the most important problems in your business and target them with high impact solutions.'
+    },
+    value_4: {
+      title: 'Teaching',
+      text: 'We enjoy teaching you how to transform your buisness.'
+    }
+  }
 }

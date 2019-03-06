@@ -111,8 +111,28 @@ export default {
     p1:"Somos Phoenix Development, la agencia digital que tiene el objetivo de crear soluciones innovadoras basadas en tecnología para cada uno de nuestros clientes.",
     p2:"Nuestros equipos de trabajo cuentan con consultores expertos en Desarrollo de Software, Marketing Digital, Creación de Marca (Branding), Negocios y Tecnologías de la Información egresados de las mejores universidades de México.",
     p3:"Nuestros procesos y estrategias internas de trabajo nos permiten proponer soluciones que promuevan la transformación de los negocios de “tradicionales” a “digitales”.",
-    p4:"Phoenix Development nació para ser tu aliado tecnológico, para crear juntos un nuevo camino para alcanzar tus objetivos, para transformar tu negocio a través de nuevas herramientas tecnológicas y evolucionar la forma de atraer clientes a tu negocio.",
-
+    p4:"Antes de proponer una solución para tu negocio, nuestro equipo de expertos se enfoca en realizar un análisis de tu marca, tu modelo de negocios y de las herramientas tecnológicas que utilizas en tu operación, gracias a este análisis podemos crear una solución integral que aporte valor y genere resultados positivos en tu empresa.",
+    mission: "Misión",
+    mission_text:"Crear desde cero, transformar tu negocio y evolucionar al ritmo de las nuevas tecnologías.",
+    vision: "Visión",
+    vision_text: "Convertir a nuestros clientes en aliados a través del impacto positivo de nuestros servicios en su negocio.",
+    values: "Nuestros Valores",
+    value_1:{
+      title: "Felicidad",
+      text: "Amamos lo que hacemos. Nos encanta apoyarte a transformar tu negocio.",
+    },
+    value_2:{
+      title: "Innovación",
+      text: "Aprendemos todos los días para transformar el conocimiento en soluciones que aporten valor a tu negocio.",
+    },
+    value_3:{
+      title: "Impacto",
+      text: "Nos enfocamos en resolver los problemas más importantes de tu negocio con soluciones de alto impacto.",
+    },
+    value_4:{
+      title: "Instruir",
+      text: "Disfrutamos enseñarte cómo funciona el mundo tecnológico.",
+    }
 
 
   }

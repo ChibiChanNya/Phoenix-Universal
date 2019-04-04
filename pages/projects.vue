@@ -26,14 +26,14 @@
             pa-2
             fill-height
           >
-            <v-flex >
-              <h2 class="client-name"> - Thulio.mx -</h2>
+            <v-flex v-vpshow="'bounceInDown'">
+              <h2 class="client-name" > - Thulio.mx -</h2>
             </v-flex>
             <v-flex>
               <!--<v-img :src="require('~/assets/img/projects/Thulio Logotm.png')" position="left" contain height="150px"-->
                      <!--alt="Thulio Logo" aspect-ratio="1"></v-img>-->
             </v-flex>
-            <v-flex md4>
+            <v-flex md4 v-vpshow="'bounceInUp'">
               <h1 class="white--text" style="text-shadow: 0 0 1px black;">Plataforma de E-commerce para venta de
                 accesorios de Marihuana</h1>
             </v-flex>
@@ -44,10 +44,10 @@
       </v-img>
       <v-container>
         <div class="text-xs-center mb-5">
-          <h1 class="site-title mb-2" style="font-weight:700">THULIO</h1>
-          <h2 class="site-subtitle mb-3 dev-text">Delivering Happiness</h2>
-          <v-flex md10 xs10 class="ma-auto text-xs-justify">
-              <p class="site-desc">
+          <h1 class="site-title mb-2" style="font-weight:700" v-vpshow="'fadeInUp'">THULIO</h1>
+          <h2 class="site-subtitle mb-3 dev-text" v-vpshow="'fadeInUp'">Delivering Happiness</h2>
+          <v-flex md10 xs10 class="ma-auto text-xs-justify" >
+              <p class="site-desc" v-vpshow="'fadeInUp'">
                 Una empresa mexicana comprometida con el consumo  educado y responsable del cannabis a través de la educación y tecnología.
               </p>
           </v-flex>
@@ -61,7 +61,7 @@
               <p class="site-desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Vivamus porttitor turpis ac leo. Integer lacinia. Nunc dapibus tortor vel mi dapibus sollicitudin. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam quis quam. Nulla non lectus sed nisl molestie malesuada.</p>
             </div>
             </v-flex>
-          <v-flex xs12 md6 class="grey lighten-3 pa-4">
+          <v-flex xs12 md6 class="grey lighten-3 pa-4" v-vpshow="'flipInY'">
             <v-img :src="require('~/assets/img/projects/Thulio-1.png')" height="800px">
 
             </v-img>

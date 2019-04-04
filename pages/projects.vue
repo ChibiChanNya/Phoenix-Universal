@@ -13,7 +13,7 @@
 
     <section>
 
-      <v-img :src="require('~/assets/img/projects/Thulio Full.png')"
+      <v-img :src="require('~/assets/img/projects/Thulio Splash.jpg')"
              alt="Thulio.mx Header"
              height="75vh"
              class="mb-3"
@@ -30,8 +30,8 @@
               <h2 class="client-name"> - Thulio.mx -</h2>
             </v-flex>
             <v-flex>
-              <v-img :src="require('~/assets/img/projects/Thulio-T.png')" position="left" contain height="150px"
-                     alt="Thulio Icon" aspect-ratio="1"></v-img>
+              <!--<v-img :src="require('~/assets/img/projects/Thulio Logotm.png')" position="left" contain height="150px"-->
+                     <!--alt="Thulio Logo" aspect-ratio="1"></v-img>-->
             </v-flex>
             <v-flex md4>
               <h1 class="white--text" style="text-shadow: 0 0 1px black;">Plataforma de E-commerce para venta de

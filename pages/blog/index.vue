@@ -2,7 +2,6 @@
   <v-container>
     <v-layout justify-center>
       <h1 class="headline my-4"> {{ $t('blog.header') }} </h1>
-
     </v-layout>
 
     <masonry
@@ -125,7 +124,11 @@
     mounted() {
       this.$store.commit('rename', this.$t('pages.blog'))
       this.posts_load.forEach((post) => {
-        this.posts.push(post)
+        if(post._embedded['wp:featuredmedia']){
+          this.posts.push(post);
+          console.log("GO");
+        }
+
       })
     }
 

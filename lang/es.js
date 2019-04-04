@@ -135,6 +135,10 @@ export default {
     }
 
 
+  },
+  projects:{
+    header:"Nuestros Proyectos",
+    subheader:"Te compartimos algunos de nuestros proyectos de los que estamos orgullosos."
   }
 
 

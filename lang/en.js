@@ -76,7 +76,7 @@ export default {
       },
       {
         title: 'PROMTEL',
-        text: 'Proposla for informative website for the Mexican Government\'s Telecom promotion organism'
+        text: 'Proposal for informative website for the Mexican Government\'s Telecom promotion organism.'
       },
       {
         title: 'AFER',

@@ -146,7 +146,7 @@
           { icon: 'important_devices', title: 'Proyectos', to: '/projects' },
           { icon: 'face', title: 'Sobre Nosotros', to: '/about' },
           { icon: 'description', title: 'Blog', to: '/blog' },
-          { icon: 'store', title: 'Academy', to: '/academy' }
+          { icon: 'group work', title: "pages.services", to: 'services-web-development' }
         ],
         social_icons: [
           {

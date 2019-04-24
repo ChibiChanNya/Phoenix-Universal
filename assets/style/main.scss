@@ -11,6 +11,10 @@ $dev-color: #0db7cd;
   font-weight:700;
 }
 
+.phoenix-text{
+  color: $phoenix-color;
+}
+
 .dev-text{
   color: $dev-color;
   font-weight: 600;
@@ -22,6 +26,10 @@ $dev-color: #0db7cd;
 
 .phoenix-blue{
   background-color: $dev-color;
+}
+
+.large-headline{
+  font-size: 2em;
 }
 
 .nav-gray{

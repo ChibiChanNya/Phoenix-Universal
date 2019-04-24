@@ -9,7 +9,8 @@ export default {
     blog: "Blog",
     academy: "Academy",
     privacy: "Aviso de Privacidad",
-
+    services: "Servicios",
+    web_development: "Desarrollo Web",
   },
   // Index page strings
   home:{

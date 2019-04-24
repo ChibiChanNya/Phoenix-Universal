@@ -1,22 +1,8 @@
-# phoenix
+# Phoenix Development MX Website
 
-> Phoenix Development NUXT website
-
-## Build Setup
-
-``` bash
-# install dependencies
-$ yarn install
-
-# serve with hot reload at localhost:3000
-$ yarn run dev
-
-# build for production and launch server
-$ yarn run build
-$ yarn start
-
-# generate static project
-$ yarn run generate
-```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+* WIP PWA Website for phoenixdevelopment.mx made in NuxtJS with Vuetify for design.
+* Fully responsive and SEO friendly, includes a blog feed taken from wordpress.
+* Available in English and Spanish
+* Heavy on animations and other fanciness, was a playground for learning them.
+* Waiting to add some sections before launching, coming soon!
+* Demo at https://phoenix-nuxt.herokuapp.com/ 

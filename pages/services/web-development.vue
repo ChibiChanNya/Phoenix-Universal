@@ -160,26 +160,26 @@
           <v-flex md6>
             <h2 class="headline mb-2">Plataformas Innovadoras</h2>
             <p>
-              Conéctate a tu audiencia con un robusto sistema de e-commerce para transformar tu negocio. Hacemos las ventas en línea fàciles al incorporar pagos, inventario y procesamiento de pedidos en un solo lugar.
-              Tus clientes disfrutarán de una experiencia de compra ideal y te va a encantar lo fácil que es administrar tu negocio en un sólo lugar.
+              ¿Tienes una idea en mente que hará que seas el próximo Mark Zuckerberg? Nosotros te ayudamos a materializarla y convertirla en realidad.
+              Ponemos cualquier proyecto que puedas imaginar al alcance de tus manos.
             </p>
             <ul style="list-style: none" class="flex align-center">
               <li>
                 <v-layout align-center>
                   <v-icon class="mr-1">check_circle</v-icon>
-                  Diseño de tienda personalizado
+                  Consultoría en modelo de negocios
                 </v-layout>
               </li>
               <li>
                 <v-layout align-center>
                   <v-icon class="mr-1">check_circle</v-icon>
-                  Manejo inventario y formas de pago
+                  Seguridad y mantenimiento de tu información
                 </v-layout>
               </li>
               <li>
                 <v-layout align-center>
                   <v-icon class="mr-1">check_circle</v-icon>
-                  Automatizar pedidos y envíos
+                  Integración con otras plataformas
                 </v-layout>
               </li>
             </ul>

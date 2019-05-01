@@ -10,7 +10,7 @@
       <v-list>
 
         <v-list-tile
-          :to="localePath('home')"
+          :to="localePath('')"
           router
           exact
         >
@@ -124,7 +124,7 @@
 
       <v-toolbar-items class="hidden-sm-and-down">
 
-        <v-menu open-on-hover bottom :nudge-bottom="50">
+        <v-menu open-on-hover bottom :nudge-bottom="50" transition="scale-transition">
           <template v-slot:activator="{ on }">
             <v-btn flat v-on="on">
               <span>{{ $t(dropdown.title) }}</span>
@@ -178,6 +178,8 @@
     <v-content>
       <nuxt/>
     </v-content>
+
+
 
     <!--FACEBOOK MESSENEGR-->
     <div class="fb-customerchat" page_id="691184954595484" logged_in_greeting=""></div>

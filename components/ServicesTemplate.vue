@@ -10,7 +10,7 @@
           class="phoenix-text"
           style="text-shadow: 1px 1px 1px black"
         >
-          <h1 class="large-headline">{{header.title}}</h1>
+          <h1 class="large-headline text-xs-center">{{header.title}}</h1>
 
           <div class="subheading my-3 text-xs-center white--text">
             {{header.text}}

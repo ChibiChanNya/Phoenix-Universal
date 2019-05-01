@@ -8,31 +8,107 @@
       app
     >
       <v-list>
+
         <v-list-tile
-          v-for="(item, i) in items"
-          :to="item.to"
-          :key="i"
+          :to="localePath('home')"
           router
           exact
         >
           <v-list-tile-action>
-            <v-icon v-html="item.icon"/>
+            <v-icon>home</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title v-text="item.title"/>
+            <v-list-tile-title v-text="$t('pages.home')"/>
           </v-list-tile-content>
         </v-list-tile>
+
+        <v-list-group
+          v-model="dropdown.active"
+          :prepend-icon="dropdown.icon"
+          no-action
+        >
+          <template v-slot:activator>
+            <v-list-tile>
+              <v-list-tile-content>
+                <v-list-tile-title>{{ $t(dropdown.title) }}</v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          </template>
+
+          <v-list-tile
+            v-for="subItem in dropdown.options"
+            :key="subItem.title"
+            :to="localePath(subItem.to)"
+            router
+            exact
+          >
+            <v-list-tile-action>
+              <v-icon>{{ subItem.icon }}</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>{{ $t(subItem.title) }}</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list-group>
+
+        <template v-for="(item, i) in items">
+
+          <v-list-tile
+            :to="localePath(item.to)"
+            :key="i"
+            router
+            exact
+          >
+            <v-list-tile-action>
+              <v-icon v-html="item.icon"/>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title v-text="$t(item.title)"/>
+            </v-list-tile-content>
+          </v-list-tile>
+        </template>
+
+
+        <!--Translate Buttons-->
+        <v-list-tile v-if="$i18n.locale !== 'en'"
+                     :to="switchLocalePath('en')"
+                     router
+                     exact>
+          <v-list-tile-action>
+            <v-icon>translate</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>
+              English
+            </v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+
+        <v-list-tile v-if="$i18n.locale !== 'es'"
+                     :to="switchLocalePath('es')"
+                     router
+                     exact>
+          <v-list-tile-action>
+            <v-icon>translate</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>
+              Español
+            </v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+
       </v-list>
     </v-navigation-drawer>
 
     <v-toolbar
-      clipped-left
-      :clipped-right="false"
+      :clipped-left="false"
       fixed
       app
     >
-      <nuxt-link to="/" class="flex mr-1">
-        <v-img :src="require('@/assets/img/logo-dark-h.png')" contain max-height="100%" min-width="80px" max-width="150px"/>
+      <nuxt-link to="/" class="flex">
+        <v-img :src="require('@/assets/img/logo-dark-h.png')" class="mr-3" contain max-height="100%" min-width="80px"
+               max-width="150px"/>
       </nuxt-link>
 
       <span id="nav_title" class="clickable">
@@ -48,13 +124,51 @@
 
       <v-toolbar-items class="hidden-sm-and-down">
 
+        <v-menu open-on-hover bottom :nudge-bottom="50">
+          <template v-slot:activator="{ on }">
+            <v-btn flat v-on="on">
+              <span>{{ $t(dropdown.title) }}</span>
+              <v-icon dark>arrow_drop_down</v-icon>
+            </v-btn>
+          </template>
+
+          <v-list>
+            <v-list-tile
+              v-for="(item, index) in dropdown.options"
+              :key="index"
+              router
+              exact
+              :to="localePath(item.to)"
+            >
+              <v-list-tile-title v-text="$t(item.title)"></v-list-tile-title>
+            </v-list-tile>
+          </v-list>
+        </v-menu>
+
         <v-btn v-for="(item, i) in items"
-               :to="item.to"
+               :to="localePath(item.to)"
                :key="i"
                router
                exact
-               flat>{{item.title}}
+               flat>{{ $t(item.title) }}
         </v-btn>
+
+
+        <v-btn v-if="$i18n.locale !== 'en'"
+               :to="switchLocalePath('en')"
+               router
+               exact
+               flat>English
+        </v-btn>
+
+        <v-btn v-if="$i18n.locale !== 'es'"
+               :to="switchLocalePath('es')"
+               router
+               exact
+               flat>Español
+        </v-btn>
+
+
       </v-toolbar-items>
 
       <v-toolbar-side-icon @click="drawer = !drawer" class="hidden-md-and-up"/>
@@ -96,7 +210,6 @@
     <v-footer
       dark
       height="auto"
-      style="z-index:4"
     >
       <v-card
         class="flex"
@@ -104,7 +217,7 @@
         tile
       >
         <v-card-title class="phoenix-blue px-5">
-          <strong class="subheading">¡Visítanos en nuestras redes sociales!</strong>
+          <strong class="subheading">{{ $t('footer.social_msg') }}</strong>
 
           <v-spacer></v-spacer>
 
@@ -124,8 +237,11 @@
 
         </v-card-title>
 
-        <v-card-actions class="grey darken-3 justify-center">
-          &copy;2018 — <strong> Pho Consulting Services S. de R.L. de C.V.</strong>
+        <v-card-actions class="grey darken-3 justify-space-between">
+          <span>&copy;2019 — <strong>PHO Consulting Services Company S. de R.L. de C.V.</strong></span>
+          <v-btn depressed color="transparent" class="align-self-center elevator">Volver Arriba</v-btn>
+          <!--<v-spacer></v-spacer>-->
+          <nuxt-link to="privacy" class="white--text">Aviso de Privacidad</nuxt-link>
         </v-card-actions>
       </v-card>
     </v-footer>
@@ -139,15 +255,22 @@
 
     data() {
       return {
-        blog_drawer: null,
+        recent_posts: [],
+        blog_drawer: true,
         drawer: false,
         items: [
-          { icon: 'home', title: 'Home', to: '/' },
-          { icon: 'important_devices', title: 'Proyectos', to: '/projects' },
-          { icon: 'face', title: 'Sobre Nosotros', to: '/about' },
-          { icon: 'description', title: 'Blog', to: '/blog' },
-          { icon: 'group work', title: "pages.services", to: 'services-web-development' }
+          { icon: 'important_devices', title: 'pages.projects', to: 'projects' },
+          { icon: 'face', title: 'pages.about_us', to: 'about' },
+          { icon: 'description', title: 'pages.blog', to: 'blog' }
+
         ],
+        dropdown: {
+          icon: 'work', title: 'pages.services', active: false,
+          options: [
+            { title: 'pages.web_development', to: 'services-web-development', icon: 'web' },
+            { title: 'pages.mobile_development', to: 'services-web-dev', icon: 'smartphone' }
+          ]
+        },
         social_icons: [
           {
             type: 'Facebook',
@@ -159,9 +282,7 @@
             icon: 'fab fa-instagram',
             url: 'https://www.instagram.com/phoenixdevelopmentcompany/?hl=es-la'
           }
-        ],
-
-        recent_posts:[],
+        ]
       }
     },
     computed: {
@@ -170,23 +291,21 @@
       }
     },
 
-   async mounted(){
-      // Setup Elevator
+    async mounted() {
       let elevator = new Elevator({
-        element: document.querySelector('#nav_title'),
-        // mainAudio: 'http://tholman.com/elevator.js/music/elevator.mp3',
-        // endAudio 'http://tholman.com/elevator.js/music/ding.mp3',
+        element: document.querySelector('.elevator'),
         mainAudio: '/mp3/elevator.mp3',
         endAudio: '/mp3//ding.mp3',
-        volume: 0.1,
+        volume: 0.1
+
       });
-    //  Fill sidebar
-    //  get posts
+
+      //  Fill sidebar
+      //  get posts
       let url = `https://wp.phoenixdevelopment.mx/wp-json/wp/v2/posts?_embed&per_page=5&page=1`;
       let data = await this.$axios.get(url);
       this.recent_posts = data.data;
     },
-
 
 
   }
@@ -198,10 +317,6 @@
     position: absolute;
     right: 20px;
     bottom: 20px;
-  }
-
-  #blog-sidebar .v-subheader{
-    font-size: 20px;
   }
 
 

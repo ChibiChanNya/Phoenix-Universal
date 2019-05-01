@@ -15,8 +15,8 @@
 
     transition: {
       name: 'flip',
-      enterActiveClass: 'animated flipInX',
-      leaveActiveClass: 'animated flipOutX'
+      enterActiveClass: 'animated slideInUp',
+      leaveActiveClass: 'animated slideOutDown'
     },
 
     components:

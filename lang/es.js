@@ -45,31 +45,36 @@ export default {
         icon: 'code',
         title: 'Desarrollo Web',
         text: 'Diseño y desarrollo de:',
-        list: ['Sitios Web', 'E-Commerce', 'Plataformas Innovadoras', 'Sistemas Empresariales']
+        list: ['Sitios Web', 'E-Commerce', 'Plataformas Innovadoras', 'Sistemas Empresariales'],
+        to: 'services-web-dev'
       },
       {
         icon: 'fas fa-mobile-alt',
         title: 'Desarrollo Móvil',
         text: 'Diseño y desarrollo de:',
-        list: ['Aplicaciones para iOS', 'Aplicaciones para Android', 'Aplicaciones Híbridas']
+        list: ['Aplicaciones para iOS', 'Aplicaciones para Android', 'Aplicaciones Híbridas'],
+        to: 'services-web-dev'
       },
       {
         icon: 'fas fa-chart-line',
         title: 'Marketing Digital',
         text: 'Creación, desarrollo y ejecución de Estrategias de Marketing Digital utilizando:',
-        list: ['Inbound Marketing', 'Posicionamiento Web SEO/SEM', 'Campañas publicitarias', 'Social Media', 'Estrategia de contenidos']
+        list: ['Inbound Marketing', 'Posicionamiento Web SEO/SEM', 'Campañas publicitarias', 'Social Media', 'Estrategia de contenidos'],
+        to: 'services-web-dev'
       },
       {
         icon: 'fas fa-briefcase',
         title: 'Imagen Corporativa',
         text: 'Desarrollamos la identidad de tu compañía a través de la creación de:',
-        list: ['Manual de Marca', 'Manual de Identidad Corporativa', 'Branding Corporativo']
+        list: ['Manual de Marca', 'Manual de Identidad Corporativa', 'Branding Corporativo'],
+        to: 'services-web-dev'
       },
       {
         icon: 'fas fa-chalkboard',
         title: 'Consultoría',
         text: 'Cursos y Capacitación en:',
-        list: ['Creación y Desarrollo de Negocios', 'Imagen Corporativa', 'Marketing Digital']
+        list: ['Creación y Desarrollo de Negocios', 'Imagen Corporativa', 'Marketing Digital'],
+        to: 'services-web-dev'
       }
     ],
     projects: [

@@ -11,6 +11,7 @@ export default {
     privacy: 'Privacy Policy',
     services: "Services",
     web_development: "Web Development",
+    mobile_development: "Mobile Development"
   },
   // Index page strings
   home: {
@@ -44,31 +45,36 @@ export default {
         icon: 'code',
         title: 'Web Development',
         text: 'Design and development of:',
-        list: ['Websites', 'E-Commerce', 'Innovative Platforms', 'Enterprise Systems']
+        list: ['Websites', 'E-Commerce', 'Innovative Platforms', 'Enterprise Systems'],
+        to: 'services-web-dev'
       },
       {
         icon: 'fas fa-mobile-alt',
         title: 'Mobile Development',
         text: 'Design and development of:',
-        list: ['iOS Apps', 'Android Apps', 'Hybrid Apps']
+        list: ['iOS Apps', 'Android Apps', 'Hybrid Apps'],
+        to: 'services-web-dev'
       },
       {
         icon: 'fas fa-chart-line',
         title: 'Digital Marketing',
         text: 'Creation, development and execution of Digital Marketing Strategies using:',
-        list: ['Inbound Marketing', 'SEO/SEM Web Placement', 'Publicity campaigns', 'Social Media', 'Content stratgy']
+        list: ['Inbound Marketing', 'SEO/SEM Web Placement', 'Publicity campaigns', 'Social Media', 'Content stratgy'],
+        to: 'services-web-dev'
       },
       {
         icon: 'fas fa-briefcase',
         title: 'Corporate Image',
         text: 'We develop your company\'s identit through the creation of:',
-        list: ['Brand Style', 'Corporate Identity manual', 'Corporate Branding']
+        list: ['Brand Style', 'Corporate Identity manual', 'Corporate Branding'],
+        to: 'services-web-dev'
       },
       {
         icon: 'fas fa-chalkboard',
         title: 'Consulting',
         text: 'Courses and Training on:',
-        list: ['Business Creation & Development', 'Corporate Identity', 'Digital Marketing']
+        list: ['Business Creation & Development', 'Corporate Identity', 'Digital Marketing'],
+        to: 'services-web-dev'
       }
     ],
     projects: [

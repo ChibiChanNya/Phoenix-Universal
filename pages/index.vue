@@ -63,7 +63,7 @@
               :key="card.title"
               md4 xs12
             >
-              <v-card class=" pa-2" height="100%" v-vpshow="'flipInY'" hover>
+              <v-card class=" pa-2" height="100%" v-vpshow="'flipInY'" hover router exact :to="localePath(card.to)">
                 <v-card-title primary-title class="layout ">
                   <v-icon x-large class="dev-text mr-4 ml-2">{{card.icon}}</v-icon>
                   <span class="headline">{{card.title}}</span>

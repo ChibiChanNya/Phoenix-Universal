@@ -13,15 +13,16 @@
           <h1 class="large-headline">Diseño y Desarrollo profesional de Páginas y Aplicaciones Web</h1>
 
           <div class="subheading my-3 text-xs-center white--text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas imperdiet arcu sit amet volutpat tincidunt.
+            Nuestros equipos de desarrollo están formados por integrantes expertos en diseño, experiencia de usuario,
+            programación y administración de proyectos.
           </div>
 
           <v-btn
-                 class="phoenix-blue mt-5"
-                 dark
-                 large
-                 color="#0db7cd"
-                 href="#"
+            class="phoenix-blue mt-5"
+            dark
+            large
+            color="#0db7cd"
+            href="#"
           >
             Solicita una cotización
           </v-btn>
@@ -33,64 +34,160 @@
     <section id="responsive-design">
       <v-container md8>
         <v-layout row align-center justify-space-around>
-          <v-flex md5>
-            <h2 class="headline mb-2" >Diseño Responsivo</h2>
+          <v-flex md6>
+            <h2 class="headline mb-2">Diseño Responsivo</h2>
             <p>
-              Over 50 percent of web users search from their phones. If your website lacks a responsive design, it won’t display well on phones. You’ll lose sales and leads when users have to pinch and zoom. With our responsive web design services, you get a polished design so you can maximize conversions.
+              Más del 50 por ciento de los usuarios de la web realizan búsquedas desde sus teléfonos. Si su sitio web
+              carece de un diseño responsivo, no se mostrará bien en los teléfonos y perderá ventas y clientes
+              potenciales, por cada usuario que tenga que pellizcar y hacer zoom. Con nuestros servicios de diseño web
+              responsivo, obten un diseño pulido para que pueda maximizar las conversiones.
             </p>
             <ul style="list-style: none" class="flex align-center">
               <li>
                 <v-layout align-center>
-                  <v-icon class="mr-1">check_circle</v-icon> Professional Display on any Screen
+                  <v-icon class="mr-1">check_circle</v-icon>
+                  Vista profesional para cada resolución
                 </v-layout>
               </li>
               <li>
                 <v-layout align-center>
-                  <v-icon class="mr-1">check_circle</v-icon> Professional Display on any Screen
+                  <v-icon class="mr-1">check_circle</v-icon>
+                  Exponte a una mayor audiencia
                 </v-layout>
               </li>
               <li>
                 <v-layout align-center>
-                  <v-icon class="mr-1">check_circle</v-icon> Improved Search Rankings
+                  <v-icon class="mr-1">check_circle</v-icon>
+                  Mejora posicionamiento en motores de búsqueda
                 </v-layout>
-              </li>            </ul>
+              </li>
+            </ul>
           </v-flex>
           <v-spacer></v-spacer>
           <v-flex md5>
-            <v-img src="https://www.smart-contech.com/wp-content/uploads/2016/08/web-design.png" contain height="300px"></v-img>
+            <v-img src="https://image.flaticon.com/icons/png/512/65/65381.png" contain
+                   height="250px"></v-img>
           </v-flex>
         </v-layout>
       </v-container>
     </section>
 
-    <section id="e-commerce" class="white">
+    <section id="seo" class="white">
       <v-container md8>
         <v-layout row align-center justify-space-around reverse>
-          <v-flex md5>
-            <h2 class="headline mb-2" >E-commerce</h2>
+          <v-flex md6>
+            <h2 class="headline mb-2">SEO (Search Engine Optimization)</h2>
             <p>
-              Over 50 percent of web users search from their phones. If your website lacks a responsive design, it won’t display well on phones. You’ll lose sales and leads when users have to pinch and zoom. With our responsive web design services, you get a polished design so you can maximize conversions.
+              SEO (Search Engine Optimization) es la tecnología que integramos a nuestro código y diseño para crear
+              páginas web de alto impacto en buscadores como Google. La integración de SEO en tu página web es
+              fundamental para poder aparecer en los primeros lugares de búsqueda.
+              La mayor parte de los usuarios solo revisan los primeros 3 resultados asi que es fundamental encontrarse
+              en ellos para tus palabras clave.
+
             </p>
             <ul style="list-style: none" class="flex align-center">
               <li>
                 <v-layout align-center>
-                  <v-icon class="mr-1">check_circle</v-icon> Professional Display on any Screen
+                  <v-icon class="mr-1">check_circle</v-icon>
+                  Análisis de palabras clave
                 </v-layout>
               </li>
               <li>
                 <v-layout align-center>
-                  <v-icon class="mr-1">check_circle</v-icon> Professional Display on any Screen
+                  <v-icon class="mr-1">check_circle</v-icon>
+                  Optimización de velocidad de carga
                 </v-layout>
               </li>
               <li>
                 <v-layout align-center>
-                  <v-icon class="mr-1">check_circle</v-icon> Improved Search Rankings
+                  <v-icon class="mr-1">check_circle</v-icon>
+                  Contenido enriquecido para motores de búsqueda
                 </v-layout>
-              </li>            </ul>
+              </li>
+            </ul>
           </v-flex>
           <v-spacer></v-spacer>
           <v-flex md5>
-            <v-img src="https://www.smart-contech.com/wp-content/uploads/2016/08/web-design.png" contain height="300px"></v-img>
+            <v-img src="https://image.flaticon.com/icons/svg/34/34200.svg" contain
+                   height="250px"></v-img>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </section>
+
+    <section id="e-commerce" class="blue lighten-2">
+      <v-container md8>
+        <v-layout row align-center justify-space-around>
+          <v-flex md6>
+            <h2 class="headline mb-2">E-Commerce</h2>
+            <p>
+              Conéctate a tu audiencia con un robusto sistema de e-commerce para transformar tu negocio. Hacemos las ventas en línea fàciles al incorporar pagos, inventario y procesamiento de pedidos en un solo lugar.
+              Tus clientes disfrutarán de una experiencia de compra ideal y te va a encantar lo fácil que es administrar tu negocio en un sólo lugar.
+            </p>
+            <ul style="list-style: none" class="flex align-center">
+              <li>
+                <v-layout align-center>
+                  <v-icon class="mr-1">check_circle</v-icon>
+                  Diseño de tienda personalizado
+                </v-layout>
+              </li>
+              <li>
+                <v-layout align-center>
+                  <v-icon class="mr-1">check_circle</v-icon>
+                  Manejo inventario y formas de pago
+                </v-layout>
+              </li>
+              <li>
+                <v-layout align-center>
+                  <v-icon class="mr-1">check_circle</v-icon>
+                  Automatizar pedidos y envíos
+                </v-layout>
+              </li>
+            </ul>
+          </v-flex>
+          <v-spacer></v-spacer>
+          <v-flex md5>
+            <v-img src="https://www.shareicon.net/download/2015/12/11/685818_global.svg" contain
+                   height="250px"></v-img>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </section>
+
+    <section id="killer-apps" class="teal lighten-4">
+      <v-container md8>
+        <v-layout row align-center justify-space-around reverse>
+          <v-flex md6>
+            <h2 class="headline mb-2">Plataformas Innovadoras</h2>
+            <p>
+              Conéctate a tu audiencia con un robusto sistema de e-commerce para transformar tu negocio. Hacemos las ventas en línea fàciles al incorporar pagos, inventario y procesamiento de pedidos en un solo lugar.
+              Tus clientes disfrutarán de una experiencia de compra ideal y te va a encantar lo fácil que es administrar tu negocio en un sólo lugar.
+            </p>
+            <ul style="list-style: none" class="flex align-center">
+              <li>
+                <v-layout align-center>
+                  <v-icon class="mr-1">check_circle</v-icon>
+                  Diseño de tienda personalizado
+                </v-layout>
+              </li>
+              <li>
+                <v-layout align-center>
+                  <v-icon class="mr-1">check_circle</v-icon>
+                  Manejo inventario y formas de pago
+                </v-layout>
+              </li>
+              <li>
+                <v-layout align-center>
+                  <v-icon class="mr-1">check_circle</v-icon>
+                  Automatizar pedidos y envíos
+                </v-layout>
+              </li>
+            </ul>
+          </v-flex>
+          <v-spacer></v-spacer>
+          <v-flex md5>
+            <v-img src="https://image.flaticon.com/icons/png/512/69/69045.png" contain
+                   height="250px"></v-img>
           </v-flex>
         </v-layout>
       </v-container>
@@ -129,9 +226,7 @@
       this.$store.commit('rename', this.$t('pages.web_development'))
     },
 
-    methods: {
-
-    },
+    methods: {}
 
   }
 
@@ -139,7 +234,6 @@
 </script>
 
 <style lang="scss">
-
 
 
 </style>

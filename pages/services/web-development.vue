@@ -33,7 +33,7 @@
 
     <section id="responsive-design">
       <v-container md8>
-        <v-layout row align-center justify-space-around>
+        <v-layout row align-center justify-space-around wrap>
           <v-flex md6>
             <h2 class="headline mb-2">Diseño Responsivo</h2>
             <p>
@@ -63,7 +63,6 @@
               </li>
             </ul>
           </v-flex>
-          <v-spacer></v-spacer>
           <v-flex md5>
             <v-img src="https://image.flaticon.com/icons/png/512/65/65381.png" contain
                    height="250px"></v-img>
@@ -179,7 +178,7 @@
               <li>
                 <v-layout align-center>
                   <v-icon class="mr-1">check_circle</v-icon>
-                  Integración con otras plataformas
+                  Integración con otras plataformas o apps
                 </v-layout>
               </li>
             </ul>

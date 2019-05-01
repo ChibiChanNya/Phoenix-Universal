@@ -11,6 +11,7 @@ export default {
     privacy: "Aviso de Privacidad",
     services: "Servicios",
     web_development: "Desarrollo Web",
+    mobile_development: "Desarrollo Móvil"
   },
   // Index page strings
   home:{

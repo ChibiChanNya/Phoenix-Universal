@@ -9,9 +9,11 @@ export default {
     blog: 'Blog',
     academy: 'Academy',
     privacy: 'Privacy Policy',
-    services: "Services",
-    web_development: "Web Development",
-    mobile_development: "Mobile Development"
+    services: 'Services',
+    web_development: 'Web Development',
+    mobile_development: 'Mobile Development',
+    company_image: "Company Image",
+    online_marketing: "Online Marketing",
   },
   // Index page strings
   home: {
@@ -139,5 +141,31 @@ export default {
       title: 'Teaching',
       text: 'We enjoy teaching you how to transform your buisness.'
     }
-  }
+  },
+
+  services: {
+
+    online_marketing:{
+      header: {
+        title: '',
+        text: ''
+      },
+      sections: [
+        {
+          title: '',
+          text: '',
+          bullets: [
+            '',
+            '',
+            ''
+          ]
+        },
+      ]
+
+    },
+
+    },
+
+
+
 }

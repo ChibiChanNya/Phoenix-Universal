@@ -243,8 +243,10 @@
         dropdown: {
           icon: 'work', title: 'pages.services', active: false,
           options: [
-            { title: 'pages.web_development', to: 'services-web-development', icon: 'web' },
-            { title: 'pages.mobile_development', to: 'services-web-dev', icon: 'smartphone' }
+            { title: 'pages.web_development', to: 'services-web-dev', icon: 'web' },
+            { title: 'pages.mobile_development', to: 'services-mobile-dev', icon: 'smartphone' },
+            { title: 'pages.online_marketing', to: 'services-online-marketing', icon: 'share' },
+            { title: 'pages.company_image', to: 'services-company-image', icon: 'portrait' },
           ]
         },
         social_icons: [

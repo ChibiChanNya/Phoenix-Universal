@@ -31,43 +31,38 @@
     data() {
       return {
         header:{
-          title: "Diseño y Desarrollo profesional de Páginas y Aplicaciones Web",
+          title: this.$t('services.web_development.header.title'),
           banner: require('@/assets/img/services/web_dev_banner.jpeg'),
-          text: "Nuestros equipos de desarrollo están formados por integrantes expertos en diseño, experiencia de usuario, programación y administración de proyectos."
+          text: this.$t('services.web_development.header.text'),
         },
         sections: [
           {
-            title:"Diseño Responsivo",
-            color:"blue lighten-3",
-            text:"Más del 50 por ciento de los usuarios de la web realizan búsquedas desde sus teléfonos. Si su sitio web carece de un diseño responsivo, no se mostrará bien en los teléfonos y perderá ventas y clientes potenciales, por cada usuario que tenga que pellizcar y hacer zoom. Con nuestros servicios de diseño web responsivo, obten un diseño pulido para que pueda maximizar las conversiones.",
-            image: "https://image.flaticon.com/icons/png/512/65/65381.png",
-            bullets:[
-              "Vista profesional para cada resolución",
-              "Exponte a una mayor audiencia",
-              "Mejora posicionamiento en motores de búsqueda",
-            ],
-          },
-          {
-            title:"Diseño Responsivo",
-            color:"white",
-            text:"Más del 50 por ciento de los usuarios de la web realizan búsquedas desde sus teléfonos. Si su sitio web carece de un diseño responsivo, no se mostrará bien en los teléfonos y perderá ventas y clientes potenciales, por cada usuario que tenga que pellizcar y hacer zoom. Con nuestros servicios de diseño web responsivo, obten un diseño pulido para que pueda maximizar las conversiones.",
-            image: "https://image.flaticon.com/icons/png/512/65/65381.png",
-            bullets:[
-              "Vista profesional para cada resolución",
-              "Exponte a una mayor audiencia",
-              "Mejora posicionamiento en motores de búsqueda",
-            ],
-          },
-          {
-            title:"Diseño Responsivo",
+            title: this.$t('services.web_development.sections[0].title'),
+            text: this.$t('services.web_development.sections[0].text'),
+            bullets: this.$t('services.web_development.sections[0].bullets'),
             color:"",
-            text:"Más del 50 por ciento de los usuarios de la web realizan búsquedas desde sus teléfonos. Si su sitio web carece de un diseño responsivo, no se mostrará bien en los teléfonos y perderá ventas y clientes potenciales, por cada usuario que tenga que pellizcar y hacer zoom. Con nuestros servicios de diseño web responsivo, obten un diseño pulido para que pueda maximizar las conversiones.",
             image: "https://image.flaticon.com/icons/png/512/65/65381.png",
-            bullets:[
-              "Vista profesional para cada resolución",
-              "Exponte a una mayor audiencia",
-              "Mejora posicionamiento en motores de búsqueda",
-            ],
+          },
+          {
+            title:this.$t('services.web_development.sections[1].title'),
+            text: this.$t('services.web_development.sections[1].text'),
+            bullets: this.$t('services.web_development.sections[1].bullets'),
+            color:"white",
+            image: "https://image.flaticon.com/icons/svg/34/34200.svg",
+          },
+          {
+            title:this.$t('services.web_development.sections[2].title'),
+            text: this.$t('services.web_development.sections[2].text'),
+            bullets: this.$t('services.web_development.sections[2].bullets'),
+            color:"blue lighten-3",
+            image: "https://www.shareicon.net/download/2015/12/11/685818_global.svg",
+          },
+          {
+            title:this.$t('services.web_development.sections[3].title'),
+            text: this.$t('services.web_development.sections[3].text'),
+            bullets: this.$t('services.web_development.sections[3].bullets'),
+            color:"teal lighten-4",
+            image: "https://image.flaticon.com/icons/png/512/69/69045.png",
           }
         ],
       }

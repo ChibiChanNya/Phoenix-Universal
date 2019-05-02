@@ -159,8 +159,7 @@
           <v-flex md6>
             <h2 class="headline mb-2">Plataformas Innovadoras</h2>
             <p>
-              ¿Tienes una idea en mente que hará que seas el próximo Mark Zuckerberg? Nosotros te ayudamos a materializarla y convertirla en realidad.
-              Ponemos cualquier proyecto que puedas imaginar al alcance de tus manos.
+              ¿Tienes una idea en mente que hará que seas el próximo Mark Zuckerberg? Nosotros te ayudamos a materializarla y convertirla en realidad. Ponemos cualquier proyecto que puedas imaginar al alcance de tus manos.
             </p>
             <ul style="list-style: none" class="flex align-center">
               <li>

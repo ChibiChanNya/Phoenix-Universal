@@ -32,7 +32,7 @@
       return {
         header:{
           title: this.$t('services.mobile_development.header.title'),
-          banner: require('@/assets/img/services/web_dev_banner.jpeg'),
+          banner: 'http://media1.santabanta.com/full1/Miscellaneous/Technology/technology-82a.jpg',
           text: this.$t('services.mobile_development.header.text'),
         },
         sections: [
@@ -41,21 +41,21 @@
             text: this.$t('services.mobile_development.sections[0].text'),
             bullets: this.$t('services.mobile_development.sections[0].bullets'),
             color:"",
-            image: "https://image.flaticon.com/icons/png/512/65/65381.png",
+            image: "https://www.suportegratuito.com.br/wp-content/uploads/2017/06/original.png",
           },
           {
             title:this.$t('services.mobile_development.sections[1].title'),
             text: this.$t('services.mobile_development.sections[1].text'),
             bullets: this.$t('services.mobile_development.sections[1].bullets'),
             color:"white",
-            image: "https://image.flaticon.com/icons/svg/34/34200.svg",
+            image: "https://desafiolatam.com/assets/ui-dd9c63426b948676e0094ec323330e2d9e815ca64f048da29c2af13cc5df53b2.png",
           },
           {
             title:this.$t('services.mobile_development.sections[2].title'),
             text: this.$t('services.mobile_development.sections[2].text'),
             bullets: this.$t('services.mobile_development.sections[2].bullets'),
             color:"blue lighten-3",
-            image: "https://www.shareicon.net/download/2015/12/11/685818_global.svg",
+            image: "http://www.iconarchive.com/download/i75813/martz90/circle/camera.ico",
           },
         ],
       }

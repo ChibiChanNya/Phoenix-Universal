@@ -16,22 +16,27 @@
             {{header.text}}
           </div>
 
-          <v-btn
-            class="phoenix-blue mt-5"
-            dark
-            large
-            color="#0db7cd"
-            href="#"
-          >
-            Solicita una cotización
-          </v-btn>
-
+          <!-- FIXED BOTTOM RIGHT DIALOG BUTTON + POPUP -->
+          <contact-form>
+            <v-btn
+              slot="popup"
+              class="phoenix-blue mt-5"
+              dark
+              large
+              color="#0db7cd"
+              href="#"
+            >
+              {{$t('services.btn_text')}}
+            </v-btn>
+          </contact-form>
+          <!-- END FIXED DIALOG BUTTON-->
         </v-layout>
       </v-parallax>
     </section>
 
 
-    <section v-for="(section, index) in sections" class="services-section" :class="section.color">
+    <section v-for="(section, index) in sections" class="services-section"
+             :class="section.color" v-vpshow="'bounceInUp'">
       <v-container xs12 md8>
         <v-layout row align-center justify-space-around :class="{reverse: index%2 === 0}" wrap>
           <v-flex md6>
@@ -62,9 +67,15 @@
 
 <script>
 
+  import Contact from '@/components/Contact.vue'
+
   export default {
 
     props: ['header', 'sections'],
+
+    components: {
+      'contact-form': Contact
+    }
 
   }
 

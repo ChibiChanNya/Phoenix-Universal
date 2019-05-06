@@ -14,9 +14,9 @@
   export default {
 
     transition: {
-      name: 'flip',
-      enterActiveClass: 'animated slideInUp',
-      leaveActiveClass: 'animated slideOutDown'
+      name: 'zoom',
+      enterActiveClass: 'animated zoomIn',
+      leaveActiveClass: 'animated zoomOut'
     },
 
     components:

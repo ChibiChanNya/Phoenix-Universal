@@ -151,6 +151,8 @@ export default {
   },
 
   services: {
+
+    btn_text: "Solicita una Cotización",
     //WEB DEVELOPMENT
     web_development: {
       header: {

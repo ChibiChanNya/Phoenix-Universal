@@ -12,7 +12,8 @@
           <img src="~/assets/img/logo-light-v.png" alt="Phoenix Development Logo" height="200">
 
           <no-ssr>
-            <vue-typer class="mb-2" :text="[ $t('home.create'), $t('home.transform'), $t('home.evolve')]" :repeat="1" :pre-type-delay="500"
+            <vue-typer class="mb-2" :text="[ $t('home.create'), $t('home.transform'), $t('home.evolve')]" :repeat="1"
+                       :pre-type-delay="500"
                        :type-delay=150></vue-typer>
           </no-ssr>
 
@@ -23,7 +24,7 @@
             large
             light
             color="#d83b00"
-            href="#"
+            @click="scrollTo('#services')"
           >
             {{ $t('home.know_us')}}
           </v-btn>
@@ -41,7 +42,7 @@
         class="my-5"
         align-center
       >
-        <v-flex xs12 sm4 class="my-3">
+        <v-flex xs12 sm4 class="py-3">
           <div class="text-xs-center">
             <h1 class="headline mb-3">{{$t('home.services_title')}}</h1>
             <v-flex md6 xs10 class="ma-auto">
@@ -98,7 +99,7 @@
                  dark
                  large
                  color="#0db7cd"
-                 href="#"
+                 @click="scrollTo('#contact')"
           >
             {{$t('home.promo_btn')}}
           </v-btn>
@@ -207,7 +208,7 @@
     <!-- PROJECTS SECTION END-->
 
     <!-- CONTACT SECTION START-->
-    <section>
+    <section id="contact">
 
       <v-container grid-list-xl fluid v-vpshow="'fadeInLeft'">
 
@@ -226,11 +227,11 @@
         <v-layout row wrap justify-center class="my-5">
           <v-flex xs12 sm5>
             <GmapMap
-                     :center="map.center"
-                     :zoom="15"
-                     map-type-id="roadmap"
-                     :options="map.map_options"
-                     style="width: 100%; height: 100%; color: black"
+              :center="map.center"
+              :zoom="15"
+              map-type-id="roadmap"
+              :options="map.map_options"
+              style="width: 100%; height: 100%; color: black"
             >
               <gmap-info-window :options="map.infoOptions" :position="map.infoWindowPos" :opened="map.infoWinOpen"
                                 @closeclick="map.infoWinOpen=false">
@@ -275,64 +276,12 @@
                   <v-list-tile-action class="mx-auto">
 
                     <!-- FIXED BOTTOM RIGHT DIALOG BUTTON + POPUP -->
-                    <v-dialog v-model="show_contact_dialog" persistent dark fullscreen content-class="contact-overlay" transition="fade">
-                      <v-btn slot="activator" round large="" dark color="#d83b00" class="pa-4 mx-auto">
+                    <contact-form>
+                      <v-btn slot="popup" round large="" dark color="#d83b00" class="pa-4 mx-auto">
                         <v-icon class="mr-3">message</v-icon>
                         {{ $t('home.modal_btn') }}
                       </v-btn>
-                      <v-container>
-                        <v-layout justify-center>
-                          <v-card max-width="800px" elevation="0" light>
-                            <v-card-title class="pb-0">
-                            <span
-                              class="headline text-xs-center">
-                              {{ $t('home.modal_headline') }}
-                            </span>
-                            </v-card-title>
-                            <v-card-text class="pb-0">
-                              <v-container grid-list-md class="pb-0">
-                                <v-form v-model="contact.valid" ref="form">
-                                  <v-layout wrap>
-                                    <v-flex xs12>
-                                      <v-text-field outline light :label="$t('home.modal_name')" v-model="contact.name"
-                                                    :hint="$t('home.modal_name')" color="#0db7cd" required
-                                                    :rules="contact.rules.name"></v-text-field>
-                                    </v-flex>
-                                    <v-flex xs12 md6>
-                                      <v-text-field outline light :label="$t('home.modal_company')" v-model="contact.company"
-                                                    :hint="$t('home.modal_company_hint')" color="#0db7cd"
-                                                    required></v-text-field>
-                                    </v-flex>
-                                    <v-flex xs12 md6>
-                                      <v-text-field outline="" light :label="$t('home.modal_email')" required v-model="contact.email"
-                                                    :hint="$t('home.modal_email_hint')" color="#0db7cd"
-                                                    :rules="contact.rules.email">
-                                      </v-text-field>
-                                    </v-flex>
-                                    <v-flex xs12>
-                                      <v-textarea outline light :label="$t('home.modal_message')" color="#0db7cd" v-model="contact.message"
-                                                  required :rules="contact.rules.message"></v-textarea>
-                                    </v-flex>
-                                  </v-layout>
-                                </v-form>
-
-                              </v-container>
-                            </v-card-text>
-                            <v-card-actions>
-                              <small class="red--text">{{ $t('home.modal_asterisk') }}</small>
-                              <v-spacer></v-spacer>
-                              <v-btn color="#0db7cd" dark round @click="submit_contact">{{ $t('home.modal_submit') }}</v-btn>
-                              <v-btn color="#0db7cd" dark round @click="show_contact_dialog = false">{{ $t('home.modal_cancel') }}</v-btn>
-
-                            </v-card-actions>
-                          </v-card>
-                        </v-layout>
-
-                      </v-container>
-
-
-
-                    </v-dialog>
+                    </contact-form>
                     <!-- END FIXED DIALOG BUTTON-->
                   </v-list-tile-action>
 
@@ -352,6 +301,7 @@
 
 <script>
   import NoSSR from 'vue-no-ssr'
+  import Contact from '@/components/Contact.vue'
 
   export default {
 
@@ -366,41 +316,22 @@
     },
 
     components: {
-      'no-ssr': NoSSR
+      'no-ssr': NoSSR,
+      'contact-form': Contact
     },
 
     data() {
       return {
-        show_contact_dialog: false,
         window: 0,
-        contact: {
-          name: '',
-          company: '',
-          email: '',
-          message: '',
-          valid: false,
 
-          rules: {
-            name: [
-              v => !!v || 'Nombre obligatorio'
-            ],
-            email: [
-              v => !!v || 'E-mail obligatorio',
-              v => /.+@.+\..+/.test(v) || 'E-mail inválido'
-            ],
-            message: [
-              v => !!v || 'Mensaje obligatorio'
-            ]
-          }
-        },
 
-        project_imgs:[
+        project_imgs: [
           require('@/assets/img/projects/FH.jpg'),
           require('@/assets/img/projects/PROMTEL.jpg'),
           require('@/assets/img/projects/AFER.jpg'),
           require('@/assets/img/projects/QUINIELA.jpg'),
           require('@/assets/img/projects/GREENPIT.jpg')
-    ],
+        ],
 
         map: {
           center: { lat: 19.426495, lng: -99.170212 },
@@ -449,68 +380,26 @@
     mounted() {
       this.$store.commit('rename', this.$t('pages.home'))
     },
-    // BEGIN METHODS
+
     methods: {
-      submit_contact: function() {
-        if (!this.$refs.form.validate()) {
-          this.$dialog.notify.warning('Asegurate de llenar todos los campos requeridos', {
-            position: 'top-right',
-            timeout: 5000
-          })
-          return
-        }
-        fbq('track', 'contact')
-        ga('send', 'event', 'Contact', 'sent')
-
-        this.$axios.post(
-          process.env.SERVER_URL + '/api/contact', {
-            name: this.contact.name,
-            email: this.contact.email,
-            company: this.contact.company,
-            message: this.contact.message
-          }
-        ).then((res) => {
-          this.show_contact_dialog = false
-          // alert('Tu mensaje fúe enviado exitosamente. Nos pondremos en contacto contigo muy pronto.')
-          this.$dialog.notify.success('Tu mensaje fúe enviado exitosamente. Nos pondremos en contacto contigo muy pronto.', {
-            position: 'top-right',
-            timeout: 5000
-          })
-
-        })
-          .catch(e => {
-            console.error(e)
-            // alert('¡Oops! Sucedió un error registrando tu mensaje. Por favor contáctanos directamente o intenta de nuevo mas tarde.')
-            this.$dialog.notify.error('¡Oops! Sucedió un error registrando tu mensaje. Por favor contáctanos directamente o intenta de nuevo mas tarde.', {
-              position: 'top-right',
-              timeout: 5000
-            })
-            this.show_contact_dialog = false;
-          })
+      scrollTo: function(id) {
+        let el = document.querySelector(id);
+        if(!el) return;
+        let pos = el.style.position;
+        let top = el.style.top;
+        el.style.position = 'relative';
+        el.style.top = '-80px';
+        el.scrollIntoView({ block: 'start', behavior: 'smooth' });
+        el.style.top = top;
+        el.style.position = pos;
       }
     }
-    //  END METHODS
 
   }
 </script>
 
 <style lang="scss">
 
-  .contact-overlay{
-    background-color: white;
-  }
-
-  .theme--light.v-messages {
-    color: #0db7cd;
-  }
-
-  .v-dialog {
-    box-shadow: none;
-
-    @media(max-width: 900px) {
-      margin: 0;
-    }
-  }
 
   .vue-typer {
     font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
@@ -553,7 +442,7 @@
     }
   }
 
-  #projects{
+  #projects {
   }
 
 </style>

@@ -55,28 +55,28 @@ export default {
         title: 'Desarrollo Móvil',
         text: 'Diseño y desarrollo de:',
         list: ['Aplicaciones para iOS', 'Aplicaciones para Android', 'Aplicaciones Híbridas'],
-        to: 'services-web-dev'
+        to: 'services-mobile-dev'
       },
       {
         icon: 'fas fa-chart-line',
         title: 'Marketing Digital',
         text: 'Creación, desarrollo y ejecución de Estrategias de Marketing Digital utilizando:',
         list: ['Inbound Marketing', 'Posicionamiento Web SEO/SEM', 'Campañas publicitarias', 'Social Media', 'Estrategia de contenidos'],
-        to: 'services-web-dev'
+        to: 'services-online-marketing'
       },
       {
         icon: 'fas fa-briefcase',
         title: 'Imagen Corporativa',
         text: 'Desarrollamos la identidad de tu compañía a través de la creación de:',
         list: ['Manual de Marca', 'Manual de Identidad Corporativa', 'Branding Corporativo'],
-        to: 'services-web-dev'
+        to: 'services-company-image'
       },
       {
         icon: 'fas fa-chalkboard',
         title: 'Consultoría',
         text: 'Cursos y Capacitación en:',
         list: ['Creación y Desarrollo de Negocios', 'Imagen Corporativa', 'Marketing Digital'],
-        to: 'services-web-dev'
+        to: ''
       }
     ],
     projects: [
@@ -180,7 +180,7 @@ export default {
         },
         {
           title: 'E-Commerce',
-          text: 'Conéctate a tu audiencia con un robusto sistema de e-commerce para transformar tu negocio. Hacemos las ventas en línea fàciles al incorporar pagos, inventario y procesamiento de pedidos en un solo lugar. Tus clientes disfrutarán de una experiencia de compra ideal y te va a encantar lo fácil que es administrar tu negocio en un sólo lugar.',
+          text: 'Conéctate a tu audiencia con un robusto sistema de e-commerce para transformar tu negocio. Hacemos las ventas en línea fáciles al incorporar pagos, inventario y procesamiento de pedidos en un solo lugar. Tus clientes disfrutarán de una experiencia de compra ideal y te va a encantar lo fácil que es administrar tu negocio en un sólo lugar.',
           bullets: [
             'Diseño de tienda personalizado',
             'Manejo inventario y formas de pago',
@@ -245,7 +245,7 @@ export default {
       },
       sections: [
         {
-          title: 'Estrategias Digitales  de Inbound Marketing',
+          title: 'Estrategias Digitales de Inbound Marketing',
           text: 'Creamos estrategias de marketing enfocadas en tus clientes, la clave de las ventas no está en un buen producto sino en conocer a tus clientes. Con poderosas estrategias digitales de Inboud Marketing atraemos a clientes potenciales a tus canales de venta.',
           bullets: [
             'ATRAER a desconocidos mediante blog, contenido y redes sociales.',
@@ -265,7 +265,7 @@ export default {
         },
         {
           title: 'Campañas publicitarias en Redes Sociales \n',
-          text: 'Creamos campañas para atraer clientes potenciales a través de redes sociales, utilizando herramientas para identificar específicamente a personas que necesitan tu producto o servicio, todas nuestras publicaciones  son contenido de valor.',
+          text: 'Creamos campañas para atraer clientes potenciales a través de redes sociales, utilizando herramientas para identificar específicamente a personas que necesitan tu producto o servicio. Todas nuestras publicaciones  son contenido de valor.',
           bullets: [
             'Útil para la audiencia',
             'Consejos',
@@ -279,7 +279,7 @@ export default {
     company_image:{
       header: {
         title: 'Imagen Corporativa',
-        text: 'Desarrollamos la identidad de tu compañía, el principal objetivo en este sentido, es conseguir que tu público meta, además de tenernos presentes, tengan una imagen positiva del  negocio.'
+        text: 'Desarrollamos la identidad de tu compañía. El principal objetivo en este sentido es conseguir que tu público meta, además de tenernos presentes, tengan una imagen positiva del negocio.'
       },
       sections: [
         {

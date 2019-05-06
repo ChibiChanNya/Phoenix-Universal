@@ -55,21 +55,21 @@ export default {
         title: 'Mobile Development',
         text: 'Design and development of:',
         list: ['iOS Apps', 'Android Apps', 'Hybrid Apps'],
-        to: 'services-web-dev'
+        to: 'services-mobile-dev'
       },
       {
         icon: 'fas fa-chart-line',
         title: 'Digital Marketing',
         text: 'Creation, development and execution of Digital Marketing Strategies using:',
         list: ['Inbound Marketing', 'SEO/SEM Web Placement', 'Publicity campaigns', 'Social Media', 'Content stratgy'],
-        to: 'services-web-dev'
+        to: 'services-online-marketing'
       },
       {
         icon: 'fas fa-briefcase',
-        title: 'Corporate Image',
+        title: 'Company Image',
         text: 'We develop your company\'s identit through the creation of:',
         list: ['Brand Style', 'Corporate Identity manual', 'Corporate Branding'],
-        to: 'services-web-dev'
+        to: 'services-company-image'
       },
       {
         icon: 'fas fa-chalkboard',
@@ -145,26 +145,153 @@ export default {
 
   services: {
 
-    online_marketing:{
+    btn_text: "Get a Quote",
+    //WEB DEVELOPMENT
+    web_development: {
       header: {
-        title: '',
-        text: ''
+        title: 'Professional Web Design and Development',
+        text: 'Our development team is composed of experts in Web Design, User Experience, Coding and Project Management.'
       },
       sections: [
         {
-          title: '',
-          text: '',
+          title: 'Responsive Design',
+          text: 'Over 50% of all internet users makes searches on their smartphones. If your website lacks responsive design it will not display properly on mobile devices and you will miss out on sales and potential customers. With our responsive web design services, you get a polished design so you can maximize conversions.',
           bullets: [
-            '',
-            '',
-            ''
+            'Professional layout for every resolution',
+            'Expose yourself to a wider audience',
+            'Improve your search engine ranking'
+          ]
+        },
+        {
+          title: 'SEO',
+          text: 'SEO (Search Engine Optimization) are the principles we integrate into our code in order to improve your website\'s position on search engines like Google. SEO integration is fundamental to get a good ranking on search engines. Most users will click only to the first 3 search results, you have to appear in them for your keywords!',
+          bullets: [
+            'Keyword analysis',
+            'Web Page loading speed optimization',
+            'Rich media content to display on search engines'
+          ]
+        },
+        {
+          title: 'E-Commerce',
+          text: 'Connect with your audience using a robust E-Commerce system and transform your business. We make online sales easy by incorporating payments, inventory and order processing all in one place. Your clients will experience an ideal shopping experience and you\'ll love how easy it is to manage your business in just one place.',
+          bullets: [
+            'Customized store design',
+            'Inventory and payment methods management',
+            'Automatic orders and shipping'
+          ]
+        },
+        {
+          title: 'Killer Apps',
+          text: 'Got an idea in mind that will make you the next Mark Zuckerberg? We\'ll help you turn it into reality. Any project you can imagine is now at your fingertips.',
+          bullets: [
+            'Business model consulting',
+            'Keep your data secured and backed up',
+            'Integrations with other platforms'
+          ]
+        }
+      ]
+    },
+
+    //  MOBILE DEVELOPMENT
+    mobile_development: {
+      header: {
+        title: 'Customized apps for mobile devices',
+        text: 'The vast majority of users consme their online content through smartphones. Our team\'s wide range of skills allows us to align our service towards your app development needs, whether for Android or iOS.'
+      },
+      sections: [
+        {
+          title: 'Hybrid Development',
+          text: '99% of consumers use either iOS or Android devices. It is essential for any app that wants maximum exposure to be available for both operative systems. Hybrid Apps allow you to achieve this without needing to develop 2 separate projects.',
+          bullets: [
+            'Offer your service to as many users as possible',
+            'Much cheaper than developing 2 separate apps',
+            'Offer the same experience regardless of device'
+          ]
+        },
+        {
+          title: 'User Experience',
+          text: '¿Have you used an app that responds just in time and the gestures feel intuitive? That is the proof of good user experience. To achieve this, the project must go beyond the blueprints and be fine tuned to achieve perfection.',
+          bullets: [
+            'Least amount of interaction to reach the main functions',
+            'Gestures so natural you already know them',
+            'Optimal use of brand and generic colors for each function'
+          ]
+        },
+        {
+          title: 'Technology Integration',
+          text: 'One of the advantages of mobile devices over personal computers is access to hardware functions such as Camera, GPS, gyroscope and gestures. These techologies allow you to offer a superior user experience compared to Web.',
+          bullets: [
+            'Use geolocation to customize the information displayed to each user.',
+            'Work with photos taken with your phone or use it for Augmented Reality features (AR)',
+            'Use bluetooth to connect with peripherals'
+          ]
+        }
+      ]
+    },
+
+    // MARKETING DIGITAL
+    online_marketing: {
+
+      header: {
+        title: 'Online Marketing',
+        text: '...'
+      },
+      sections: [
+        {
+          title: 'Inbound Marketing Digital Strategies',
+          text: 'We create marketing strategies focused on your specific audience. The key in sales is not in offering a great product, but in knowing your clients. With these strategies we can steer potential clients towards your sales channels.',
+          bullets: [
+            'ATTRACT new visitors through blog posts, value content and social media',
+            'CONVERT leads using forms, meetings and messages',
+            'CLOSE deals through E-commerce, downloads or traditional methods'
+          ]
+        },
+        {
+          title: 'Content Strategy',
+          text: 'A good online marketing strategy will be succesful based on the content being created for customers. Content markeitng is the strategy based on creating, publishing and distributing relevant content for your audience with the goal of attracting new clients and building their loyalty. \n We create value content based on:',
+          bullets: [
+            'Audience interests',
+            'Social Media likes',
+            'Demographics',
+            'Understanding how your clients think'
+          ]
+        },
+        {
+          title: 'Social Media advertisement campaigns',
+          text: 'We create campaigns to attract potential clients through social media using tools to identify those who might be interested in your product or service. All of our posts are Value Content.',
+          bullets: [
+            'Useful for your audience',
+            'Tips',
+            'Tutorials',
+            'Advice'
+          ]
+        }
+      ]
+
+    },
+    company_image:{
+      header: {
+        title: 'Company Image',
+        text: 'We develop your company\'s image. Our main goal is for your meta-public to, besides keeping us in mind, also gets a positive image of your business.'
+      },
+      sections: [
+        {
+          title: 'Corporate Indentity Manual',
+          text: 'Normative document that defines the rules for correctly using your branding. Each Identity Manual is designed while keeping mind those who will be responsible for interpreting, articulating, communicating and displaying your brand on different mediums. \n The follow elements are fundamental in defining any brand:',
+          bullets: [
+            'Name and meaning',
+            'Logo',
+            'Slogan',
+            'Style and voice',
+            'Rationales',
+            'Mission Statement and Values'
           ]
         },
       ]
 
     },
 
-    },
+  }
 
 
 

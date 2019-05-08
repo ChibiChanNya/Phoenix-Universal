@@ -32,7 +32,8 @@
       return {
         header:{
           title: this.$t('services.mobile_development.header.title'),
-          banner: 'http://media1.santabanta.com/full1/Miscellaneous/Technology/technology-82a.jpg',
+          banner: require('@/assets/img/services/mobile_development_banner.jpg'),
+          banner_mobile: require('@/assets/img/services/mobile_development_banner_mobile.jpg'),
           text: this.$t('services.mobile_development.header.text'),
         },
         sections: [

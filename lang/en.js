@@ -14,6 +14,8 @@ export default {
     mobile_development: 'Mobile Development',
     company_image: "Company Image",
     online_marketing: "Online Marketing",
+    consulting: "Consulting",
+    motion_graphics: "Motion Graphics",
   },
   // Index page strings
   home: {
@@ -234,7 +236,7 @@ export default {
 
       header: {
         title: 'Online Marketing',
-        text: '...'
+        text: 'Online marketing covers all actions y advertising strategies that we plan and apply over multiple channels on the internet. Online marketing employs many diverse tools, put your projects on our hands and connect your company to the digital world.'
       },
       sections: [
         {

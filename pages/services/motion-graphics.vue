@@ -32,8 +32,8 @@
       return {
         header:{
           title: this.$t('services.online_marketing.header.title'),
-          banner: require('@/assets/img/services/marketing_banner.jpg'),
-          banner_mobile: require('@/assets/img/services/marketing_banner_mobile.jpg'),
+          banner: require('@/assets/img/services/motion_graphics_banner.jpg'),
+          banner_mobile: require('@/assets/img/services/motion_graphics_banner_mobile.jpg'),
           text: this.$t('services.online_marketing.header.text'),
         },
         sections: [

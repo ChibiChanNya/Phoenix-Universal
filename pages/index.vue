@@ -324,7 +324,6 @@
       return {
         window: 0,
 
-
         project_imgs: [
           require('@/assets/img/projects/FH.jpg'),
           require('@/assets/img/projects/PROMTEL.jpg'),

@@ -14,6 +14,8 @@ export default {
     mobile_development: 'Desarrollo Móvil',
     company_image: "Imagen Corporativa",
     online_marketing: "Marketing Digital",
+    consulting: "Consultoría",
+    motion_graphics: "Motion Graphics",
   },
   // Index page strings
   home: {
@@ -241,7 +243,7 @@ export default {
 
       header: {
         title: 'Marketing Digital',
-        text: '...'
+        text: 'El marketing digital engloba todas aquellas acciones y estrategias publicitarias o comerciales que planeamos y ejecutamos en canales digitales  de internet. El marketing digital emplea herramientas de gran diversidad, pon tus proyectos en manos de nuestros expertos  y conecta tu empresa con el mundo digital.'
       },
       sections: [
         {

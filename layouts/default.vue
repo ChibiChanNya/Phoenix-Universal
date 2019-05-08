@@ -247,6 +247,8 @@
             { title: 'pages.mobile_development', to: 'services-mobile-dev', icon: 'smartphone' },
             { title: 'pages.online_marketing', to: 'services-online-marketing', icon: 'share' },
             { title: 'pages.company_image', to: 'services-company-image', icon: 'portrait' },
+            { title: 'pages.consulting', to: 'services-consulting', icon: 'help' },
+            { title: 'pages.motion_graphics', to: 'services-motion-graphics', icon: 'play_arrow' },
           ]
         },
         social_icons: [

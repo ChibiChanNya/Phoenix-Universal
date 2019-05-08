@@ -33,6 +33,7 @@
         header:{
           title: this.$t('services.web_development.header.title'),
           banner: require('@/assets/img/services/web_dev_banner.jpeg'),
+          banner_mobile: require('@/assets/img/services/web_dev_banner_mobile.jpg'),
           text: this.$t('services.web_development.header.text'),
         },
         sections: [

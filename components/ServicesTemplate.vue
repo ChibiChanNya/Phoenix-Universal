@@ -2,36 +2,44 @@
 
   <div id="dev">
     <section id="services-hero" class="phoenix-orange">
-      <v-parallax :src="header.banner" height="380">
-        <v-layout
-          column
-          align-center
-          justify-center
-          class="phoenix-text"
-          style="text-shadow: 1px 1px 1px black"
-        >
-          <h1 class="large-headline text-xs-center">{{header.title}}</h1>
+      <v-img
+        :srcset="srcset" max-height="450px"
+        sizes="(max-width: 400px) 375px, 1900px" :src="header.banner_mobile"
+        class="banner">
 
-          <div class="subheading my-3 text-xs-center white--text">
-            {{header.text}}
-          </div>
+        <v-container>
+          <v-layout
+            align-center
+            column
+            justify-center
+            class="phoenix-text"
+            style="text-shadow: 1px 1px 1px black"
+            my-3
+          >
+            <h1 class="large-headline text-xs-center">{{header.title}}</h1>
 
-          <!-- FIXED BOTTOM RIGHT DIALOG BUTTON + POPUP -->
-          <contact-form>
-            <v-btn
-              slot="popup"
-              class="phoenix-blue mt-5"
-              dark
-              large
-              color="#0db7cd"
-              href="#"
-            >
-              {{$t('services.btn_text')}}
-            </v-btn>
-          </contact-form>
-          <!-- END FIXED DIALOG BUTTON-->
-        </v-layout>
-      </v-parallax>
+            <div class="subheading my-3 text-xs-center white--text text-bubble">
+              {{header.text}}
+            </div>
+            <!-- FIXED BOTTOM RIGHT DIALOG BUTTON + POPUP -->
+            <contact-form>
+              <v-btn
+                slot="popup"
+                class="phoenix-blue mt-5 "
+                dark
+                large
+                color="#0db7cd"
+                href="#"
+              >
+                {{$t('services.btn_text')}}
+              </v-btn>
+            </contact-form>
+            <!-- END FIXED DIALOG BUTTON-->
+
+          </v-layout>
+        </v-container>
+
+      </v-img>
     </section>
 
 
@@ -53,7 +61,7 @@
               </li>
             </ul>
           </v-flex>
-          <v-flex xs12 md5>
+          <v-flex xs12 md5 class="py-4">
             <v-img :src="section.image" contain
                    height="250px"></v-img>
           </v-flex>
@@ -75,6 +83,12 @@
 
     components: {
       'contact-form': Contact
+    },
+
+    computed:{
+      srcset: function(){
+        return `${this.header.banner_mobile} 400w, ${this.header.banner} 1920w`;
+      }
     }
 
   }
@@ -84,5 +98,17 @@
 
 <style lang="scss">
 
+  .banner .v-image__image {
+    filter: saturate(50%);
+  }
+  .text-bubble{
+    border-radius: 16px;
+    background-color: rgba(13,183,205,0.6);
+    padding: 16px;
+
+    @media(min-width:400px){
+      max-width: 80%;
+    }
+  }
 
 </style>

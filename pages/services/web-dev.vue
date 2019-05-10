@@ -29,23 +29,23 @@
           {
             hid: 'MetaBasic',
             name: 'description',
-            content: this.$t('services.company_image.header.text')
+            content: this.$t('services.web_development.header.text')
           },
           // SCHEMA
+          { hid: 'SchemaTitle', property: 'og:title', content: this.$t('services.web_development.header.title') },
           {
             hid: 'SchemaDescription',
             property: 'og:description',
-            content: this.$t('services.company_image.header.text')
+            content: this.$t('services.web_development.header.text')
           },
-          { hid: 'SchemaURL', property: 'og:url', content: process.env.SERVER_URL + this.$route.fullPath },
           {
             hid: 'SchemaDescription',
             property: 'og:description',
-            content: this.$t('services.company_image.header.text')
+            content: this.$t('services.web_development.header.text')
           },
           //  Twitter
-          { hid: 'TwitterTitle', name: 'twitter:title', content: this.$t('services.company_image.header.title') },
-          { hid: 'TwitterDesc', name: 'twitter:description', content: this.$t('services.company_image.header.text') }
+          { hid: 'TwitterTitle', name: 'twitter:title', content: this.$t('services.web_development.header.title') },
+          { hid: 'TwitterDesc', name: 'twitter:description', content: this.$t('services.web_development.header.text') }
         ]
       }
     },

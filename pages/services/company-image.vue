@@ -28,10 +28,11 @@
         meta: [
           {
             hid: 'MetaBasic',
-            name: this.$t('services.company_image.header.title'),
+            name: 'description',
             content: this.$t('services.company_image.header.text')
           },
           // SCHEMA
+          { hid: 'SchemaTitle', property: 'og:title', content: this.$t('services.company_image.header.title') },
           {
             hid: 'SchemaDescription',
             property: 'og:description',

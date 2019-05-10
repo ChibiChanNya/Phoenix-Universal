@@ -38,7 +38,7 @@ module.exports = {
       },
       { hid: 'SchemaImgWidth', property: 'og:image:width', content: '612' },
       { hid: 'SchemaImgHeight', property: 'og:image:height', content: '612' },
-      { hid: 'SchemaURL', property: 'og:url', content: 'https://phoenixdevelopment.mx.mx/' },
+      { hid: 'SchemaURL', property: 'og:url', content: 'https://phoenixdevelopment.mx' },
       {
         hid: 'SchemaDescription',
         property: 'og:description',

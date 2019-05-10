@@ -23,7 +23,29 @@
       {'services-template': ServicesTemplate},
 
     head: {
-      title: 'Desarrollo Web'
+      title: this.$t('pages.web_development'),
+      meta: [
+        {
+          hid: 'wev development',
+          name: this.$t('services.company_image.header.title'),
+          content: this.$t('services.company_image.header.text')
+        },
+        // SCHEMA
+        {
+          hid: 'SchemaDescription',
+          property: 'og:description',
+          content: this.$t('services.company_image.header.text')
+        },
+        { hid: 'SchemaURL', property: 'og:url', content: 'https://phoenixdevelopment.mx' + this.$route.fullPath },
+        {
+          hid: 'SchemaDescription',
+          property: 'og:description',
+          content: this.$t('services.company_image.header.text')
+        },
+        //  Twitter
+        { hid: 'TwitterTitle', name: 'twitter:title', content: this.$t('services.company_image.header.title') },
+        { hid: 'TwitterDesc', name: 'twitter:description', content: this.$t('services.company_image.header.text') }
+      ]
     },
 
     name: 'web-development',

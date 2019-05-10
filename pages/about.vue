@@ -132,7 +132,29 @@
     },
 
     head: {
-      title: 'Quienes Somos'
+      title: this.$t('pages.about_us'),
+      meta: [
+        {
+          hid: 'about us',
+          name: this.$t('about.header'),
+          content: this.$t('about.p1'),
+        },
+        // SCHEMA
+        {
+          hid: 'SchemaDescription',
+          property: 'og:description',
+          content: this.$t('about.p1'),
+        },
+        { hid: 'SchemaURL', property: 'og:url', content: 'https://phoenixdevelopment.mx'+this.$route.fullPath },
+        {
+          hid: 'SchemaDescription',
+          property: 'og:description',
+          content: this.$t('about.p1'),
+        },
+        //  Twitter
+        { hid: 'TwitterTitle', name: 'twitter:title', content: this.$t('about.header')},
+        { hid: 'TwitterDesc', name: 'twitter:description', content: this.$t('about.p1'), }
+      ]
     },
 
     name: 'about',

@@ -23,10 +23,33 @@
       {'services-template': ServicesTemplate},
 
     head: {
-      title: 'Marketing Digital'
+      title: this.$t('pages.motion_graphics'),
+
+      meta: [
+        {
+          hid: 'motion graphics',
+          name: this.$t('services.company_image.header.title'),
+          content: this.$t('services.company_image.header.text')
+        },
+        // SCHEMA
+        {
+          hid: 'SchemaDescription',
+          property: 'og:description',
+          content: this.$t('services.company_image.header.text')
+        },
+        { hid: 'SchemaURL', property: 'og:url', content: 'https://phoenixdevelopment.mx' + this.$route.fullPath },
+        {
+          hid: 'SchemaDescription',
+          property: 'og:description',
+          content: this.$t('services.company_image.header.text')
+        },
+        //  Twitter
+        { hid: 'TwitterTitle', name: 'twitter:title', content: this.$t('services.company_image.header.title') },
+        { hid: 'TwitterDesc', name: 'twitter:description', content: this.$t('services.company_image.header.text') }
+      ]
     },
 
-    name: 'online-marketing',
+    name: 'motion-graphics',
 
     data() {
       return {

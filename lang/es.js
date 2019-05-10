@@ -118,7 +118,7 @@ export default {
   },
 
   about: {
-    header: 'Quienes Somos:',
+    header: 'Quienes Somos',
     p1: 'Somos Phoenix Development, la agencia digital que tiene el objetivo de crear soluciones innovadoras basadas en tecnología para cada uno de nuestros clientes.',
     p2: 'Nuestros equipos de trabajo cuentan con consultores expertos en Desarrollo de Software, Marketing Digital, Creación de Marca (Branding), Negocios y Tecnologías de la Información egresados de las mejores universidades de México.',
     p3: 'Nuestros procesos y estrategias internas de trabajo nos permiten proponer soluciones que promuevan la transformación de los negocios de “tradicionales” a “digitales”.',

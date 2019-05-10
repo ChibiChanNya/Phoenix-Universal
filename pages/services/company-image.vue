@@ -22,31 +22,34 @@
     components:
       { 'services-template': ServicesTemplate },
 
-    head: {
-      title: this.$t('pages.company_image'),
-      meta: [
-        {
-          hid: 'company image',
-          name: this.$t('services.company_image.header.title'),
-          content: this.$t('services.company_image.header.text')
-        },
-        // SCHEMA
-        {
-          hid: 'SchemaDescription',
-          property: 'og:description',
-          content: this.$t('services.company_image.header.text')
-        },
-        { hid: 'SchemaURL', property: 'og:url', content: 'https://phoenixdevelopment.mx'+this.$route.fullPath },
-        {
-          hid: 'SchemaDescription',
-          property: 'og:description',
-          content: this.$t('services.company_image.header.text'),
-        },
-        //  Twitter
-        { hid: 'TwitterTitle', name: 'twitter:title', content: this.$t('services.company_image.header.title') },
-        { hid: 'TwitterDesc', name: 'twitter:description', content: this.$t('services.company_image.header.text') }
-      ]
+    head() {
+      return {
+        title: this.$t('pages.company_image'),
+        meta: [
+          {
+            hid: 'MetaBasic',
+            name: this.$t('services.company_image.header.title'),
+            content: this.$t('services.company_image.header.text')
+          },
+          // SCHEMA
+          {
+            hid: 'SchemaDescription',
+            property: 'og:description',
+            content: this.$t('services.company_image.header.text')
+          },
+          { hid: 'SchemaURL', property: 'og:url', content: 'https://phoenixdevelopment.mx' + this.$route.fullPath },
+          {
+            hid: 'SchemaDescription',
+            property: 'og:description',
+            content: this.$t('services.company_image.header.text')
+          },
+          //  Twitter
+          { hid: 'TwitterTitle', name: 'twitter:title', content: this.$t('services.company_image.header.title') },
+          { hid: 'TwitterDesc', name: 'twitter:description', content: this.$t('services.company_image.header.text') }
+        ]
+      };
     },
+
 
     name: 'company-image',
 

@@ -179,8 +179,6 @@
       <nuxt/>
     </v-content>
 
-
-
     <!--FACEBOOK MESSENEGR-->
     <div class="fb-customerchat" page_id="691184954595484" logged_in_greeting=""></div>
 

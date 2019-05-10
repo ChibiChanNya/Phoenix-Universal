@@ -16,7 +16,7 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
       {
-        hid: 'description',
+        hid: 'MetaBasic',
         name: 'description',
         content: 'Agencia Digital de desarrollo de páginas web, Creación de Marca y Marketing Digital.'
       },

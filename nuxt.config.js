@@ -25,7 +25,7 @@ module.exports = {
       { hid: 'TwitterTitle', name: 'twitter:title', content: 'Phoenix Development' },
       { hid: 'TwitterDesc', name: 'twitter:description', content: 'CREA. TRANSFORMA. EVOLUCIONA' },
       { hid: 'TwitterImg', name: 'twitter:image:src', content: '/Logo100.png' },
-      { hid: 'TwitterSite', name: 'twitter:site', content: 'https://phoenixdevelopment.mx' },
+      { hid: 'TwitterSite', name: 'twitter:site', content: process.env.SERVER_URL },
       // OPENGRAPH META TAGS
       { hid: 'SchemaTitle', property: 'og:title', content: 'Phoenix Development' },
       { hid: 'SchemaType', property: 'og:type', content: 'website' },
@@ -38,7 +38,7 @@ module.exports = {
       },
       { hid: 'SchemaImgWidth', property: 'og:image:width', content: '612' },
       { hid: 'SchemaImgHeight', property: 'og:image:height', content: '612' },
-      { hid: 'SchemaURL', property: 'og:url', content: 'https://phoenixdevelopment.mx' },
+      { hid: 'SchemaURL', property: 'og:url', content: process.env.SERVER_URL },
       {
         hid: 'SchemaDescription',
         property: 'og:description',

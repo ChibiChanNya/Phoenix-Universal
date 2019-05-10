@@ -37,7 +37,7 @@
             property: 'og:description',
             content: this.$t('services.company_image.header.text')
           },
-          { hid: 'SchemaURL', property: 'og:url', content: 'https://phoenixdevelopment.mx' + this.$route.fullPath },
+          { hid: 'SchemaURL', property: 'og:url', content: process.env.SERVER_URL + this.$route.fullPath },
           {
             hid: 'SchemaDescription',
             property: 'og:description',

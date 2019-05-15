@@ -11,7 +11,7 @@
       </div>
     </v-layout>
 
-    <section>
+    <section class="">
 
       <v-img :src="require('~/assets/img/projects/Thulio Splash.jpg')"
              alt="Thulio.mx Header"
@@ -70,7 +70,7 @@
       </v-container>
     </section>
 
-    <section class="mt-4">
+    <section class="mt-4 grey lighten-2">
 
       <v-img :src="require('~/assets/img/projects/futhub_design.jpg')"
              alt="Thulio.mx Header"

@@ -1,6 +1,5 @@
 <template>
-
-  <div id="about">
+  <section id="about">
     <section id="about-hero" class="phoenix-orange">
       <v-container>
 
@@ -19,10 +18,11 @@
     </section>
 
     <section id="about-parallax" class="my-auto">
-      <v-parallax :src="require('@/assets/img/tech-business.jpg')" height="300" >
+      <v-parallax :src="require('@/assets/img/tech-business.jpg')" height="300">
         <v-flex md10 class="mx-auto">
           <v-layout>
-            <v-flex class="py-4 font-weight-bold grey--text text--lighten-3" style="text-shadow: 1px 1px 5px rgba(0,0,0,0.8)">
+            <v-flex class="py-4 font-weight-bold grey--text text--lighten-3"
+                    style="text-shadow: 1px 1px 5px rgba(0,0,0,0.8)">
               <!--style="color:rgba(0,0,0,0.87)"> -->
               <p>{{$t('about.p2')}}</p>
               <p>{{$t('about.p3')}}</p>
@@ -111,7 +111,7 @@
         </v-layout>
       </v-container>
     </section>
-  </div>
+  </section>
 
 
 </template>
@@ -131,30 +131,32 @@
       'no-ssr': NoSSR
     },
 
-    head: {
-      title: this.$t('pages.about_us'),
-      meta: [
-        {
-          hid: 'about us',
-          name: this.$t('about.header'),
-          content: this.$t('about.p1'),
-        },
-        // SCHEMA
-        {
-          hid: 'SchemaDescription',
-          property: 'og:description',
-          content: this.$t('about.p1'),
-        },
-        { hid: 'SchemaURL', property: 'og:url', content: process.env.SERVER_URL+this.$route.fullPath },
-        {
-          hid: 'SchemaDescription',
-          property: 'og:description',
-          content: this.$t('about.p1'),
-        },
-        //  Twitter
-        { hid: 'TwitterTitle', name: 'twitter:title', content: this.$t('about.header')},
-        { hid: 'TwitterDesc', name: 'twitter:description', content: this.$t('about.p1'), }
-      ]
+    head() {
+      return {
+        title: this.$t('pages.about_us'),
+        meta: [
+          {
+            hid: 'about us',
+            name: this.$t('about.header'),
+            content: this.$t('about.p1')
+          },
+          // SCHEMA
+          {
+            hid: 'SchemaDescription',
+            property: 'og:description',
+            content: this.$t('about.p1')
+          },
+          { hid: 'SchemaURL', property: 'og:url', content: process.env.SERVER_URL + this.$route.fullPath },
+          {
+            hid: 'SchemaDescription',
+            property: 'og:description',
+            content: this.$t('about.p1')
+          },
+          //  Twitter
+          { hid: 'TwitterTitle', name: 'twitter:title', content: this.$t('about.header') },
+          { hid: 'TwitterDesc', name: 'twitter:description', content: this.$t('about.p1') }
+        ]
+      }
     },
 
     name: 'about',
@@ -275,7 +277,7 @@
     }
 
 
-    .v-parallax__image{
+    .v-parallax__image {
       filter: saturate(.5);
     }
   }

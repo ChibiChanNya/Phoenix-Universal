@@ -68,7 +68,7 @@
             text: this.$t('services.company_image.sections[0].text'),
             bullets: this.$t('services.company_image.sections[0].bullets'),
             color: '',
-            image: 'https://image.flaticon.com/icons/png/512/65/65381.png'
+            image: require('@/assets/img/services/image_branding.png'),
           }
         ]
       }

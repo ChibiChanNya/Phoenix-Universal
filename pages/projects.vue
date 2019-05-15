@@ -26,7 +26,7 @@
             pa-2
             fill-height
           >
-            <v-flex v-vpshow="'bounceInDown'">
+            <v-flex v-vpshow="'bouncneInDown'">
               <h2 class="client-name" > - Thulio.mx -</h2>
             </v-flex>
             <v-flex>

@@ -83,7 +83,7 @@
     },
 
     async asyncData({ $axios }) {
-      const posts_load = await $axios.$get('https://wp.phoenixdevelopment.mx/wp-json/wp/v2/posts?_embed&per_page=4&page=1')
+      const posts_load = await $axios.$get('https://thulio.mx/wp-json/wp/v2/posts?_embed&per_page=4&page=1')
       return { posts_load }
     },
 
@@ -99,7 +99,7 @@
           let per_page = mobile ? 1 : 4
 
           try {
-            let new_posts = await this.$axios.$get(`https://wp.phoenixdevelopment.mx/wp-json/wp/v2/posts?_embed&per_page=${per_page}&page=${next_page}`)
+            let new_posts = await this.$axios.$get(`https://thulio.mx/wp-json/wp/v2/posts?_embed&per_page=${per_page}&page=${next_page}`)
             new_posts.forEach((post) => {
               this.posts.push(post)
             })

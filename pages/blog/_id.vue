@@ -129,7 +129,7 @@
     },
 
     async asyncData({ params, error }) {
-      let url = `https://wp.phoenixdevelopment.mx/wp-json/wp/v2/posts/${params.id}?_embed`
+      let url = `https://thulio.mx/wp-json/wp/v2/posts/${params.id}?_embed`
       let { data } = await axios.get(url)
       return { post: data }
     },

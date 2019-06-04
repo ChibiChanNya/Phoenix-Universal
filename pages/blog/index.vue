@@ -29,13 +29,19 @@
             <span v-html="post.excerpt.rendered"></span>
           </v-card-text>
           <v-card-actions>
-            <v-btn icon  class="green--text lighten-1" :href="`whatsapp://send?text=${post.title.rendered} ${server_url}/blog/${post.id}`" :data-text="`whatsapp://send?text=${post.title.rendered} ${server_url}/blog/${post.id}`" data-action="share/whatsapp/share">
+            <v-btn icon class="green--text lighten-1"
+                   :href="`whatsapp://send?text=${post.title.rendered} ${server_url}/blog/${post.id}`"
+                   :data-text="`whatsapp://send?text=${post.title.rendered} ${server_url}/blog/${post.id}`"
+                   data-action="share/whatsapp/share">
               <v-icon medium>fab fa-whatsapp</v-icon>
             </v-btn>
-            <v-btn icon class="light-blue--text" :href="`https://twitter.com/intent/tweet?text=${post.title.rendered} ${server_url}/blog/${post.id}`" target="_blank">
+            <v-btn icon class="light-blue--text"
+                   :href="`https://twitter.com/intent/tweet?text=${post.title.rendered} ${server_url}/blog/${post.id}`"
+                   target="_blank">
               <v-icon medium>fab fa-twitter</v-icon>
             </v-btn>
-            <v-btn icon class="blue--text text--darken-4" :href="`https://www.facebook.com/sharer/sharer.php?u=${server_url}/blog/${post.id}`">
+            <v-btn icon class="blue--text text--darken-4"
+                   :href="`https://www.facebook.com/sharer/sharer.php?u=${server_url}/blog/${post.id}`">
               <v-icon medium>fab fa-facebook</v-icon>
             </v-btn>
             <v-spacer></v-spacer>
@@ -78,13 +84,18 @@
         posts: [],
         page: 1,
         loading_posts: false,
-        server_url: process.env.SERVER_URL,
+        server_url: process.env.SERVER_URL
       }
     },
 
     async asyncData({ $axios }) {
-      const posts_load = await $axios.$get('https://thulio.mx/wp-json/wp/v2/posts?_embed&per_page=4&page=1')
-      return { posts_load }
+      try {
+        const posts_load = await $axios.$get('https://wp.phoenixdevelopment.mx/wp-json/wp/v2/posts?_embed&per_page=4&page=1');
+        return { posts_load }
+      } catch (error) {
+        console.log('ERROR', error)
+      }
+
     },
 
     methods: {
@@ -99,7 +110,7 @@
           let per_page = mobile ? 1 : 4
 
           try {
-            let new_posts = await this.$axios.$get(`https://thulio.mx/wp-json/wp/v2/posts?_embed&per_page=${per_page}&page=${next_page}`)
+            let new_posts = await this.$axios.$get(`https://wp.phoenixdevelopment.mx/wp-json/wp/v2/posts?_embed&per_page=${per_page}&page=${next_page}`)
             new_posts.forEach((post) => {
               this.posts.push(post)
             })
@@ -124,9 +135,9 @@
     mounted() {
       this.$store.commit('rename', this.$t('pages.blog'))
       this.posts_load.forEach((post) => {
-        if(post._embedded['wp:featuredmedia']){
-          this.posts.push(post);
-          console.log("GO");
+        if (post._embedded['wp:featuredmedia']) {
+          this.posts.push(post)
+          console.log('GO')
         }
 
       })

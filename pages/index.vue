@@ -20,10 +20,10 @@
           <div class="subheading mb-3 text-xs-center">{{ $t('home.digital_agency') }}</div>
 
           <v-btn
-            class="phoenix mt-5"
+            class="phoenix-blue mt-5 "
+            color="#0db7cd"
+            dark
             large
-            light
-            color="#d83b00"
             @click="scrollTo('#services')"
           >
             {{ $t('home.know_us')}}
@@ -66,15 +66,18 @@
             >
               <v-card class=" pa-2" height="100%" v-vpshow="'flipInY'" hover router exact :to="localePath(card.to)">
                 <v-card-title primary-title class="layout ">
-                  <v-icon x-large class="dev-text mr-4 ml-2">{{card.icon}}</v-icon>
-                  <span class="headline">{{card.title}}</span>
+                  <v-layout column wrap justify-center>
+                    <v-icon x-large class="dev-text my-4">{{card.icon}}</v-icon>
+                    <div class="headline text-xs-center mb-4">{{card.title}}</div>
+                  </v-layout>
+
                 </v-card-title>
-                <v-card-text>
-                  <p class="margin-b-5">{{card.text}}</p>
-                  <ul>
-                    <li v-for="item in card.list">{{item}}</li>
-                  </ul>
-                </v-card-text>
+<!--                <v-card-text>-->
+<!--                  <p class="margin-b-5">{{card.text}}</p>-->
+<!--                  <ul>-->
+<!--                    <li v-for="item in card.list">{{item}}</li>-->
+<!--                  </ul>-->
+<!--                </v-card-text>-->
               </v-card>
             </v-flex>
           </v-layout>
@@ -95,10 +98,10 @@
           <em v-vpshow="'rollIn'">{{$t('home.promo_text')}}</em>
 
           <v-btn v-vpshow="'rollIn'"
-                 class="phoenix-blue mt-5"
+                 class="phoenix-blue mt-5 "
+                 color="#0db7cd"
                  dark
                  large
-                 color="#0db7cd"
                  @click="scrollTo('#contact')"
           >
             {{$t('home.promo_btn')}}
@@ -277,8 +280,13 @@
 
                     <!-- FIXED BOTTOM RIGHT DIALOG BUTTON + POPUP -->
                     <contact-form>
-                      <v-btn slot="popup" round large="" dark color="#d83b00" class="pa-4 mx-auto">
-                        <v-icon class="mr-3">message</v-icon>
+                      <v-btn slot="popup"
+                             class="phoenix-blue mt-5"
+                             style="padding: 0 32px;"
+                             color="#0db7cd"
+                             dark
+                             large
+                      >
                         {{ $t('home.modal_btn') }}
                       </v-btn>
                     </contact-form>

@@ -12,10 +12,10 @@ export default {
     services: 'Servicios',
     web_development: 'Desarrollo Web',
     mobile_development: 'Desarrollo Móvil',
-    company_image: "Imagen Corporativa",
-    online_marketing: "Marketing Digital",
-    consulting: "Consultoría",
-    motion_graphics: "Motion Graphics",
+    company_image: 'Imagen Corporativa',
+    online_marketing: 'Marketing Digital',
+    consulting: 'Consultoría',
+    motion_graphics: 'Motion Graphics'
   },
   // Index page strings
   home: {
@@ -79,6 +79,13 @@ export default {
         text: 'Cursos y Capacitación en:',
         list: ['Creación y Desarrollo de Negocios', 'Imagen Corporativa', 'Marketing Digital'],
         to: ''
+      },
+      {
+        icon: 'video_library',
+        title: 'Motion Graphics',
+        text: 'Soluciones creativas en animación digital para:',
+        list: ['Videos explicativos', 'Animaciones para redes sociales', 'Videos corporativos'],
+        to: 'services-motion-graphics'
       }
     ],
     projects: [
@@ -154,7 +161,7 @@ export default {
 
   services: {
 
-    btn_text: "Solicita una Cotización",
+    btn_text: 'Solicita una Cotización',
     //WEB DEVELOPMENT
     web_development: {
       header: {
@@ -278,7 +285,8 @@ export default {
       ]
 
     },
-    company_image:{
+    // COMPANY IMAGE
+    company_image: {
       header: {
         title: 'Imagen Corporativa',
         text: 'Desarrollamos la identidad de tu compañía. El principal objetivo en este sentido es conseguir que tu público meta, además de tenernos presentes, tengan una imagen positiva del negocio.'
@@ -295,11 +303,48 @@ export default {
             'Racionales',
             'Misión, visión y valores'
           ]
-        },
+        }
       ]
-
     },
 
+// MOTION GRAPHICS
+    motion_graphics: {
+
+      header: {
+        title: 'Motion Graphics',
+        text: 'Mantén tu proyecto a la vanguardia de las tendencias. En la era digital el video es el nuevo texto. Da a conocer tu proyecto de manera dinámica con un video en animación, nuestro equipo de artistas Motion Graphics, Ilustradores y Guionistas son tus aliados para producir contenidos audiovisuales de alta calidad.'
+      },
+      sections: [
+        {
+          title: 'Video Explainer',
+          text: 'Si lo que buscas es dar a conocer tu proyecto de forma simple y atractiva, el video explicativo es la mejor manera de lograrlo. Nos enfocamos en crear una narrativa inteligente para destacar las mejores cualidades de tu proyecto.',
+          bullets: [
+            'Animación de 30 a 90 segundos',
+            'Formato multiplataforma',
+            'Explica el valor de tu proyecto'
+          ]
+        },
+        {
+          title: 'Animación para Redes Dociales',
+          text: '15 segundos de video bastan para cautivar a tu audiencia. La creatividad en este formato es la clave y nuestro equipo se especializa en generar soluciones en animación. Creamos videos optimizados para visualización en móviles con formato vertical o cuadrado.',
+          bullets: [
+            'Animación de 10 a 15 segundos optimizada para móvil y redes sociales',
+            'Contamos con certificaciones de Facebook Blueprint',
+            'Paquetes de animaciones mensuales',
+          ]
+        },
+        {
+          title: 'Video corporativo',
+          text: 'Nuestra labor va más allá de sólo animar, brindamos soluciones que comunican la esencia de tu empresa. Es una excelente herramienta de venta, para acompañar tus presentaciones y dar difusión en plataformas digitales de tu organización.',
+          bullets: [
+            'Comunicación empresarial',
+            'Ideal para presentaciones',
+            'Facilita la asimilación de información',
+          ]
+        }
+      ]
+
+    }
 
   }
 

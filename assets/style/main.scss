@@ -2,6 +2,10 @@
 $phoenix-color: #d83b00;
 $dev-color: #0db7cd;
 
+.subheading{
+  font-weight: 500;
+}
+
 .mh-75{
   min-height:75px;
 }
@@ -29,7 +33,7 @@ $dev-color: #0db7cd;
 }
 
 .large-headline{
-  font-size: 2em;
+  font-size: 2.5em;
 }
 
 .nav-gray{

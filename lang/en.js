@@ -79,6 +79,13 @@ export default {
         text: 'Courses and Training on:',
         list: ['Business Creation & Development', 'Corporate Identity', 'Digital Marketing'],
         to: 'services-web-dev'
+      },
+      {
+        icon: 'video_library',
+        title: 'Motion Graphics',
+        text: 'Creative digital animation solutions for:',
+        list: ['Explainer Videos', 'Social Media animations', 'Corporate videos'],
+        to: 'services-motion-graphics'
       }
     ],
     projects: [

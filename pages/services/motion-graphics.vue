@@ -58,31 +58,32 @@
     data() {
       return {
         header:{
-          title: this.$t('services.online_marketing.header.title'),
+          title: this.$t('services.motion_graphics.header.title'),
           banner: require('@/assets/img/services/motion_graphics_banner.jpg'),
           banner_mobile: require('@/assets/img/services/motion_graphics_banner_mobile.jpg'),
-          text: this.$t('services.online_marketing.header.text'),
+          text: this.$t('services.motion_graphics.header.text'),
+          video_url: "https://www.youtube.com/embed/E6DHf1pa3bA"
         },
         sections: [
           {
-            title: this.$t('services.online_marketing.sections[0].title'),
-            text: this.$t('services.online_marketing.sections[0].text'),
-            bullets: this.$t('services.online_marketing.sections[0].bullets'),
-            color:"",
+            title: this.$t('services.motion_graphics.sections[0].title'),
+            text: this.$t('services.motion_graphics.sections[0].text'),
+            bullets: this.$t('services.motion_graphics.sections[0].bullets'),
+            color:"grey lighten-4",
             image: "https://image.flaticon.com/icons/png/512/65/65381.png",
           },
           {
-            title:this.$t('services.online_marketing.sections[1].title'),
-            text: this.$t('services.online_marketing.sections[1].text'),
-            bullets: this.$t('services.online_marketing.sections[1].bullets'),
-            color:"white",
+            title:this.$t('services.motion_graphics.sections[1].title'),
+            text: this.$t('services.motion_graphics.sections[1].text'),
+            bullets: this.$t('services.motion_graphics.sections[1].bullets'),
+            color:"grey lighten-3",
             image: "https://image.flaticon.com/icons/svg/34/34200.svg",
           },
           {
-            title:this.$t('services.online_marketing.sections[2].title'),
-            text: this.$t('services.online_marketing.sections[2].text'),
-            bullets: this.$t('services.online_marketing.sections[2].bullets'),
-            color:"blue lighten-3",
+            title:this.$t('services.motion_graphics.sections[2].title'),
+            text: this.$t('services.motion_graphics.sections[2].text'),
+            bullets: this.$t('services.motion_graphics.sections[2].bullets'),
+            color:"grey lighten-2",
             image: "https://www.shareicon.net/download/2015/12/11/685818_global.svg",
           },
         ],

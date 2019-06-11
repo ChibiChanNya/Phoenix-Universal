@@ -69,21 +69,21 @@
             title: this.$t('services.mobile_development.sections[0].title'),
             text: this.$t('services.mobile_development.sections[0].text'),
             bullets: this.$t('services.mobile_development.sections[0].bullets'),
-            color: '',
+            color: 'grey lighten-4',
             image: 'https://www.suportegratuito.com.br/wp-content/uploads/2017/06/original.png'
           },
           {
             title: this.$t('services.mobile_development.sections[1].title'),
             text: this.$t('services.mobile_development.sections[1].text'),
             bullets: this.$t('services.mobile_development.sections[1].bullets'),
-            color: 'white',
+            color: 'grey lighten-3',
             image: 'https://desafiolatam.com/assets/ui-dd9c63426b948676e0094ec323330e2d9e815ca64f048da29c2af13cc5df53b2.png'
           },
           {
             title: this.$t('services.mobile_development.sections[2].title'),
             text: this.$t('services.mobile_development.sections[2].text'),
             bullets: this.$t('services.mobile_development.sections[2].bullets'),
-            color: 'blue lighten-3',
+            color: 'grey lighten-2',
             image: 'http://www.iconarchive.com/download/i75813/martz90/circle/camera.ico'
           }
         ]

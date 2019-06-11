@@ -18,23 +18,20 @@
     </section>
 
     <section id="about-parallax" class="my-auto">
-      <v-parallax :src="require('@/assets/img/tech-business.jpg')" height="300">
-        <v-flex md10 class="mx-auto">
-          <v-layout>
-            <v-flex class="py-4 font-weight-bold grey--text text--lighten-3"
-                    style="text-shadow: 1px 1px 5px rgba(0,0,0,0.8)">
-              <!--style="color:rgba(0,0,0,0.87)"> -->
-              <p>{{$t('about.p2')}}</p>
-              <p>{{$t('about.p3')}}</p>
-              <p class="">{{$t('about.p4')}}</p>
-            </v-flex>
-          </v-layout>
-        </v-flex>
-      </v-parallax>
+      <v-flex md10 class="mx-auto">
+        <v-layout>
+          <v-flex class="py-4  ">
+            <!--style="color:rgba(0,0,0,0.87)"> -->
+            <p>{{$t('about.p2')}}</p>
+            <p>{{$t('about.p3')}}</p>
+            <p class="">{{$t('about.p4')}}</p>
+          </v-flex>
+        </v-layout>
+      </v-flex>
     </section>
 
 
-    <section id="about-text" class="py-3 purple lighten-3">
+    <section id="about-text" class="py-3">
       <v-container>
         <v-flex md11 class="mx-auto">
           <v-layout class="text-xs-center" row wrap>
@@ -58,14 +55,14 @@
     </section>
 
 
-    <section class=" py-3" id="values" style="border-bottom: 1px solid rgba(0,0,0,0.2);">
+    <section class="grey lighten-4 py-3" id="values" style="border-bottom: 1px solid rgba(0,0,0,0.2);">
       <h1 class="headline text-xs-center my-3" v-vpshow="'fadeIn'">{{$t('about.values')}}</h1>
       <v-container
         grid-list-xl
       >
         <v-layout row wrap>
           <v-flex md3 xs12>
-            <v-card class="pa-2" height="100%" v-vpshow="'fadeInRight'" color="cyan darken-2" elevation="2">
+            <v-card class="pa-2" height="100%" v-vpshow="'fadeInRight'" color="#d83b00" elevation="2">
               <v-card-title primary-title class="layout">
                 <span class=" mx-auto headline white--text">{{$t('about.value_1.title')}}</span>
               </v-card-title>
@@ -76,7 +73,7 @@
           </v-flex>
 
           <v-flex md3 xs12>
-            <v-card class=" pa-2" height="100%" v-vpshow="'fadeInUp'" color="purple" elevation="2">
+            <v-card class=" pa-2" height="100%" v-vpshow="'fadeInUp'" color="#d83b00" elevation="2">
               <v-card-title primary-title class="layout">
                 <span class=" mx-auto headline white--text">{{$t('about.value_2.title')}}</span>
               </v-card-title>
@@ -87,7 +84,7 @@
           </v-flex>
 
           <v-flex md3 xs12>
-            <v-card class=" pa-2" height="100%" v-vpshow="'fadeInUp'" color="blue-grey darken-2" elevation="2">
+            <v-card class=" pa-2" height="100%" v-vpshow="'fadeInUp'" color="#d83b00" elevation="2">
               <v-card-title primary-title class="layout">
                 <span class=" mx-auto headline white--text">{{$t('about.value_3.title')}}</span>
               </v-card-title>
@@ -98,7 +95,7 @@
           </v-flex>
 
           <v-flex md3 xs12>
-            <v-card class=" pa-2" height="100%" v-vpshow="'fadeInLeft'" color="red darken--2" elevation="2">
+            <v-card class=" pa-2" height="100%" v-vpshow="'fadeInLeft'" color="#d83b00" elevation="2">
               <v-card-title primary-title class="layout">
                 <span class=" mx-auto headline white--text">{{$t('about.value_4.title')}}</span>
               </v-card-title>
@@ -257,9 +254,6 @@
       p {
         font-size: 1rem;
 
-        @media(min-width: 768px) {
-          font-size: 1.2rem;
-        }
       }
 
     }

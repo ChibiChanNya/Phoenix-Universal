@@ -18,30 +18,40 @@
           >
             <h1 class="large-headline text-xs-center">{{header.title}}</h1>
 
-            <div class="subheading my-3 text-xs-center white--text text-bubble">
-              {{header.text}}
-            </div>
-            <!-- FIXED BOTTOM RIGHT DIALOG BUTTON + POPUP -->
-            <contact-form>
-              <v-btn
-                slot="popup"
-                class="phoenix-blue mt-5 "
-                dark
-                large
-                color="#0db7cd"
-                href="#"
-              >
-                {{$t('services.btn_text')}}
-              </v-btn>
-            </contact-form>
-            <!-- END FIXED DIALOG BUTTON-->
-
           </v-layout>
         </v-container>
 
       </v-img>
     </section>
 
+    <section class="services-section" v-vpshow="'bounceInUp'">
+      <v-layout
+      column align-center justify-center
+      class="my-5">
+
+        <div class="subheading  text-xs-center white--text text-bubble">
+          {{header.text}}
+        </div>
+        <div class="my-5">
+          <iframe v-if="header.video_url" width="560" height="315" :src="header.video_url" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <!-- FIXED BOTTOM RIGHT DIALOG BUTTON + POPUP -->
+        <contact-form>
+          <v-btn
+            slot="popup"
+            class="phoenix-blue  "
+            color="#0db7cd"
+            dark
+            large
+            href="#"
+          >
+            {{$t('services.btn_text')}}
+          </v-btn>
+        </contact-form>
+        <!-- END FIXED DIALOG BUTTON-->
+      </v-layout>
+
+    </section>
 
     <section v-for="(section, index) in sections" class="services-section"
              :class="section.color" v-vpshow="'bounceInUp'">
@@ -85,9 +95,9 @@
       'contact-form': Contact
     },
 
-    computed:{
-      srcset: function(){
-        return `${this.header.banner_mobile} 400w, ${this.header.banner} 1920w`;
+    computed: {
+      srcset: function() {
+        return `${this.header.banner_mobile} 400w, ${this.header.banner} 1920w`
       }
     }
 
@@ -101,12 +111,13 @@
   .banner .v-image__image {
     filter: saturate(50%);
   }
-  .text-bubble{
+
+  .text-bubble {
     border-radius: 16px;
-    background-color: rgba(13,183,205,0.6);
+    background-color: rgba(13, 183, 205, 0.6);
     padding: 16px;
 
-    @media(min-width:400px){
+    @media(min-width: 400px) {
       max-width: 80%;
     }
   }

@@ -235,7 +235,7 @@
         items: [
           { icon: 'important_devices', title: 'pages.projects', to: 'projects' },
           { icon: 'face', title: 'pages.about_us', to: 'about' },
-          { icon: 'description', title: 'pages.blog', to: 'blog' }
+          // { icon: 'description', title: 'pages.blog', to: 'blog' }
 
         ],
         dropdown: {
@@ -245,7 +245,7 @@
             { title: 'pages.mobile_development', to: 'services-mobile-dev', icon: 'smartphone' },
             { title: 'pages.online_marketing', to: 'services-online-marketing', icon: 'share' },
             { title: 'pages.company_image', to: 'services-company-image', icon: 'portrait' },
-            { title: 'pages.consulting', to: 'services-consulting', icon: 'help' },
+            // { title: 'pages.consulting', to: 'services-consulting', icon: 'help' },
             { title: 'pages.motion_graphics', to: 'services-motion-graphics', icon: 'play_arrow' },
           ]
         },

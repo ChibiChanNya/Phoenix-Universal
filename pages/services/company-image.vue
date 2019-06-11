@@ -67,7 +67,7 @@
             title: this.$t('services.company_image.sections[0].title'),
             text: this.$t('services.company_image.sections[0].text'),
             bullets: this.$t('services.company_image.sections[0].bullets'),
-            color: '',
+            color: 'grey lighten-4',
             image: require('@/assets/img/services/image_branding.png'),
           }
         ]

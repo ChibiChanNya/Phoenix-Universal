@@ -13,35 +13,35 @@
 
     <section class="">
 
-      <v-img :src="require('~/assets/img/projects/Thulio Splash.jpg')"
-             alt="Thulio.mx Header"
-             height="75vh"
-             class="mb-3"
-      >
-        <v-container style="height:100%;">
+<!--      <v-img :src="require('~/assets/img/projects/Thulio Splash.jpg')"-->
+<!--             alt="Thulio.mx Header"-->
+<!--             height="75vh"-->
+<!--             class="mb-3"-->
+<!--      >-->
+<!--        <v-container style="height:100%;">-->
 
-          <v-layout
-            column
-            class="black--text"
-            pa-2
-            fill-height
-          >
-            <v-flex v-vpshow="'bouncneInDown'">
-              <h2 class="client-name" > - Thulio.mx -</h2>
-            </v-flex>
-            <v-flex>
-              <!--<v-img :src="require('~/assets/img/projects/Thulio Logotm.png')" position="left" contain height="150px"-->
-                     <!--alt="Thulio Logo" aspect-ratio="1"></v-img>-->
-            </v-flex>
-            <v-flex md4 v-vpshow="'bounceInUp'">
-              <h1 class="white--text" style="text-shadow: 0 0 1px black;">Plataforma de E-commerce para venta de
-                accesorios de Marihuana</h1>
-            </v-flex>
+<!--          <v-layout-->
+<!--            column-->
+<!--            class="black&#45;&#45;text"-->
+<!--            pa-2-->
+<!--            fill-height-->
+<!--          >-->
+<!--            <v-flex v-vpshow="'bouncneInDown'">-->
+<!--              <h2 class="client-name" > - Thulio.mx -</h2>-->
+<!--            </v-flex>-->
+<!--            <v-flex>-->
+<!--              &lt;!&ndash;<v-img :src="require('~/assets/img/projects/Thulio Logotm.png')" position="left" contain height="150px"&ndash;&gt;-->
+<!--                     &lt;!&ndash;alt="Thulio Logo" aspect-ratio="1"></v-img>&ndash;&gt;-->
+<!--            </v-flex>-->
+<!--            <v-flex md4 v-vpshow="'bounceInUp'">-->
+<!--              <h1 class="white&#45;&#45;text" style="text-shadow: 0 0 1px black;">Plataforma de E-commerce para venta de-->
+<!--                accesorios de Marihuana</h1>-->
+<!--            </v-flex>-->
 
-          </v-layout>
-        </v-container>
+<!--          </v-layout>-->
+<!--        </v-container>-->
 
-      </v-img>
+<!--      </v-img>-->
       <v-container>
         <div class="text-xs-center mb-5">
           <h1 class="site-title mb-2" style="font-weight:700" v-vpshow="'fadeInUp'">THULIO</h1>
@@ -62,9 +62,9 @@
             </div>
             </v-flex>
           <v-flex xs12 md6 class="grey lighten-3 pa-4" v-vpshow="'flipInY'">
-            <v-img :src="require('~/assets/img/projects/Thulio-1.png')" height="800px">
+<!--            <v-img :src="require('~/assets/img/projects/Thulio-1.png')" height="800px">-->
 
-            </v-img>
+<!--            </v-img>-->
           </v-flex>
         </v-layout>
       </v-container>
@@ -72,29 +72,29 @@
 
     <section class="mt-4 grey lighten-2">
 
-      <v-img :src="require('~/assets/img/projects/futhub_design.jpg')"
-             alt="Thulio.mx Header"
-             height="75vh"
-             class="mb-3"
-      >
-        <v-container style="height:100%;">
+<!--      <v-img :src="require('~/assets/img/projects/futhub_design.jpg')"-->
+<!--             alt="Thulio.mx Header"-->
+<!--             height="75vh"-->
+<!--             class="mb-3"-->
+<!--      >-->
+<!--        <v-container style="height:100%;">-->
 
-          <v-layout
-            column
-            class="white--text"
-            pa-2
-            fill-height
-            justify-start
-          >
-            <v-flex>
-              <v-img :src="require('~/assets/img/projects/futhub_logo.png')" position="left" contain height="150px"
-              alt="Thulio Logo" aspect-ratio="1"></v-img>
-            </v-flex>
+<!--          <v-layout-->
+<!--            column-->
+<!--            class="white&#45;&#45;text"-->
+<!--            pa-2-->
+<!--            fill-height-->
+<!--            justify-start-->
+<!--          >-->
+<!--            <v-flex>-->
+<!--              <v-img :src="require('~/assets/img/projects/futhub_logo.png')" position="left" contain height="150px"-->
+<!--              alt="Thulio Logo" aspect-ratio="1"></v-img>-->
+<!--            </v-flex>-->
 
-          </v-layout>
-        </v-container>
+<!--          </v-layout>-->
+<!--        </v-container>-->
 
-      </v-img>
+<!--      </v-img>-->
       <v-container>
         <div class="text-xs-center mb-5">
           <h1 class="site-title mb-2" style="font-weight:700" v-vpshow="'fadeInUp'">FUTHUB</h1>

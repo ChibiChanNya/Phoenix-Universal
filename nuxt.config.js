@@ -1,4 +1,5 @@
 const pkg = require('./package')
+import TerserPlugin from 'terser-webpack-plugin'
 
 module.exports = {
   mode: 'universal',
@@ -153,6 +154,16 @@ module.exports = {
   */
   build: {
     vendors: ['babel-polyfill'],
+
+    optimization: {
+      minimize: true,
+      minimizer: [
+        new TerserPlugin({
+          cache: true,
+          parallel: false
+        })
+      ]
+    },
 
     transpile: [/^vue2-google.*/],
 

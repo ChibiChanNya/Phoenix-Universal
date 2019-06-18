@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "engines": {
     "node": "11.6.0",
-    "npm": "6.5.0"
+    "npm": "^6.5.0"
   },
   "description": "Phoenix Development NUXT website",
   "author": "Chibi",

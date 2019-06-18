@@ -233,7 +233,7 @@
       return {
         drawer: false,
         items: [
-          { icon: 'important_devices', title: 'pages.projects', to: 'projects' },
+          // { icon: 'important_devices', title: 'pages.projects', to: 'projects' },
           { icon: 'face', title: 'pages.about_us', to: 'about' },
           // { icon: 'description', title: 'pages.blog', to: 'blog' }
 

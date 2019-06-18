@@ -121,13 +121,13 @@ module.exports = {
     ['vuetify-dialog/nuxt', { property: '$dialog' }],
     ['nuxt-i18n', {
       locales: [
-        { name: "English", code: 'en', iso: 'en-US', file: 'en.js' },
-        { name: "Español", code: 'es', iso: 'es-MX', file: 'es.js' }
+        { name: 'English', code: 'en', iso: 'en-US', file: 'en.js' },
+        { name: 'Español', code: 'es', iso: 'es-MX', file: 'es.js' }
       ],
       lazy: true,
       // defaultLocale: 'es',
       langDir: 'lang/',
-      defaultLocale: 'es',
+      defaultLocale: 'es'
     }]
   ],
   /*
@@ -155,14 +155,18 @@ module.exports = {
   build: {
     vendors: ['babel-polyfill'],
 
-    optimization: {
-      minimize: true,
-      minimizer: [
-        new TerserPlugin({
-          cache: true,
-          parallel: false
-        })
-      ]
+    terser: {
+      parallel: true,
+      cache: false,
+      sourceMap: false,
+      extractComments: {
+        filename: 'LICENSES'
+      },
+      terserOptions: {
+        output: {
+          comments: /^\**!|@preserve|@license|@cc_on/
+        }
+      }
     },
 
     transpile: [/^vue2-google.*/],

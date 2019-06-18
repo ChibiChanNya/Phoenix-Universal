@@ -12,10 +12,10 @@ export default {
     services: 'Services',
     web_development: 'Web Development',
     mobile_development: 'Mobile Development',
-    company_image: "Company Image",
-    online_marketing: "Online Marketing",
-    consulting: "Consulting",
-    motion_graphics: "Motion Graphics",
+    company_image: 'Company Image',
+    online_marketing: 'Online Marketing',
+    consulting: 'Consulting',
+    motion_graphics: 'Motion Graphics'
   },
   // Index page strings
   home: {
@@ -154,7 +154,7 @@ export default {
 
   services: {
 
-    btn_text: "Get a Quote",
+    btn_text: 'Get a Quote',
     //WEB DEVELOPMENT
     web_development: {
       header: {
@@ -278,7 +278,7 @@ export default {
       ]
 
     },
-    company_image:{
+    company_image: {
       header: {
         title: 'Company Image',
         text: 'We develop your company\'s image. Our main goal is for your meta-public to, besides keeping us in mind, also gets a positive image of your business.'
@@ -295,13 +295,51 @@ export default {
             'Rationales',
             'Mission Statement and Values'
           ]
-        },
+        }
       ]
 
     },
 
-  }
+// MOTION GRAPHICS
+    motion_graphics: {
 
+      header: {
+        title: 'Motion Graphics',
+        text: 'Keep your project up-to-date with current trends. Nowadays video is the new text. Showcase your project in dynamic fashion with an animated video! Our team of Motion Graphics Artists, Illustrators and Scriptwriters will be your best ally for producing audiovisual media to suit your every need.'
+      },
+      sections: [
+        {
+          title: 'Explainer Video',
+          text: 'If your goal is just to explain what your project is about in an attractive manner then an explainer video is your best bet. We focus on developing an intelligent narrative to highlight the best features of your project.',
+          bullets: [
+            '30 to 90 seconds animation length',
+            'Multi-Platform format',
+            'Explains the purpose and value of your project'
+          ]
+        },
+        {
+          title: 'Social Media Animations',
+          text: 'A 15 second video is enough to captivate your audience. Creativity is key and our team is specialized at finding these solutions. Our videos are optimized for mobile device display, either square or vertical.',
+          bullets: [
+            'Mobile-friendly 10-15 second animation to use on social media posts',
+            'Facebook Blueprint certified',
+            'Monthly animation packages for continuous content'
+          ]
+        },
+        {
+          title: 'Corporate Video',
+          text: 'Beyond just animating, our job is to come up with solutions to convey the values of your company. These videos are an excellent tool for sales, complimenting presentations and publishing content on any of your company\'s digital platforms.',
+          bullets: [
+            'Business-appropiate communication',
+            'Ideal for presentations and pitches',
+            'Better than text for conveying complex ideas'
+          ]
+        }
+      ]
+
+    }
+
+  }
 
 
 }

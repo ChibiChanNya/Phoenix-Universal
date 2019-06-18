@@ -312,7 +312,7 @@ export default {
 
       header: {
         title: 'Motion Graphics',
-        text: 'Mantén tu proyecto a la vanguardia de las tendencias. En la era digital el video es el nuevo texto. Da a conocer tu proyecto de manera dinámica con un video en animación, nuestro equipo de artistas Motion Graphics, Ilustradores y Guionistas son tus aliados para producir contenidos audiovisuales de alta calidad.'
+        text: 'Mantén tu proyecto a la vanguardia de las tendencias. En la era digital el video es el nuevo texto. Da a conocer tu proyecto de manera dinámica con un video en animación. Nuestro equipo de artistas Motion Graphics, Ilustradores y Guionistas son tus aliados para producir contenidos audiovisuales de alta calidad.'
       },
       sections: [
         {

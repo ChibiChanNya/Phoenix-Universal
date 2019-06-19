@@ -1,5 +1,4 @@
 const pkg = require('./package')
-import TerserPlugin from 'terser-webpack-plugin'
 
 module.exports = {
   mode: 'universal',

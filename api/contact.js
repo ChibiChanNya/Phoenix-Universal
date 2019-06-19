@@ -41,7 +41,7 @@ app.post('/', function(req, res) {
     //Specify email data
     from: from_who,
     //The email to contact
-    to: 'andre@phoenixdevelopment.mx',
+    to: 'admin@phoenixdevelopment.mx',
     //Subject and text data
     subject: 'Nuevo mensaje por formulario de contacto',
     html: '<h2>Mensaje Recibido!</h2>'

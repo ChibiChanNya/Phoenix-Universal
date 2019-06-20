@@ -117,7 +117,7 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
-    ['vuetify-dialog/nuxt', { property: '$dialog' }],
+    ['vuetify-dialog/nuxt'],
     ['nuxt-i18n', {
       locales: [
         { name: 'English', code: 'en', iso: 'en-US', file: 'en.js' },

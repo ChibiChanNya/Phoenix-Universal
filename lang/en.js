@@ -17,6 +17,30 @@ export default {
     consulting: 'Consulting',
     motion_graphics: 'Motion Graphics'
   },
+
+  // Errors and alerts for contact form
+  contact_form: {
+    modal_btn: 'Contact us',
+    modal_headline: 'Send us a message if you have any questions or you want a quote',
+    modal_name: 'Name*',
+    modal_name_hint: 'First and last name',
+    modal_company: 'Company',
+    modal_company_hint: 'Company which you represent (optional)',
+    modal_email: 'Email*',
+    modal_email_hint: 'E-mail address',
+    modal_message: 'Message*',
+    modal_asterisk: '* Required field',
+    modal_submit: 'Send',
+    modal_cancel: 'Cancel',
+    name_required: "Name is required",
+    email_required: "Email is required",
+    email_invalid: "Invalid Email address",
+    message_required: "A message is required",
+    form_incomplete: "Make sure to fill in all required fields",
+    form_success: "Your message was sent succesfully! We'll get in contact very soon",
+    form_failure: "Oops! There was an error sending your message. Please attempt to contact us directly"
+  },
+
   // Index page strings
   home: {
     create: 'CREATE',
@@ -32,18 +56,6 @@ export default {
     projects_title: 'Our Projects',
     contact_title: 'Get in touch',
     contact_text: 'Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.',
-    modal_btn: 'Contact us',
-    modal_headline: 'Send us a message if you have any questions or you want a quote',
-    modal_name: 'Name*',
-    modal_name_hint: 'First and last name',
-    modal_company: 'Company',
-    modal_company_hint: 'Company which you represent (optional)',
-    modal_email: 'Email*',
-    modal_email_hint: 'E-mail address',
-    modal_message: 'Message*',
-    modal_asterisk: '* Required field',
-    modal_submit: 'Send',
-    modal_cancel: 'Cancel',
     cards: [
       {
         icon: 'code',

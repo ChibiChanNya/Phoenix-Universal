@@ -24,7 +24,7 @@
             color="#0db7cd"
             dark
             large
-            @click="scrollTo('#services')"
+            @click="scrollTo('#contact')"
           >
             {{ $t('home.know_us')}}
           </v-btn>
@@ -287,7 +287,7 @@
                              dark
                              large
                       >
-                        {{ $t('home.modal_btn') }}
+                        {{ $t('contact_form.modal_btn') }}
                       </v-btn>
                     </contact-form>
                     <!-- END FIXED DIALOG BUTTON-->
@@ -320,7 +320,7 @@
     },
 
     head: {
-      title: 'Inicio'
+      title: 'Home',
     },
 
     components: {
@@ -385,7 +385,7 @@
     },
 
     mounted() {
-      this.$store.commit('rename', this.$t('pages.home'))
+      this.$store.commit('rename', this.$t('pages.home'));
     },
 
     methods: {
@@ -399,7 +399,7 @@
         el.scrollIntoView({ block: 'start', behavior: 'smooth' });
         el.style.top = top;
         el.style.position = pos;
-      }
+      },
     }
 
   }

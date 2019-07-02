@@ -11,7 +11,7 @@
           <v-card-title class="pb-0">
                             <span
                               class="headline text-xs-center">
-                              {{ $t('home.modal_headline') }}
+                              {{ $t('contact_form.modal_headline') }}
                             </span>
           </v-card-title>
           <v-card-text class="pb-0">
@@ -19,23 +19,23 @@
               <v-form v-model="contact.valid" ref="form" >
                 <v-layout wrap>
                   <v-flex xs12>
-                    <v-text-field outline light :label="$t('home.modal_name')" v-model="contact.name"
-                                  :hint="$t('home.modal_name')" color="#0db7cd" required
+                    <v-text-field outline light :label="$t('contact_form.modal_name')" v-model="contact.name"
+                                  :hint="$t('contact_form.modal_name')" color="#0db7cd" required
                                   :rules="contact.rules.name"></v-text-field>
                   </v-flex>
                   <v-flex xs12 md6>
-                    <v-text-field outline light :label="$t('home.modal_company')" v-model="contact.company"
-                                  :hint="$t('home.modal_company_hint')" color="#0db7cd"
+                    <v-text-field outline light :label="$t('contact_form.modal_company')" v-model="contact.company"
+                                  :hint="$t('contact_form.modal_company_hint')" color="#0db7cd"
                                   required></v-text-field>
                   </v-flex>
                   <v-flex xs12 md6>
-                    <v-text-field outline="" light :label="$t('home.modal_email')" required v-model="contact.email"
-                                  :hint="$t('home.modal_email_hint')" color="#0db7cd"
+                    <v-text-field outline="" light :label="$t('contact_form.modal_email')" required v-model="contact.email"
+                                  :hint="$t('contact_form.modal_email_hint')" color="#0db7cd"
                                   :rules="contact.rules.email">
                     </v-text-field>
                   </v-flex>
                   <v-flex xs12>
-                    <v-textarea outline light :label="$t('home.modal_message')" color="#0db7cd"
+                    <v-textarea outline light :label="$t('contact_form.modal_message')" color="#0db7cd"
                                 v-model="contact.message"
                                 required :rules="contact.rules.message"></v-textarea>
                   </v-flex>
@@ -45,10 +45,10 @@
             </v-container>
           </v-card-text>
           <v-card-actions>
-            <small class="red--text">{{ $t('home.modal_asterisk') }}</small>
+            <small class="red--text">{{ $t('contact_form.modal_asterisk') }}</small>
             <v-spacer></v-spacer>
-            <v-btn color="#0db7cd" dark round @click="submit_contact">{{ $t('home.modal_submit') }}</v-btn>
-            <v-btn color="#0db7cd" dark round @click="show_contact_dialog = false">{{ $t('home.modal_cancel') }}</v-btn>
+            <v-btn color="#0db7cd" dark round @click="submit_contact">{{ $t('contact_form.modal_submit') }}</v-btn>
+            <v-btn color="#0db7cd" dark round @click="show_contact_dialog = false">{{ $t('contact_form.modal_cancel') }}</v-btn>
 
           </v-card-actions>
         </v-card>
@@ -76,14 +76,14 @@
 
           rules: {
             name: [
-              v => !!v || 'Nombre obligatorio'
+              v => !!v || this.$t('contact_form.name_required')
             ],
             email: [
-              v => !!v || 'E-mail obligatorio',
-              v => /.+@.+\..+/.test(v) || 'E-mail inválido'
+              v => !!v || this.$t('contact_form.email_required'),
+              v => /.+@.+\..+/.test(v) || this.$t('contact_form.email_invalid')
             ],
             message: [
-              v => !!v || 'Mensaje obligatorio'
+              v => !!v || this.$t('contact_form.message_required')
             ]
           }
         }
@@ -91,13 +91,16 @@
       }
     },
 
+    mounted(){
+    },
+
     // BEGIN METHODS
     methods: {
       submit_contact: function() {
         if (!this.$refs.form.validate()) {
-          this.$dialog.notify.warning('Asegurate de llenar todos los campos requeridos', {
+          this.$dialog.notify.warning(this.$t('contact_form.form_incomplete'), {
             position: 'top-right',
-            timeout: 5000
+            timeout: 50000
           })
           return
         }
@@ -114,7 +117,7 @@
         ).then((res) => {
           this.show_contact_dialog = false
           // alert('Tu mensaje fúe enviado exitosamente. Nos pondremos en contacto contigo muy pronto.')
-          this.$dialog.notify.success('Tu mensaje fúe enviado exitosamente. Nos pondremos en contacto contigo muy pronto.',
+          this.$dialog.notify.success(this.$t('contact_form.form_success'),
             {
               position: 'top-right',
               timeout: 5000
@@ -123,7 +126,7 @@
           .catch(e => {
             console.error(e)
             // alert('¡Oops! Sucedió un error registrando tu mensaje. Por favor contáctanos directamente o intenta de nuevo mas tarde.')
-            this.$dialog.notify.error('¡Oops! Sucedió un error registrando tu mensaje. Por favor contáctanos directamente o intenta de nuevo mas tarde.',
+            this.$dialog.notify.error(this.$t('contact_form.form_failure'),
               {
                 position: 'top-right',
                 timeout: 5000
@@ -165,6 +168,11 @@
         margin: 0;
       }
     }
+  }
+
+  .v-alert > div{
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
   }
 
 </style>

@@ -31,7 +31,7 @@ app.post('/', function(req, res) {
   //Your domain, from the Mailgun Control Panel
   let domain = 'mg.phoenixdevelopment.mx'
   //Your sending email address
-  let from_who = 'contacto@phoenixdevelopment.mx'
+  let from_who ='contacto@phoenixdevelopment.mx';
   // Load in Mailgun
   let mailgun = new Mailgun({ apiKey: api_key, domain: domain })
 
@@ -41,7 +41,7 @@ app.post('/', function(req, res) {
     //Specify email data
     from: from_who,
     //The email to contact
-    to: 'admin@phoenixdevelopment.mx',
+    to: process.env.NODE_ENV === "development" ? "andre@phoenixdevelopment.mx" : 'admin@phoenixdevelopment.mx',
     //Subject and text data
     subject: 'Nuevo mensaje por formulario de contacto',
     html: '<h2>Mensaje Recibido!</h2>'
@@ -62,6 +62,7 @@ app.post('/', function(req, res) {
     }
     //Else we can greet    and leave
     else {
+      console.log("EMAIL SENT");
       res.status(200).json({ 'message': 'OH YEAH' })
     }
   })

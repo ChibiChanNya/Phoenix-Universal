@@ -1,4 +1,4 @@
-const pkg = require('./package')
+import colors from 'vuetify/es5/util/colors'
 
 module.exports = {
   mode: 'universal',
@@ -92,7 +92,6 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    '~/assets/style/app.styl',
     // SCSS file in the project
     '@/assets/style/main.scss'
   ],
@@ -101,9 +100,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/vuetify',
     { src: '@/plugins/vue-typer', ssr: false },
-    { src: '~/plugins/vue-masonry-css' },
     { src: '~/plugins/vue-google-map' },
     { src: '~/plugins/vue-moment' },
     { src: '~/plugins/vue-social' },
@@ -117,18 +114,27 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
-    ['vuetify-dialog/nuxt'],
-    ['nuxt-i18n', {
-      locales: [
-        { name: 'English', code: 'en', iso: 'en-US', file: 'en.js' },
-        { name: 'Español', code: 'es', iso: 'es-MX', file: 'es.js' }
-      ],
-      lazy: true,
-      // defaultLocale: 'es',
-      langDir: 'lang/',
-      defaultLocale: 'es'
-    }]
+    '@nuxtjs/vuetify',
+    ['vuetify-dialog/nuxt', { property: '$dialog' }],
+    'nuxt-i18n',
   ],
+
+  i18n: {
+    locales: [
+      { name: 'English', code: 'en', iso: 'en-US', file: 'en.js' },
+      { name: 'Español', code: 'es', iso: 'es-MX', file: 'es.js' }
+    ],
+    seo: false,
+    lazy: true,
+    langDir: 'lang/',
+    defaultLocale: 'es',
+
+    vuex: {
+      preserveState: false
+    }
+  },
+
+
   /*
   ** Axios module configuration
   */

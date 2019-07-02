@@ -17,6 +17,30 @@ export default {
     consulting: 'Consultoría',
     motion_graphics: 'Motion Graphics'
   },
+
+  //COntact form Form
+  contact_form:{
+    modal_btn: 'Ponte en contacto',
+    modal_headline: 'Envíanos un mensaje si tienes cualquier duda o quieres una cotización',
+    modal_name: 'Nombre*',
+    modal_name_hint: 'Nombre y apellidos',
+    modal_company: 'Empresa',
+    modal_company_hint: 'Empresa a la cual representas (opcional)',
+    modal_email: 'Email*',
+    modal_email_hint: 'Dirección de correo electrónico',
+    modal_message: 'Mensaje*',
+    modal_asterisk: '* Campo requerido',
+    modal_submit: 'Enviar',
+    modal_cancel: 'Cancelar',
+    name_required: "Nombre obligatorio",
+    email_required: "E-mail obligatorio",
+    email_invalid: "E-mail inválido",
+    message_required: "Mensaje obligatorio",
+    form_incomplete: "Asegurate de llenar todos los campos requeridos",
+    form_success: "Tu mensaje fúe enviado exitosamente. Nos pondremos en contacto contigo muy pronto",
+    form_failure: "¡Oops! Sucedió un error registrando tu mensaje. Por favor contáctanos directamente o intenta de nuevo mas tarde"
+  },
+
   // Index page strings
   home: {
     create: 'CREA',
@@ -32,18 +56,6 @@ export default {
     projects_title: 'Nuestros Proyectos',
     contact_title: 'Ponte en Contacto',
     contact_text: 'Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.',
-    modal_btn: 'Ponte en contacto',
-    modal_headline: 'Envíanos un mensaje si tienes cualquier duda o quieres una cotización',
-    modal_name: 'Nombre*',
-    modal_name_hint: 'Nombre y apellidos',
-    modal_company: 'Empresa',
-    modal_company_hint: 'Empresa a la cual representas (opcional)',
-    modal_email: 'Email*',
-    modal_email_hint: 'Dirección de correo electrónico',
-    modal_message: 'Mensaje*',
-    modal_asterisk: '* Campo requerido',
-    modal_submit: 'Enviar',
-    modal_cancel: 'Cancelar',
     cards: [
       {
         icon: 'code',

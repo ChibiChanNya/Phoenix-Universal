@@ -228,6 +228,10 @@
 <script>
   export default {
 
+    // Adjust translated SEO content
+    head () {
+      return this.$nuxtI18nSeo()
+    },
 
     data() {
       return {

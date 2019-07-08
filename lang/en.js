@@ -55,7 +55,7 @@ export default {
     promo_btn: 'Request a quote',
     projects_title: 'Our Projects',
     contact_title: 'Get in touch',
-    contact_text: 'Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.',
+    contact_text: 'If you have any questions or an idea we cna help you figure it out and take your product to the next level.\n Tell us a little about what we will build together',
     cards: [
       {
         icon: 'code',

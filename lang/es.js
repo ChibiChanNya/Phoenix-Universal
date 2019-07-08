@@ -55,7 +55,7 @@ export default {
     promo_btn: 'Solicita una cotización',
     projects_title: 'Nuestros Proyectos',
     contact_title: 'Ponte en Contacto',
-    contact_text: 'Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.',
+    contact_text: 'Si tienes una idea o alguna inquietud, nosotros podemos ayudarte a realizarlas y llevar tus productos a otro nivel.\n Cuéntanos un poco sobre lo que construiremos juntos.',
     cards: [
       {
         icon: 'code',

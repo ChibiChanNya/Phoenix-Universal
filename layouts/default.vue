@@ -180,7 +180,7 @@
     </v-content>
 
     <!--FACEBOOK MESSENEGR-->
-    <div class="fb-customerchat" logged_in_greeting="Hola ¿Cómo podemos ayudarte?" page_id="691184954595484"></div>
+    <div class="fb-customerchat" logged_in_greeting="Hola ¿Cómo podemos ayudarte?" logged_out_greeting="Estamos aqui para contestar cualquier pregunta" page_id="691184954595484"></div>
 
     <!--FOOTER START-->
     <v-footer

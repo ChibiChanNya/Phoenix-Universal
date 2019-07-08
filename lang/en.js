@@ -2,6 +2,8 @@ export default {
 
   // Navbar Items
   hello: 'Hello@!',
+  facebook_greeting: "We're here to answer any question you may have",
+  facebook_greeting_off: "Hi, how can we help you?",
   pages: {
     home: 'Home',
     projects: 'Projects',

@@ -30,7 +30,7 @@
     "nuxt-i18n": "^5.12.7",
     "validator": "^10.11.0",
     "vue-masonry-css": "^1.0.3",
-    "vue-moment": "^4.0.0",
+    "vue-moment": "^4.1.0",
     "vue-social-sharing": "^2.4.5",
     "vue-typer": "^1.2.0",
     "vue2-google-maps": "^0.10.6",

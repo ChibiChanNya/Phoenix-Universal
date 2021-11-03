@@ -28,7 +28,7 @@
     "node-sass": "^4.12.0",
     "nuxt": "^2.8.1",
     "nuxt-i18n": "^5.12.7",
-    "validator": "^10.11.0",
+    "validator": "^13.7.0",
     "vue-masonry-css": "^1.0.3",
     "vue-moment": "^4.0.0",
     "vue-social-sharing": "^2.4.5",
